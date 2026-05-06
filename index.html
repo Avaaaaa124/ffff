@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧑‍💼 HR Agent Monitor</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #1a1d2e;
+      --bg3: #242840;
+      --accent: #6c63ff;
+      --accent2: #a78bfa;
+      --green: #22c55e;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --text: #e2e8f0;
+      --text2: #94a3b8;
+      --border: #2d3254;
+      --card: #1e2235;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1a1d2e 0%, #242840 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 20px;
+    }
+    .header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #a78bfa, #6c63ff, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header .subtitle {
+      color: var(--text2);
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+    .tag-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      color: var(--text2);
+    }
+    .tag span { color: var(--accent2); font-weight: 600; }
+
+    /* ── Stats Cards ── */
+    .stats-row {
+      max-width: 1300px;
+      margin: 24px auto 0;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .stat-icon { font-size: 2rem; }
+    .stat-label { font-size: 0.78rem; color: var(--text2); margin-bottom: 4px; }
+    .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--accent2); }
+
+    /* ── Tabs ── */
+    .tab-container {
+      max-width: 1300px;
+      margin: 28px auto 0;
+      padding: 0 32px 40px;
+    }
+    .tab-nav {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text2);
+      padding: 10px 24px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+      border-radius: 6px 6px 0 0;
+    }
+    .tab-btn.active {
+      color: var(--accent2);
+      border-bottom-color: var(--accent);
+      background: rgba(108, 99, 255, 0.08);
+    }
+    .tab-btn:hover:not(.active) { color: var(--text); background: var(--bg3); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Markdown 内容 ── */
+    .md-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      line-height: 1.8;
+    }
+    .md-content h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent2);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .md-content h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 28px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .md-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .md-content h3 { font-size: 1rem; color: var(--accent2); margin: 20px 0 10px; }
+    .md-content p { color: var(--text2); margin-bottom: 12px; }
+    .md-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 8px 16px;
+      background: var(--bg3);
+      border-radius: 0 8px 8px 0;
+      color: var(--text2);
+      margin: 12px 0;
+      font-size: 0.88rem;
+    }
+    .md-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.87rem;
+      overflow-x: auto;
+      display: block;
+    }
+    .md-content th {
+      background: var(--bg3);
+      color: var(--accent2);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .md-content td {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    .md-content tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .md-content tr:hover td { background: rgba(108,99,255,0.06); }
+    .md-content a { color: var(--accent2); text-decoration: none; }
+    .md-content a:hover { text-decoration: underline; }
+    .md-content code {
+      background: var(--bg3);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #f9a8d4;
+      font-family: 'Fira Code', monospace;
+    }
+    .md-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+    .md-content ul, .md-content ol {
+      padding-left: 22px;
+      margin: 10px 0;
+      color: var(--text2);
+    }
+    .md-content li { margin-bottom: 6px; }
+
+    /* ── Loading & Error ── */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text2);
+    }
+    .loading .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-box {
+      background: rgba(248,113,113,0.1);
+      border: 1px solid rgba(248,113,113,0.3);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+
+    /* ── Action Bar ── */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .refresh-btn {
+      background: linear-gradient(135deg, var(--accent), #818cf8);
+      border: none;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .refresh-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .refresh-btn:active { transform: scale(0.97); }
+    .last-update { font-size: 0.8rem; color: var(--text2); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      color: var(--text2);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .header { padding: 20px 16px 16px; }
+      .stats-row, .tab-container { padding: 0 16px; }
+      .md-content { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-inner">
+    <h1>🧑‍💼 HR AGENT MONITOR</h1>
+    <p class="subtitle">自动监控 GitHub · Skillhub · Clawhub 三大渠道的人力资源相关 AI 项目</p>
+    <div class="tag-row">
+      <div class="tag">🐙 GitHub <span id="tag-github">...</span></div>
+      <div class="tag">🛠️ Skillhub <span id="tag-skillhub">...</span></div>
+      <div class="tag">📦 Clawhub <span id="tag-clawhub">...</span></div>
+      <div class="tag">⭐ 筛选 Star <span>> 200</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Row -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-icon">🐙</div>
+    <div>
+      <div class="stat-label">GitHub HR 项目</div>
+      <div class="stat-value" id="stat-github">—</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🛠️</div>
+    <div>
+      <div class="stat-label">Skillhub Skills</div>
+      <div class="stat-value" id="stat-skillhub">—</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📦</div>
+    <div>
+      <div class="stat-label">Clawhub MCP</div>
+      <div class="stat-value" id="stat-clawhub">—</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📅</div>
+    <div>
+      <div class="stat-label">最近更新</div>
+      <div class="stat-value" id="stat-date" style="font-size:1.1rem">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tab-container">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('today-github')">⭐ GitHub 今日监控</button>
+    <button class="tab-btn" onclick="switchTab('today-skills')">🛠️ Skills 今日监控</button>
+    <button class="tab-btn" onclick="switchTab('history-github')">📚 GitHub 历史项目</button>
+    <button class="tab-btn" onclick="switchTab('history-skills')">📋 Skills 历史记录</button>
+  </div>
+
+  <!-- GitHub 今日 -->
+  <div class="tab-panel active" id="panel-today-github">
+    <div class="action-bar">
+      <button class="refresh-btn" onclick="loadAllData()">🔄 手动刷新</button>
+      <span class="last-update" id="update-time">正在加载...</span>
+    </div>
+    <div class="md-content" id="content-today-github">
+      <div class="loading"><div class="spinner"></div>正在加载 GitHub 今日监控...</div>
+    </div>
+  </div>
+
+  <!-- Skills 今日 -->
+  <div class="tab-panel" id="panel-today-skills">
+    <div class="md-content" id="content-today-skills">
+      <div class="loading"><div class="spinner"></div>正在加载 Skills 今日监控...</div>
+    </div>
+  </div>
+
+  <!-- GitHub 历史 -->
+  <div class="tab-panel" id="panel-history-github">
+    <div class="md-content" id="content-history-github">
+      <div class="loading"><div class="spinner"></div>正在加载 GitHub 历史项目...</div>
+    </div>
+  </div>
+
+  <!-- Skills 历史 -->
+  <div class="tab-panel" id="panel-history-skills">
+    <div class="md-content" id="content-history-skills">
+      <div class="loading"><div class="spinner"></div>正在加载 Skills 历史记录...</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  🧑‍💼 HR Agent Monitor &nbsp;·&nbsp; 数据自动更新 &nbsp;·&nbsp; Powered by GitHub Actions + Cloudflare Pages
+</footer>
+
+<script>
+  // ── Tab 切换 ──
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── Markdown 渲染 ──
+  function renderMd(el, text) {
+    el.innerHTML = marked.parse(text);
+    // 链接新标签打开
+    el.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
+  }
+
+  // ── 从 MD 文件提取统计数字 ──
+  function extractStats(githubMd, skillsMd) {
+    try {
+      // GitHub 项目数
+      const ghMatch = githubMd.match(/项目总数\s*\|\s*(\d+)/);
+      if (ghMatch) {
+        document.getElementById('stat-github').textContent = ghMatch[1] + '+';
+        document.getElementById('tag-github').textContent = ghMatch[1] + ' 个项目';
+      }
+      // Skillhub
+      const shMatch = skillsMd.match(/Skillhub.*?共\s*\*\*(\d+)\*\*/);
+      if (shMatch) {
+        document.getElementById('stat-skillhub').textContent = shMatch[1];
+        document.getElementById('tag-skillhub').textContent = shMatch[1] + ' 个';
+      }
+      // Clawhub
+      const chMatch = skillsMd.match(/Clawhub.*?共\s*\*\*(\d+)\*\*/);
+      if (chMatch) {
+        document.getElementById('stat-clawhub').textContent = chMatch[1];
+        document.getElementById('tag-clawhub').textContent = chMatch[1] + ' 个';
+      }
+      // 日期
+      const dateMatch = githubMd.match(/更新时间：(\d{4}-\d{2}-\d{2})/);
+      if (dateMatch) {
+        document.getElementById('stat-date').textContent = dateMatch[1];
+        document.getElementById('update-time').textContent = '最后更新：' + dateMatch[1];
+      }
+    } catch(e) {}
+  }
+
+  // ── 加载 MD 文件 ──
+  async function fetchMd(path) {
+    const resp = await fetch(path + '?t=' + Date.now());
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    return resp.text();
+  }
+
+  // ── 主加载逻辑 ──
+  async function loadAllData() {
+    const files = [
+      { id: 'content-today-github',   path: 'data/github_today.md' },
+      { id: 'content-today-skills',   path: 'data/skills_today.md' },
+      { id: 'content-history-github', path: 'data/github_history.md' },
+      { id: 'content-history-skills', path: 'data/skills_history.md' },
+    ];
+
+    // 显示 loading
+    files.forEach(f => {
+      const el = document.getElementById(f.id);
+      el.innerHTML = `<div class="loading"><div class="spinner"></div>正在加载 ${f.path}...</div>`;
+    });
+
+    const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
+
+    let githubMdText = '';
+    let skillsMdText = '';
+
+    results.forEach((result, i) => {
+      const el = document.getElementById(files[i].id);
+      if (result.status === 'fulfilled') {
+        if (i === 0) githubMdText = result.value;
+        if (i === 1) skillsMdText = result.value;
+        renderMd(el, result.value);
+      } else {
+        el.innerHTML = `<div class="error-box">⚠️ 加载失败：${files[i].path}<br><small>${result.reason}</small></div>`;
+      }
+    });
+
+    if (githubMdText || skillsMdText) {
+      extractStats(githubMdText, skillsMdText);
+    }
+  }
+
+  // 页面加载后立即执行
+  loadAllData();
+</script>
+</body>
+</html>

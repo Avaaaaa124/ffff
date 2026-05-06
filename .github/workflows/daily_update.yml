@@ -1,0 +1,81 @@
+name: HR Agent Monitor - 每日自动更新
+
+on:
+  schedule:
+    # 每天北京时间 09:00 触发 (UTC+8 = UTC 01:00)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    # 支持手动触发
+    inputs:
+      reason:
+        description: '手动触发原因（可选）'
+        required: false
+        default: '手动触发更新'
+
+jobs:
+  fetch-and-deploy:
+    name: 抓取数据 & 更新报告
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: write   # 允许 push 回 main 分支
+
+    steps:
+      # ── 1. 检出代码 ──
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # ── 2. 设置 Python ──
+      - name: 设置 Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ── 3. 安装依赖 ──
+      - name: 安装 Python 依赖
+        run: pip install requests
+
+      # ── 4. 运行监控脚本 ──
+      - name: 运行 HR 项目监控脚本
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+        run: |
+          cd scripts
+          python fetch_hr_projects.py
+
+      # ── 5. 提交并推送更新 ──
+      - name: 提交数据更新
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "没有新数据变更，跳过提交"
+          else
+            DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
+            git commit -m "📊 自动更新 HR 监控数据 · ${DATE}"
+            git push
+          fi
+
+      # ── 6. 记录运行摘要 ──
+      - name: 生成运行摘要
+        if: always()
+        run: |
+          echo "## 🧑‍💼 HR Agent Monitor 运行结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 文件 | 状态 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+          for f in data/github_today.md data/skills_today.md data/github_history.md data/skills_history.md; do
+            if [ -f "$f" ]; then
+              SIZE=$(wc -c < "$f")
+              echo "| \`$f\` | ✅ ${SIZE} bytes |" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "| \`$f\` | ❌ 未生成 |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done

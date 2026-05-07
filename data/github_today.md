@@ -13,7 +13,7 @@
 
 ---
 
-## 项目监控
+## GitHub 新发现项目（Top 20）
 
 ### 1. levnikolaevich/claude-code-skills
 

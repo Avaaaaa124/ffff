@@ -269,28 +269,19 @@ def render_github_md(projects: list[dict], title: str) -> str:
         f"",
     ]
 
-    # ── 项目列表（卡片式） ──
-    lines += [f"## 项目监控", f""]
-    for i, p in enumerate(projects[:80], 1):
+    # ── 项目列表（表格形式 - Top 20） ──
+    lines += [
+        f"## GitHub 新发现项目（Top 20）",
+        f"",
+        f"| 项目名 | ⭐ Stars | 简介 |",
+        f"|--------|---------|------|",
+    ]
+    for p in projects[:20]:
         desc = p["description"] or "暂无简介"
-        level = _star_level(p["stars"])
-        category = _classify_project(p)
-        lines += [
-            f"### {i}. {p['name']}",
-            f"",
-            f"| 属性 | 详情 |",
-            f"|------|------|",
-            f"| ⭐ Stars | **{p['stars']:,}** |",
-            f"| 🍴 Forks | {p['forks']:,} |",
-            f"| 💻 语言 | {p['language']} |",
-            f"| 📅 最近更新 | {p['updated_at']} |",
-            f"| 🏷️ 分类 | {category} |",
-            f"| 📊 等级 | {level} |",
-            f"| 🔗 链接 | [{p['url']}]({p['url']}) |",
-            f"",
-            f"> {desc}",
-            f"",
-        ]
+        # 简介截断，避免表格过宽
+        desc_short = desc[:60] + "..." if len(desc) > 60 else desc
+        lines.append(f"| [{p['name']}]({p['url']}) | {p['stars']:,} | {desc_short} |")
+    lines.append("")
 
     # ── 深度分析 ──
     lines += [f"---", f"", f"## 深度分析", f""]

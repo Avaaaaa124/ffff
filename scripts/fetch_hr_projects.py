@@ -28,14 +28,20 @@ HR_KEYWORDS = [
     "resume screening AI",
     "employee onboarding AI",
     "workforce management AI",
-    "HR chatbot",
-    "ATS AI agent",
-    "people analytics AI",
-    "performance review AI",
+    "HR chatbot employee",
+    "ATS applicant tracking AI",
+    "people analytics HR",
+    "performance review HR AI",
+    "HRIS human resource AI",
+    "job matching AI recruitment",
+    "candidate screening AI",
+    "interview AI scheduling",
+    "payroll AI HR",
+    "employee engagement AI",
 ]
 
 # Skillhub / Clawhub 搜索关键词
-SKILL_KEYWORDS = ["hr", "recruitment", "resume", "talent", "人力资源", "招聘", "简历"]
+SKILL_KEYWORDS = ["hr", "recruitment", "resume screening", "talent acquisition", "human resources", "ATS", "onboarding"]
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"

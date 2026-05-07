@@ -20,24 +20,30 @@ GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 WECHAT_WEBHOOK = os.environ.get("WECHAT_WEBHOOK", "")   # 企业微信机器人 Webhook
 STAR_THRESHOLD = 200
 
-# HR 相关关键词（GitHub 搜索用）
-HR_KEYWORDS = [
-    "human resources AI",
-    "HR recruitment AI agent",
-    "talent acquisition AI",
-    "resume screening AI",
-    "employee onboarding AI",
-    "workforce management AI",
-    "HR chatbot employee",
-    "ATS applicant tracking AI",
-    "people analytics HR",
-    "performance review HR AI",
-    "HRIS human resource AI",
-    "job matching AI recruitment",
-    "candidate screening AI",
-    "interview AI scheduling",
-    "payroll AI HR",
-    "employee engagement AI",
+# HR 相关 GitHub 搜索（用 OR 组合，减少 API 调用次数）
+# 每组 query 一次性搜索多个关键词，用 topic: 或关键词匹配
+GITHUB_SEARCH_QUERIES = [
+    # 精准 topic 搜索（GitHub 仓库自带的 topic 标签）
+    "topic:human-resources stars:>200",
+    "topic:recruitment stars:>200",
+    "topic:resume stars:>200",
+    "topic:hr stars:>200",
+    # 关键词搜索（覆盖面更广）
+    "human+resources+AI stars:>200",
+    "resume+screening stars:>200",
+    "ATS+applicant+tracking stars:>200",
+    "talent+acquisition stars:>200",
+    "recruitment+AI stars:>200",
+    "employee+onboarding stars:>200",
+    "HR+chatbot stars:>200",
+    "people+analytics stars:>200",
+    "workforce+management stars:>200",
+    "job+matching+AI stars:>200",
+    "payroll+management stars:>200",
+    "candidate+screening stars:>200",
+    "interview+AI stars:>200",
+    "employee+engagement stars:>200",
+    "HRIS stars:>200",
 ]
 
 # Skillhub / Clawhub 搜索关键词
@@ -104,23 +110,28 @@ def fetch_github_projects() -> list[dict]:
     seen = set()
     results = []
 
-    for kw in HR_KEYWORDS:
+    for query in GITHUB_SEARCH_QUERIES:
         url = "https://api.github.com/search/repositories"
         params = {
-            "q": f"{kw} stars:>{STAR_THRESHOLD}",
+            "q": query,
             "sort": "stars",
             "order": "desc",
-            "per_page": 20,
+            "per_page": 30,
         }
         try:
             resp = requests.get(url, headers=gh_headers(), params=params, timeout=15)
             if resp.status_code == 403:
-                print(f"[WARN] GitHub API 限速，关键词: {kw}")
-                time.sleep(10)
+                print(f"[WARN] GitHub API 限速，等待 60 秒...")
+                time.sleep(60)
+                resp = requests.get(url, headers=gh_headers(), params=params, timeout=15)
+            if resp.status_code != 200:
+                print(f"[WARN] GitHub API 返回 {resp.status_code}，query: {query}")
                 continue
-            resp.raise_for_status()
             data = resp.json()
-            for item in data.get("items", []):
+            total = data.get("total_count", 0)
+            items = data.get("items", [])
+            print(f"      query '{query[:40]}...' → {total} results, fetched {len(items)}")
+            for item in items:
                 if item["full_name"] not in seen:
                     seen.add(item["full_name"])
                     results.append({
@@ -132,11 +143,11 @@ def fetch_github_projects() -> list[dict]:
                         "language": item.get("language") or "Unknown",
                         "updated_at": item["updated_at"][:10],
                         "topics": item.get("topics", []),
-                        "keyword": kw,
+                        "keyword": query,
                     })
         except Exception as e:
-            print(f"[ERROR] GitHub 搜索异常 ({kw}): {e}")
-        time.sleep(1.2)  # 避免触发速率限制
+            print(f"[ERROR] GitHub 搜索异常 ({query[:40]}): {e}")
+        time.sleep(2)  # 避免触发速率限制
 
     # 按 star 降序
     results.sort(key=lambda x: x["stars"], reverse=True)

@@ -11,6 +11,7 @@ import json
 import time
 import datetime
 import requests
+import re
 from pathlib import Path
 
 # ────────────────────────────────────────────
@@ -62,8 +63,117 @@ HISTORY_JSON      = DATA_DIR / "history.json"
 
 
 # ────────────────────────────────────────────
-# 工具函数
+# 翻译函数
 # ────────────────────────────────────────────
+# 常见 HR/AI 领域术语缓存（避免重复翻译）
+TERMINOLOGY = {
+    "resume": "简历", "cv": "简历", "cover letter": "求职信",
+    "recruitment": "招聘", "recruiting": "招聘", "recruit": "招聘",
+    "applicant": "求职者", "applicant tracking": "求职者追踪",
+    "onboarding": "入职", "offboarding": "离职",
+    "payroll": "薪资", "payroll management": "薪资管理",
+    "compensation": "薪酬", "benefits": "福利",
+    "performance review": "绩效评估", "performance": "绩效",
+    "talent acquisition": "人才获取", "talent": "人才",
+    "workforce": "劳动力", "workforce management": "劳动力管理",
+    "employee engagement": "员工敬业度", "employee experience": "员工体验",
+    "human resources": "人力资源", "HR": "HR", "HRIS": "人力资源信息系统",
+    "ATS": "招聘管理系统", "chatbot": "聊天机器人",
+    "interview": "面试", "assessment": "评估", "screening": "筛选",
+    "scheduling": "排程", "analytics": "数据分析", "insights": "洞察",
+    "open source": "开源", "open-source": "开源",
+    "AI": "AI", "artificial intelligence": "人工智能",
+    "machine learning": "机器学习", "ML": "机器学习",
+    "deep learning": "深度学习", "NLP": "自然语言处理",
+    "LLM": "大语言模型", "GPT": "GPT", "transformer": "Transformer",
+    "automation": "自动化", "pipeline": "流水线",
+    "tracker": "追踪器", "dashboard": "仪表盘", "platform": "平台",
+    "framework": "框架", "toolkit": "工具包", "library": "库",
+    "template": "模板", "builder": "构建器", "generator": "生成器",
+    "matching": "匹配", "job": "职位", "career": "职业",
+    "candidate": "候选人", "hiring": "招聘", "job search": "求职",
+    "job application": "求职申请", "job board": "招聘网站",
+    "freelance": "自由职业", "remote": "远程", "tracking": "追踪",
+    "management": "管理系统", "software": "软件", "system": "系统",
+    "solution": "解决方案", "service": "服务", "engine": "引擎",
+    "API": "API", "SDK": "SDK", "plugin": "插件",
+    "self-hosted": "自托管", "hosted": "托管",
+    "privacy": "隐私", "security": "安全",
+    "ethical": "伦理的", "sustainable": "可持续的",
+    "powering": "赋能", "empowering": "赋能",
+    "enterprise": "企业级", "scalable": "可扩展的",
+    "customizable": "可定制的", "portable": "可移植的",
+    "drag-and-drop": "拖拽式", "real-time": "实时",
+    "natural language": "自然语言", "conversational": "对话式",
+}
+
+
+def _is_chinese(text: str) -> bool:
+    """判断文本是否主要包含中文"""
+    if not text:
+        return True
+    chinese_chars = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
+    return chinese_chars > len(text) * 0.3
+
+
+def translate_description(text: str, cache: dict) -> str:
+    """翻译项目简介为中文，带缓存"""
+    if not text or _is_chinese(text):
+        return text or "暂无简介"
+
+    # 检查缓存
+    if text in cache:
+        return cache[text]
+
+    # 先用术语替换
+    translated = text
+    # 按词长度倒序替换（避免短词先替换影响长词匹配）
+    sorted_terms = sorted(TERMINOLOGY.items(), key=lambda x: len(x[0]), reverse=True)
+    for en, zh in sorted_terms:
+        translated = re.sub(re.escape(en), zh, translated, flags=re.IGNORECASE)
+
+    # 如果替换后仍然主要是英文，调用翻译 API
+    if not _is_chinese(translated):
+        translated = _translate_via_api(text, cache)
+
+    cache[text] = translated
+    return translated
+
+
+def _translate_via_api(text: str, cache: dict) -> str:
+    """通过 MyMemory 免费翻译 API 翻译"""
+    try:
+        # 截断过长的文本（API 限制 500 字符）
+        short_text = text[:480] if len(text) > 480 else text
+        url = "https://api.mymemory.translated.net/get"
+        params = {
+            "q": short_text,
+            "langpair": "en|zh-CN",
+        }
+        resp = requests.get(url, params=params, timeout=10)
+        if resp.status_code == 200:
+            data = resp.json()
+            result = data.get("responseData", {}).get("translatedText", "")
+            if result and _is_chinese(result):
+                # 去掉 MyMemory 有时返回的包裹标记
+                result = result.strip()
+                cache[text] = result
+                return result
+    except Exception as e:
+        print(f"[WARN] 翻译 API 调用失败: {e}")
+    return text
+
+
+def batch_translate_descriptions(projects: list[dict]) -> None:
+    """批量翻译项目简介（原地修改）"""
+    cache = {}
+    for i, p in enumerate(projects):
+        desc = p.get("description", "")
+        if desc and not _is_chinese(desc):
+            p["description"] = translate_description(desc, cache)
+        if (i + 1) % 20 == 0:
+            print(f"      已翻译 {i + 1}/{len(projects)} 个简介...")
+    print(f"      翻译完成，共 {len(projects)} 个项目")
 def gh_headers():
     h = {"Accept": "application/vnd.github+json"}
     if GITHUB_TOKEN:
@@ -502,6 +612,11 @@ def main():
     print("  → 抓取 GitHub 数据...")
     gh_projects = fetch_github_projects()
     print(f"     GitHub: {len(gh_projects)} 个项目 (star>{STAR_THRESHOLD})")
+
+    # 2. 翻译简介为中文
+    if gh_projects:
+        print("  → 翻译项目简介为中文...")
+        batch_translate_descriptions(gh_projects)
 
     print("  → 抓取 Skillhub 数据...")
     sh_projects = fetch_skillhub_projects()

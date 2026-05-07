@@ -423,7 +423,7 @@ def main():
         f"**GitHub** 共发现 **{len(gh_projects)}** 个 HR 相关项目（star>{STAR_THRESHOLD}）\n"
         f"**Skillhub** {len(sh_projects)} 个 | **Clawhub** {len(ch_projects)} 个\n\n"
         f"**🏆 GitHub Top 5**\n{top5}\n\n"
-        f"[查看完整报告](https://your-pages-domain.pages.dev/)"
+        f"[查看完整报告](https://ffff.avazhang1224.workers.dev/)"
     )
 
     print("[DONE] 所有任务完成！")

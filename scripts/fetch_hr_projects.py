@@ -217,7 +217,40 @@ def fetch_clawhub_projects() -> list[dict]:
 # ────────────────────────────────────────────
 # Markdown 报告生成
 # ────────────────────────────────────────────
+def _star_level(stars: int) -> str:
+    """根据 star 数给出等级标签"""
+    if stars >= 10000: return "🔥 顶级项目"
+    if stars >= 5000:  return "⭐ 明星项目"
+    if stars >= 1000:  return "💎 优质项目"
+    if stars >= 500:   return "📈 潜力项目"
+    return "🌱 新兴项目"
+
+
+def _classify_project(p: dict) -> str:
+    """根据描述关键词给项目分类标签"""
+    desc_lower = (p.get("description") or "").lower()
+    name_lower = (p.get("name") or "").lower()
+    text = desc_lower + " " + name_lower
+    mapping = [
+        (["resume", "cv", "resume screening"],          "📄 简历/简历筛选"),
+        (["recruit", "talent acquisition", "sourc"],    "🎯 招聘/人才获取"),
+        (["chatbot", "conversational", "assistant"],     "🤖 HR 聊天机器人"),
+        (["onboard", "employee experience", "hcm"],      "👥 入职/员工管理"),
+        (["analytics", "insight", "people analyt"],       "📊 人力数据分析"),
+        (["performance", "review", "evaluation"],         "📝 绩效管理"),
+        (["payroll", "compensation", "salary", "benefit"],"💰 薪酬/福利"),
+        (["ats", "applicant track"],                      "📋 ATS 招聘管理"),
+        (["interview", "schedule", "assessment"],         "🎙️ 面试/评估"),
+        (["llm", "gpt", "transformer", "nlp"],            "🧠 AI/NLP 基础"),
+    ]
+    for keywords, label in mapping:
+        if any(kw in text for kw in keywords):
+            return label
+    return "🏢 综合HR平台"
+
+
 def render_github_md(projects: list[dict], title: str) -> str:
+    # ── 头部概览 ──
     lines = [
         f"# {title}",
         f"",
@@ -229,62 +262,139 @@ def render_github_md(projects: list[dict], title: str) -> str:
         f"|------|------|",
         f"| 项目总数 | {len(projects)} |",
         f"| 平均 Star | {int(sum(p['stars'] for p in projects)/len(projects)) if projects else 0} |",
-        f"| 最高 Star | {max((p['stars'] for p in projects), default=0)} |",
+        f"| 最高 Star | {max((p['stars'] for p in projects), default=0):,} |",
         f"| 涉及编程语言 | {len(set(p['language'] for p in projects))} 种 |",
         f"",
         f"---",
         f"",
-        f"## 项目列表",
-        f"",
-        f"| # | 项目 | 描述 | ⭐ Stars | 🍴 Forks | 语言 | 最近更新 |",
-        f"|---|------|------|---------|---------|------|---------|",
     ]
+
+    # ── 项目列表（卡片式） ──
+    lines += [f"## 项目监控", f""]
     for i, p in enumerate(projects[:80], 1):
-        desc = p["description"][:50].replace("|", "｜") if p["description"] else "—"
-        topics_str = " ".join(f"`{t}`" for t in p.get("topics", [])[:3])
-        lines.append(
-            f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p['stars']:,} | {p['forks']:,} | {p['language']} | {p['updated_at']} |"
-        )
+        desc = p["description"] or "暂无简介"
+        level = _star_level(p["stars"])
+        category = _classify_project(p)
+        lines += [
+            f"### {i}. {p['name']}",
+            f"",
+            f"| 属性 | 详情 |",
+            f"|------|------|",
+            f"| ⭐ Stars | **{p['stars']:,}** |",
+            f"| 🍴 Forks | {p['forks']:,} |",
+            f"| 💻 语言 | {p['language']} |",
+            f"| 📅 最近更新 | {p['updated_at']} |",
+            f"| 🏷️ 分类 | {category} |",
+            f"| 📊 等级 | {level} |",
+            f"| 🔗 链接 | [{p['url']}]({p['url']}) |",
+            f"",
+            f"> {desc}",
+            f"",
+        ]
 
-    lines += [
-        f"",
-        f"---",
-        f"",
-        f"## 深度分析",
-        f"",
-        f"### 📊 语言分布",
-        f"",
-    ]
-    lang_count: dict = {}
-    for p in projects:
-        lang_count[p["language"]] = lang_count.get(p["language"], 0) + 1
-    for lang, cnt in sorted(lang_count.items(), key=lambda x: -x[1])[:10]:
-        bar = "█" * min(cnt * 2, 30)
-        lines.append(f"- **{lang}**：{cnt} 个项目  `{bar}`")
+    # ── 深度分析 ──
+    lines += [f"---", f"", f"## 深度分析", f""]
 
-    lines += [
-        f"",
-        f"### 🏷️ 热门话题标签",
-        f"",
-    ]
-    topic_count: dict = {}
-    for p in projects:
-        for t in p.get("topics", []):
-            topic_count[t] = topic_count.get(t, 0) + 1
-    for topic, cnt in sorted(topic_count.items(), key=lambda x: -x[1])[:15]:
-        lines.append(f"- `{topic}` × {cnt}")
+    # ── 1. 重点项目分析 ──
+    lines += [f"### 🔍 重点项目分析", f""]
+    if projects:
+        top10 = projects[:10]
+        for rank, p in enumerate(top10, 1):
+            category = _classify_project(p)
+            desc = p["description"] or "暂无简介"
+            lines += [
+                f"#### {rank}. {p['name']} ⭐{p['stars']:,}",
+                f"",
+                f"- **分类**：{category}",
+                f"- **简介**：{desc[:120]}",
+                f"- **Forks**：{p['forks']:,}　|　**语言**：{p['language']}　|　**最近更新**：{p['updated_at']}",
+                f"- **项目地址**：[{p['url']}]({p['url']})",
+                f"",
+            ]
+    else:
+        lines += ["> 暂无项目数据", ""]
 
-    lines += [
-        f"",
-        f"### 🔍 关键词命中分布",
-        f"",
-    ]
-    kw_count: dict = {}
+    # ── 2. 趋势观察 ──
+    lines += [f"### 📈 趋势观察", f""]
+
+    # 按分类统计
+    cat_count: dict = {}
     for p in projects:
-        k = p.get("keyword", "other")
-        kw_count[k] = kw_count.get(k, 0) + 1
-    for kw, cnt in sorted(kw_count.items(), key=lambda x: -x[1]):
-        lines.append(f"- **{kw}**：{cnt} 个")
+        cat = _classify_project(p)
+        cat_count[cat] = cat_count.get(cat, 0) + 1
+
+    lines += [f"#### 子领域分布热度", f"", f"| 领域 | 项目数 | 占比 |", f"|------|--------|------|"]
+    total = len(projects) or 1
+    for cat, cnt in sorted(cat_count.items(), key=lambda x: -x[1]):
+        pct = f"{cnt/total*100:.1f}%"
+        bar = "█" * max(1, int(cnt / total * 20))
+        lines.append(f"| {cat} | {cnt} | {pct} `{bar}`")
+    lines.append("")
+
+    # 最近活跃项目
+    active_projects = sorted(projects, key=lambda x: x["updated_at"], reverse=True)[:5]
+    lines += [f"#### 最近活跃项目", f""]
+    for p in active_projects:
+        lines.append(f"- [{p['name']}]({p['url']}) — ⭐{p['stars']:,}　|　更新于 {p['updated_at']}")
+    lines.append("")
+
+    # 高 Fork 项目（社区参与度高）
+    high_fork = sorted(projects, key=lambda x: x["forks"], reverse=True)[:5]
+    lines += [f"#### 社区参与度 Top 5（按 Fork）", f""]
+    for p in high_fork:
+        lines.append(f"- [{p['name']}]({p['url']}) — 🍴{p['forks']:,}　|　⭐{p['stars']:,}")
+    lines.append("")
+
+    # ── 3. 推荐优先级 ──
+    lines += [f"### 🏆 推荐优先级", f""]
+
+    # 综合评分：stars权重 + forks权重 + 更新时间权重
+    max_stars = max((p["stars"] for p in projects), default=1) or 1
+    max_forks = max((p["forks"] for p in projects), default=1) or 1
+    scored = []
+    for p in projects:
+        star_score = p["stars"] / max_stars * 50
+        fork_score = p["forks"] / max_forks * 30
+        # 越新的项目加分越高
+        try:
+            days_since_update = (datetime.date.today() - datetime.date.fromisoformat(p["updated_at"])).days
+        except (ValueError, TypeError):
+            days_since_update = 365
+        recency_score = max(0, 20 - days_since_update / 30)
+        total_score = star_score + fork_score + recency_score
+        scored.append((p, total_score))
+
+    scored.sort(key=lambda x: x[1], reverse=True)
+
+    lines += [f"#### 🔴 S 级 — 必须关注", f""]
+    s_list = [s for s in scored if s[1] >= 70][:5]
+    if s_list:
+        for p, score in s_list:
+            category = _classify_project(p)
+            lines.append(f"- ⭐⭐⭐⭐⭐ **[{p['name']}]({p['url']})** — 综合分 {score:.0f}/100　|　{category}　|　⭐{p['stars']:,}")
+    else:
+        lines.append("> 本期暂无 S 级项目")
+    lines.append("")
+
+    lines += [f"#### 🟠 A 级 — 强烈推荐", f""]
+    a_list = [s for s in scored if 50 <= s[1] < 70][:10]
+    if a_list:
+        for p, score in a_list:
+            category = _classify_project(p)
+            lines.append(f"- ⭐⭐⭐⭐ **[{p['name']}]({p['url']})** — 综合分 {score:.0f}/100　|　{category}　|　⭐{p['stars']:,}")
+    else:
+        lines.append("> 本期暂无 A 级项目")
+    lines.append("")
+
+    lines += [f"#### 🟡 B 级 — 值得关注", f""]
+    b_list = [s for s in scored if 30 <= s[1] < 50][:10]
+    if b_list:
+        for p, score in b_list:
+            category = _classify_project(p)
+            lines.append(f"- ⭐⭐⭐ **[{p['name']}]({p['url']})** — 综合分 {score:.0f}/100　|　{category}　|　⭐{p['stars']:,}")
+    else:
+        lines.append("> 本期暂无 B 级项目")
+    lines.append("")
 
     lines.append(f"\n---\n\n*由 HR Agent Monitor 自动生成 · {TODAY}*")
     return "\n".join(lines)

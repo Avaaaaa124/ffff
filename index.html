@@ -219,6 +219,54 @@
     }
     .md-content li { margin-bottom: 6px; }
 
+    /* ── 项目卡片样式 ── */
+    .md-content h3 {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      background: linear-gradient(135deg, rgba(108,99,255,0.12), rgba(167,139,250,0.06));
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin: 16px 0 0 0;
+      cursor: default;
+    }
+    .md-content h3:hover {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(167,139,250,0.1));
+    }
+    /* h3 后紧跟的 table 和 blockquote 作为卡片内容 */
+    .md-content h3 + table,
+    .md-content h3 + p {
+      margin-top: 0;
+      border-radius: 0 0 10px 10px;
+    }
+    .md-content h3 + table {
+      border-top: none;
+    }
+    .md-content h3 + p {
+      border-left: 3px solid var(--accent);
+      padding: 8px 16px;
+      background: var(--bg3);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+    }
+
+    /* 深度分析 h4 样式 */
+    .md-content h4 {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
+      margin: 18px 0 8px;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent2);
+    }
+
+    /* 优先级列表样式 */
+    .md-content li strong a {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
     /* ── Loading & Error ── */
     .loading {
       text-align: center;

@@ -4,15 +4,15 @@
 
 ## 2026-05-07
 
-共 100 个项目，最高 Star：43,217
+共 100 个项目，最高 Star：43,221
 
 | 项目 | ⭐ Stars | 语言 |
 |------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,217 | JavaScript |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,221 | JavaScript |
 | [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,668 | TypeScript |
 | [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,751 | Python |
 | [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) | 27,470 | TeX |
-| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,950 | TypeScript |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,951 | TypeScript |
 | [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,583 | HTML |
 | [haizlin/fe-interview](https://github.com/haizlin/fe-interview) | 26,262 | JavaScript |
 | [hcengineering/platform](https://github.com/hcengineering/platform) | 25,556 | TypeScript |

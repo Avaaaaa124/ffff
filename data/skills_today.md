@@ -1,6 +1,6 @@
-# 🛠️ Skills/MCP HR 监控 · 2026-05-07
+# 🛠️ Skills/MCP HR 监控 · 2026-05-08
 
-> 更新时间：2026-05-07　｜　来源：Skillhub + Clawhub
+> 更新时间：2026-05-08　｜　来源：Skillhub + Clawhub
 
 ## 🛠️ Skillhub HR Skill
 
@@ -18,4 +18,4 @@
 
 ---
 
-*由 HR Agent Monitor 自动生成 · 2026-05-07*
+*由 HR Agent Monitor 自动生成 · 2026-05-08*

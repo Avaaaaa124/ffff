@@ -1,15 +1,15 @@
-# ⭐ GitHub HR 项目监控 · 2026-05-07
+# ⭐ GitHub HR 项目监控 · 2026-05-08
 
-> 更新时间：2026-05-07　｜　筛选条件：⭐ Star > 200　｜　来源：GitHub
+> 更新时间：2026-05-08　｜　筛选条件：⭐ Star > 200　｜　来源：GitHub
 
 ## 概览
 
 | 指标 | 数值 |
 |------|------|
-| 项目总数 | 100 |
-| 平均 Star | 5018 |
-| 最高 Star | 43,221 |
-| 涉及编程语言 | 17 种 |
+| 项目总数 | 149 |
+| 平均 Star | 4495 |
+| 最高 Star | 43,369 |
+| 涉及编程语言 | 20 种 |
 
 ---
 
@@ -17,26 +17,26 @@
 
 | 项目名 | ⭐ Stars | 简介 |
 |--------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,221 | 基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。 |
-| [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,668 | 独一无二的简历生成器，可保护您的隐私。完全安全、可定制、便携、开源且永久免费。立即试用！ |
-| [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,751 | AIHawk旨在通过自动化求职流程来简化求职流程。利用人工智能，它使用户能够以量身定制的方式申请多个工作。 |
-| [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) | 27,470 | : page_facing_up:很棒的简历是LaTeX模板，适合您出色的求职申请 |
-| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,951 | 使用简历匹配器改进您的简历。获取见解、关键词建议，并根据职位描述调整简历。 |
-| [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,583 | 生成式人工智能研究更新、访谈资源、笔记本等一站式存储库！ |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,369 | 基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。 |
+| [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,681 | 独一无二的简历生成器，可保护您的隐私。完全安全、可定制、便携、开源且永久免费。立即试用！ |
+| [google/comprehensive-rust](https://github.com/google/comprehensive-rust) | 32,932 | 这是谷歌Android团队使用的Rust课程。它为您提供了快速教授Rust的材料。 |
+| [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,754 | AIHawk旨在通过自动化求职流程来简化求职流程。利用人工智能，它使用户能够以量身定制的方式申请多个工作。 |
+| [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) | 27,474 | : page_facing_up:很棒的简历是LaTeX模板，适合您出色的求职申请 |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,957 | 使用简历匹配器改进您的简历。获取见解、关键词建议，并根据职位描述调整简历。 |
+| [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,588 | 生成式人工智能研究更新、访谈资源、笔记本等一站式存储库！ |
 | [haizlin/fe-interview](https://github.com/haizlin/fe-interview) | 26,262 | 前端面试每日 3+1，以面试题来驱动学习，提倡每日学习与思考，每天进步一点！每天早上5点纯手工发布面试题（死磕自己，愉悦... |
-| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,556 | Huly — All-in-One Project Management Platform (alternative t... |
-| [matomo-org/matomo](https://github.com/matomo-org/matomo) | 21,478 | 在道德上赋予人们权力🚀— Matomo正在招聘！加入我们https://matomo.org/jobs → Matomo... |
-| [rendercv/rendercv](https://github.com/rendercv/rendercv) | 16,527 | 学术界和工程师的简历生成器 |
-| [salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever) | 16,457 | : necktie:: briefcase:快速构建: rocket:和简单的多个美丽的简历，并创建您有史以来最好的简历... |
+| [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) | 26,254 | 该存储库由Omar Santos （ @ santosomar ）维护，包括数千个与道德黑客、漏洞赏金、数字取证和事件响... |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,561 | Huly — All-in-One Project Management Platform (alternative t... |
+| [stas00/ml-engineering](https://github.com/stas00/ml-engineering) | 17,876 | 机器学习工程打开书籍 |
+| [rendercv/rendercv](https://github.com/rendercv/rendercv) | 16,534 | 学术界和工程师的简历生成器 |
+| [salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever) | 16,456 | : necktie:: briefcase:快速构建: rocket:和简单的多个美丽的简历，并创建您有史以来最好的简历... |
+| [digininja/DVWA](https://github.com/digininja/DVWA) | 13,022 | 该死的易受攻击的Web应用程序(DVWA) |
 | [billryan/resume](https://github.com/billryan/resume) | 11,063 | An elegant \LaTeX\ résumé template. 大陆镜像 https://gods.coding... |
-| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,491 | 免费开源ERP平台 |
+| [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) | 10,915 | 演示如何使用🧠Amazon SageMaker构建、训练和部署机器学习模型的📓Jupyter笔记本示例。 |
+| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,497 | 免费开源ERP平台 |
 | [helloqingfeng/Awsome-Front-End-learning-resource](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource) | 9,956 | :octocat:GitHub最全的前端资源汇总仓库（包括前端学习、开发资源、求职面试等） |
-| [xitanggg/open-resume](https://github.com/xitanggg/open-resume) | 8,593 | OpenResume是一个功能强大的开源简历生成器和简历解析器。https://open-resume.com/ |
-| [alirezadir/Machine-Learning-Interviews](https://github.com/alirezadir/Machine-Learning-Interviews) | 8,148 | 此存储库旨在作为机器学习/人工智能技术面试的指南。 |
-| [frappe/hrms](https://github.com/frappe/hrms) | 7,905 | 开源 HR and 薪资 软件 |
-| [cassidoo/getting-a-gig](https://github.com/cassidoo/getting-a-gig) | 7,643 | 作为技术专业学生参加演出的指南。 |
-| [dyweb/awesome-resume-for-chinese](https://github.com/dyweb/awesome-resume-for-chinese) | 7,485 | :page_facing_up: 适合中文的简历模板收集（LaTeX，HTML/JS and so on）由 @hooc... |
-| [resumejob/awesome-resume](https://github.com/resumejob/awesome-resume) | 7,247 | 简历，简历 模板s，程序员简历例句，简历模版， |
+| [xitanggg/open-resume](https://github.com/xitanggg/open-resume) | 8,595 | OpenResume是一个功能强大的开源简历生成器和简历解析器。https://open-resume.com/ |
+| [alirezadir/Machine-Learning-Interviews](https://github.com/alirezadir/Machine-Learning-Interviews) | 8,153 | 此存储库旨在作为机器学习/人工智能技术面试的指南。 |
 
 ---
 
@@ -44,75 +44,75 @@
 
 ### 🔍 重点项目分析
 
-#### 1. santifer/career-ops ⭐43,221
+#### 1. santifer/career-ops ⭐43,369
 
-- **分类**：🏢 综合HR平台
+- **分类**：📄 简历/简历筛选
 - **简介**：基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。
-- **Forks**：9,032　|　**语言**：JavaScript　|　**最近更新**：2026-05-07
+- **Forks**：9,074　|　**语言**：JavaScript　|　**最近更新**：2026-05-08
 - **项目地址**：[https://github.com/santifer/career-ops](https://github.com/santifer/career-ops)
 
-#### 2. amruthpillai/reactive-resume ⭐36,668
+#### 2. amruthpillai/reactive-resume ⭐36,681
 
 - **分类**：📄 简历/简历筛选
 - **简介**：独一无二的简历生成器，可保护您的隐私。完全安全、可定制、便携、开源且永久免费。立即试用！
-- **Forks**：4,094　|　**语言**：TypeScript　|　**最近更新**：2026-05-07
+- **Forks**：4,097　|　**语言**：TypeScript　|　**最近更新**：2026-05-08
 - **项目地址**：[https://github.com/amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume)
 
-#### 3. feder-cr/Jobs_Applier_AI_Agent_AIHawk ⭐29,751
+#### 3. google/comprehensive-rust ⭐32,932
 
-- **分类**：🏢 综合HR平台
+- **分类**：📚 培训/学习发展
+- **简介**：这是谷歌Android团队使用的Rust课程。它为您提供了快速教授Rust的材料。
+- **Forks**：2,007　|　**语言**：Rust　|　**最近更新**：2026-05-08
+- **项目地址**：[https://github.com/google/comprehensive-rust](https://github.com/google/comprehensive-rust)
+
+#### 4. feder-cr/Jobs_Applier_AI_Agent_AIHawk ⭐29,754
+
+- **分类**：📄 简历/简历筛选
 - **简介**：AIHawk旨在通过自动化求职流程来简化求职流程。利用人工智能，它使用户能够以量身定制的方式申请多个工作。
-- **Forks**：4,547　|　**语言**：Python　|　**最近更新**：2026-05-07
+- **Forks**：4,548　|　**语言**：Python　|　**最近更新**：2026-05-07
 - **项目地址**：[https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk)
 
-#### 4. posquit0/Awesome-CV ⭐27,470
+#### 5. posquit0/Awesome-CV ⭐27,474
 
 - **分类**：📄 简历/简历筛选
 - **简介**：: page_facing_up:很棒的简历是LaTeX模板，适合您出色的求职申请
-- **Forks**：5,221　|　**语言**：TeX　|　**最近更新**：2026-05-07
+- **Forks**：5,222　|　**语言**：TeX　|　**最近更新**：2026-05-07
 - **项目地址**：[https://github.com/posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV)
 
-#### 5. srbhr/Resume-Matcher ⭐26,951
+#### 6. srbhr/Resume-Matcher ⭐26,957
 
 - **分类**：📄 简历/简历筛选
 - **简介**：使用简历匹配器改进您的简历。获取见解、关键词建议，并根据职位描述调整简历。
-- **Forks**：4,828　|　**语言**：TypeScript　|　**最近更新**：2026-05-07
+- **Forks**：4,829　|　**语言**：TypeScript　|　**最近更新**：2026-05-08
 - **项目地址**：[https://github.com/srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher)
 
-#### 6. aishwaryanr/awesome-generative-ai-guide ⭐26,583
-
-- **分类**：🏢 综合HR平台
-- **简介**：生成式人工智能研究更新、访谈资源、笔记本等一站式存储库！
-- **Forks**：5,602　|　**语言**：HTML　|　**最近更新**：2026-05-07
-- **项目地址**：[https://github.com/aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide)
-
-#### 7. haizlin/fe-interview ⭐26,262
+#### 7. aishwaryanr/awesome-generative-ai-guide ⭐26,588
 
 - **分类**：🎙️ 面试/评估
+- **简介**：生成式人工智能研究更新、访谈资源、笔记本等一站式存储库！
+- **Forks**：5,604　|　**语言**：HTML　|　**最近更新**：2026-05-07
+- **项目地址**：[https://github.com/aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide)
+
+#### 8. haizlin/fe-interview ⭐26,262
+
+- **分类**：📄 简历/简历筛选
 - **简介**：前端面试每日 3+1，以面试题来驱动学习，提倡每日学习与思考，每天进步一点！每天早上5点纯手工发布面试题（死磕自己，愉悦大家），6000+道前端面试题全面覆盖，HTML/CSS/JavaScript/Vue/React/Nodejs/Typ
 - **Forks**：3,252　|　**语言**：JavaScript　|　**最近更新**：2026-05-07
 - **项目地址**：[https://github.com/haizlin/fe-interview](https://github.com/haizlin/fe-interview)
 
-#### 8. hcengineering/platform ⭐25,556
+#### 9. The-Art-of-Hacking/h4cker ⭐26,254
 
-- **分类**：🏢 综合HR平台
+- **分类**：📚 培训/学习发展
+- **简介**：该存储库由Omar Santos （ @ santosomar ）维护，包括数千个与道德黑客、漏洞赏金、数字取证和事件响应（ DFIR ）、人工智能安全、漏洞研究、漏洞利用开发、逆向工程等相关的资源。🔥另请查看： https://hacke
+- **Forks**：5,009　|　**语言**：Jupyter Notebook　|　**最近更新**：2026-05-08
+- **项目地址**：[https://github.com/The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker)
+
+#### 10. hcengineering/platform ⭐25,561
+
+- **分类**：🎯 招聘/人才获取
 - **简介**：Huly — All-in-One Project Management Platform (alternative to Linear, Jira, Slack, Notion, Motion)
-- **Forks**：1,871　|　**语言**：TypeScript　|　**最近更新**：2026-05-07
+- **Forks**：1,871　|　**语言**：TypeScript　|　**最近更新**：2026-05-08
 - **项目地址**：[https://github.com/hcengineering/platform](https://github.com/hcengineering/platform)
-
-#### 9. matomo-org/matomo ⭐21,478
-
-- **分类**：🏢 综合HR平台
-- **简介**：在道德上赋予人们权力🚀— Matomo正在招聘！加入我们https://matomo.org/jobs → Matomo是谷歌分析的领先开源替代品，为您提供完整的控制和内置隐私。轻松收集、可视化和分析来自网站和应用程序的数据。在GitHub
-- **Forks**：2,842　|　**语言**：PHP　|　**最近更新**：2026-05-07
-- **项目地址**：[https://github.com/matomo-org/matomo](https://github.com/matomo-org/matomo)
-
-#### 10. rendercv/rendercv ⭐16,527
-
-- **分类**：📄 简历/简历筛选
-- **简介**：学术界和工程师的简历生成器
-- **Forks**：1,211　|　**语言**：Python　|　**最近更新**：2026-05-07
-- **项目地址**：[https://github.com/rendercv/rendercv](https://github.com/rendercv/rendercv)
 
 ### 📈 趋势观察
 
@@ -120,64 +120,65 @@
 
 | 领域 | 项目数 | 占比 |
 |------|--------|------|
-| 🏢 综合HR平台 | 46 | 46.0% `█████████`
-| 📄 简历/简历筛选 | 26 | 26.0% `█████`
-| 🎙️ 面试/评估 | 13 | 13.0% `██`
-| 🎯 招聘/人才获取 | 5 | 5.0% `█`
-| 📋 ATS 招聘管理 | 2 | 2.0% `█`
-| 👥 入职/员工管理 | 2 | 2.0% `█`
-| 📊 人力数据分析 | 2 | 2.0% `█`
-| 🧠 AI/NLP 基础 | 2 | 2.0% `█`
-| 🤖 HR 聊天机器人 | 1 | 1.0% `█`
-| 📝 绩效管理 | 1 | 1.0% `█`
+| 📚 培训/学习发展 | 44 | 29.5% `█████`
+| 📄 简历/简历筛选 | 33 | 22.1% `████`
+| 🎯 招聘/人才获取 | 33 | 22.1% `████`
+| 🎙️ 面试/评估 | 21 | 14.1% `██`
+| 🏢 综合HR平台 | 14 | 9.4% `█`
+| 📝 绩效管理 | 2 | 1.3% `█`
+| 🧠 AI/NLP 基础 | 1 | 0.7% `█`
+| 👥 入职/员工管理 | 1 | 0.7% `█`
 
 #### 最近活跃项目
 
-- [santifer/career-ops](https://github.com/santifer/career-ops) — ⭐43,221　|　更新于 2026-05-07
-- [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) — ⭐36,668　|　更新于 2026-05-07
-- [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) — ⭐29,751　|　更新于 2026-05-07
-- [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — ⭐27,470　|　更新于 2026-05-07
-- [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) — ⭐26,951　|　更新于 2026-05-07
+- [santifer/career-ops](https://github.com/santifer/career-ops) — ⭐43,369　|　更新于 2026-05-08
+- [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) — ⭐36,681　|　更新于 2026-05-08
+- [google/comprehensive-rust](https://github.com/google/comprehensive-rust) — ⭐32,932　|　更新于 2026-05-08
+- [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) — ⭐26,957　|　更新于 2026-05-08
+- [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) — ⭐26,254　|　更新于 2026-05-08
 
 #### 社区参与度 Top 5（按 Fork）
 
-- [santifer/career-ops](https://github.com/santifer/career-ops) — 🍴9,032　|　⭐43,221
-- [sharu725/online-cv](https://github.com/sharu725/online-cv) — 🍴6,196　|　⭐3,477
-- [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) — 🍴5,602　|　⭐26,583
-- [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — 🍴5,221　|　⭐27,470
-- [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) — 🍴4,828　|　⭐26,951
+- [santifer/career-ops](https://github.com/santifer/career-ops) — 🍴9,074　|　⭐43,369
+- [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) — 🍴6,978　|　⭐10,915
+- [sharu725/online-cv](https://github.com/sharu725/online-cv) — 🍴6,198　|　⭐3,479
+- [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) — 🍴5,604　|　⭐26,588
+- [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — 🍴5,222　|　⭐27,474
 
 ### 🏆 推荐优先级
 
 #### 🔴 S 级 — 必须关注
 
-- ⭐⭐⭐⭐⭐ **[santifer/career-ops](https://github.com/santifer/career-ops)** — 综合分 100/100　|　🏢 综合HR平台　|　⭐43,221
-- ⭐⭐⭐⭐⭐ **[amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume)** — 综合分 76/100　|　📄 简历/简历筛选　|　⭐36,668
+- ⭐⭐⭐⭐⭐ **[santifer/career-ops](https://github.com/santifer/career-ops)** — 综合分 100/100　|　📄 简历/简历筛选　|　⭐43,369
+- ⭐⭐⭐⭐⭐ **[amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume)** — 综合分 76/100　|　📄 简历/简历筛选　|　⭐36,681
 
 #### 🟠 A 级 — 强烈推荐
 
-- ⭐⭐⭐⭐ **[feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk)** — 综合分 70/100　|　🏢 综合HR平台　|　⭐29,751
-- ⭐⭐⭐⭐ **[aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide)** — 综合分 69/100　|　🏢 综合HR平台　|　⭐26,583
-- ⭐⭐⭐⭐ **[posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV)** — 综合分 69/100　|　📄 简历/简历筛选　|　⭐27,470
-- ⭐⭐⭐⭐ **[srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher)** — 综合分 67/100　|　📄 简历/简历筛选　|　⭐26,951
-- ⭐⭐⭐⭐ **[haizlin/fe-interview](https://github.com/haizlin/fe-interview)** — 综合分 61/100　|　🎙️ 面试/评估　|　⭐26,262
-- ⭐⭐⭐⭐ **[hcengineering/platform](https://github.com/hcengineering/platform)** — 综合分 56/100　|　🏢 综合HR平台　|　⭐25,556
-- ⭐⭐⭐⭐ **[matomo-org/matomo](https://github.com/matomo-org/matomo)** — 综合分 54/100　|　🏢 综合HR平台　|　⭐21,478
+- ⭐⭐⭐⭐ **[feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk)** — 综合分 69/100　|　📄 简历/简历筛选　|　⭐29,754
+- ⭐⭐⭐⭐ **[aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide)** — 综合分 69/100　|　🎙️ 面试/评估　|　⭐26,588
+- ⭐⭐⭐⭐ **[posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV)** — 综合分 69/100　|　📄 简历/简历筛选　|　⭐27,474
+- ⭐⭐⭐⭐ **[srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher)** — 综合分 67/100　|　📄 简历/简历筛选　|　⭐26,957
+- ⭐⭐⭐⭐ **[The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker)** — 综合分 67/100　|　📚 培训/学习发展　|　⭐26,254
+- ⭐⭐⭐⭐ **[google/comprehensive-rust](https://github.com/google/comprehensive-rust)** — 综合分 65/100　|　📚 培训/学习发展　|　⭐32,932
+- ⭐⭐⭐⭐ **[haizlin/fe-interview](https://github.com/haizlin/fe-interview)** — 综合分 61/100　|　📄 简历/简历筛选　|　⭐26,262
+- ⭐⭐⭐⭐ **[hcengineering/platform](https://github.com/hcengineering/platform)** — 综合分 56/100　|　🎯 招聘/人才获取　|　⭐25,561
+- ⭐⭐⭐⭐ **[aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples)** — 综合分 56/100　|　📚 培训/学习发展　|　⭐10,915
+- ⭐⭐⭐⭐ **[digininja/DVWA](https://github.com/digininja/DVWA)** — 综合分 51/100　|　📚 培训/学习发展　|　⭐13,022
 
 #### 🟡 B 级 — 值得关注
 
-- ⭐⭐⭐ **[salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever)** — 综合分 47/100　|　📄 简历/简历筛选　|　⭐16,457
-- ⭐⭐⭐ **[sharu725/online-cv](https://github.com/sharu725/online-cv)** — 综合分 45/100　|　📄 简历/简历筛选　|　⭐3,477
-- ⭐⭐⭐ **[rendercv/rendercv](https://github.com/rendercv/rendercv)** — 综合分 43/100　|　📄 简历/简历筛选　|　⭐16,527
+- ⭐⭐⭐ **[salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever)** — 综合分 46/100　|　📄 简历/简历筛选　|　⭐16,456
+- ⭐⭐⭐ **[sharu725/online-cv](https://github.com/sharu725/online-cv)** — 综合分 44/100　|　📄 简历/简历筛选　|　⭐3,479
+- ⭐⭐⭐ **[stas00/ml-engineering](https://github.com/stas00/ml-engineering)** — 综合分 44/100　|　📚 培训/学习发展　|　⭐17,876
+- ⭐⭐⭐ **[rendercv/rendercv](https://github.com/rendercv/rendercv)** — 综合分 43/100　|　📄 简历/简历筛选　|　⭐16,534
 - ⭐⭐⭐ **[billryan/resume](https://github.com/billryan/resume)** — 综合分 42/100　|　📄 简历/简历筛选　|　⭐11,063
+- ⭐⭐⭐ **[github/training-kit](https://github.com/github/training-kit)** — 综合分 40/100　|　📚 培训/学习发展　|　⭐4,925
 - ⭐⭐⭐ **[helloqingfeng/Awsome-Front-End-learning-resource](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource)** — 综合分 38/100　|　🎯 招聘/人才获取　|　⭐9,956
-- ⭐⭐⭐ **[frappe/hrms](https://github.com/frappe/hrms)** — 综合分 37/100　|　🏢 综合HR平台　|　⭐7,905
-- ⭐⭐⭐ **[alirezadir/Machine-Learning-Interviews](https://github.com/alirezadir/Machine-Learning-Interviews)** — 综合分 34/100　|　🎙️ 面试/评估　|　⭐8,148
+- ⭐⭐⭐ **[frappe/hrms](https://github.com/frappe/hrms)** — 综合分 37/100　|　🎯 招聘/人才获取　|　⭐7,912
+- ⭐⭐⭐ **[alirezadir/Machine-Learning-Interviews](https://github.com/alirezadir/Machine-Learning-Interviews)** — 综合分 34/100　|　📚 培训/学习发展　|　⭐8,153
 - ⭐⭐⭐ **[sb2nov/resume](https://github.com/sb2nov/resume)** — 综合分 34/100　|　📄 简历/简历筛选　|　⭐6,621
-- ⭐⭐⭐ **[aureuserp/aureuserp](https://github.com/aureuserp/aureuserp)** — 综合分 34/100　|　🏢 综合HR平台　|　⭐10,491
-- ⭐⭐⭐ **[xitanggg/open-resume](https://github.com/xitanggg/open-resume)** — 综合分 33/100　|　📄 简历/简历筛选　|　⭐8,593
 
 
 ---
 
-*由 HR Agent Monitor 自动生成 · 2026-05-07*
+*由 HR Agent Monitor 自动生成 · 2026-05-08*

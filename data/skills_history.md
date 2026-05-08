@@ -2,6 +2,10 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-05-08
+
+Skillhub：0 个　｜　Clawhub：0 个
+
 ## 2026-05-07
 
 Skillhub：0 个　｜　Clawhub：0 个

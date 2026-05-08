@@ -21,30 +21,89 @@ GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 WECHAT_WEBHOOK = os.environ.get("WECHAT_WEBHOOK", "")   # 企业微信机器人 Webhook
 STAR_THRESHOLD = 200
 
-# HR 相关 GitHub 搜索（用 OR 组合，减少 API 调用次数）
-# 每组 query 一次性搜索多个关键词，用 topic: 或关键词匹配
+# HR 相关 GitHub 搜索（按 HR 子领域分组）
+# 覆盖：招聘、简历、培训、绩效、薪酬、劳动关系、预算、HRBP、入职、员工管理
 GITHUB_SEARCH_QUERIES = [
-    # 精准 topic 搜索（GitHub 仓库自带的 topic 标签）
-    "topic:human-resources stars:>200",
+    # ═══════════ 招聘 / 人才获取 ═══════════
     "topic:recruitment stars:>200",
-    "topic:resume stars:>200",
-    "topic:hr stars:>200",
-    # 关键词搜索（覆盖面更广）
-    "human+resources+AI stars:>200",
-    "resume+screening stars:>200",
     "ATS+applicant+tracking stars:>200",
     "talent+acquisition stars:>200",
     "recruitment+AI stars:>200",
-    "employee+onboarding stars:>200",
-    "HR+chatbot stars:>200",
-    "people+analytics stars:>200",
-    "workforce+management stars:>200",
-    "job+matching+AI stars:>200",
-    "payroll+management stars:>200",
     "candidate+screening stars:>200",
     "interview+AI stars:>200",
+    "job+matching+AI stars:>200",
+    "hiring+management stars:>200",
+    "referral+program+employee stars:>200",
+
+    # ═══════════ 简历 / CV ═══════════
+    "topic:resume stars:>200",
+    "resume+screening+AI stars:>200",
+    "resume+builder+parser stars:>200",
+    "CV+generator stars:>200",
+
+    # ═══════════ 培训 / 学习发展 ═══════════
+    "topic:training stars:>200",
+    "employee+training+platform stars:>200",
+    "learning+management+system stars:>200",
+    "LMS+corporate+training stars:>200",
+    "e-learning+course stars:>200",
+    "onboarding+training stars:>200",
+    "skill+assessment+employee stars:>200",
+    "knowledge+base+employee stars:>200",
+
+    # ═══════════ 绩效管理 ═══════════
+    "performance+review+management stars:>200",
+    "performance+evaluation+employee stars:>200",
+    "OKR+goal+tracking stars:>200",
+    "KPI+dashboard+employee stars:>200",
+    "360+feedback+review stars:>200",
+    "goal+setting+employee stars:>200",
+
+    # ═══════════ 薪酬 / 福利 / 薪资 ═══════════
+    "payroll+management stars:>200",
+    "compensation+benefits stars:>200",
+    "salary+calculation stars:>200",
+    "leave+management+employee stars:>200",
+    "expense+management+employee stars:>200",
+
+    # ═══════════ 劳动关系 / 合规 ═══════════
+    "labor+relations+management stars:>200",
+    "employee+compliance stars:>200",
+    "workforce+compliance stars:>200",
+    "contract+management+employee stars:>200",
+    "policy+management+HR stars:>200",
+
+    # ═══════════ 预算 / 成本管控 ═══════════
+    "HR+budget+management stars:>200",
+    "workforce+planning+budget stars:>200",
+    "headcount+planning stars:>200",
+    "labor+cost+analytics stars:>200",
+
+    # ═══════════ HRBP / 综合 HR 平台 ═══════════
+    "topic:human-resources stars:>200",
+    "topic:hr stars:>200",
+    "HRIS+human+resource stars:>200",
+    "HRMS+HR+management stars:>200",
+    "HCM+human+capital stars:>200",
+    "people+analytics+HR stars:>200",
+    "workforce+management stars:>200",
     "employee+engagement stars:>200",
-    "HRIS stars:>200",
+    "HR+chatbot+assistant stars:>200",
+    "employee+self+service stars:>200",
+    "org+chart+organization stars:>200",
+    "shift+scheduling+employee stars:>200",
+    "time+attendance+tracking stars:>200",
+    "employee+directory stars:>200",
+]
+
+# Skillhub / Clawhub 搜索关键词（按子领域覆盖）
+SKILL_KEYWORDS = [
+    "hr", "recruitment", "resume screening", "talent acquisition",
+    "human resources", "ATS", "onboarding", "payroll", "performance review",
+    "employee training", "learning management", "compensation", "HRIS",
+    "workforce management", "labor relations", "compliance", "HRBP",
+    "leave management", "OKR", "KPI", "expense management", "shift scheduling",
+    "time attendance", "org chart",
 ]
 
 # Skillhub / Clawhub 搜索关键词
@@ -67,20 +126,49 @@ HISTORY_JSON      = DATA_DIR / "history.json"
 # ────────────────────────────────────────────
 # 常见 HR/AI 领域术语缓存（避免重复翻译）
 TERMINOLOGY = {
+    # ── 招聘 / 简历 ──
     "resume": "简历", "cv": "简历", "cover letter": "求职信",
     "recruitment": "招聘", "recruiting": "招聘", "recruit": "招聘",
     "applicant": "求职者", "applicant tracking": "求职者追踪",
-    "onboarding": "入职", "offboarding": "离职",
-    "payroll": "薪资", "payroll management": "薪资管理",
-    "compensation": "薪酬", "benefits": "福利",
+    "screening": "筛选", "candidate": "候选人", "hiring": "招聘",
+    "job search": "求职", "job application": "求职申请", "job board": "招聘网站",
+    "job matching": "职位匹配", "talent acquisition": "人才获取", "talent": "人才",
+    "referral": "内推", "sourcing": "人才寻访",
+    # ── 培训 / 学习 ──
+    "training": "培训", "learning management": "学习管理", "LMS": "学习管理系统",
+    "e-learning": "在线学习", "course": "课程", "onboarding": "入职",
+    "skill assessment": "技能评估", "knowledge base": "知识库",
+    "tutorial": "教程", "coaching": "辅导", "mentor": "导师",
+    # ── 绩效管理 ──
     "performance review": "绩效评估", "performance": "绩效",
-    "talent acquisition": "人才获取", "talent": "人才",
+    "OKR": "OKR目标管理", "KPI": "KPI考核", "goal setting": "目标设定",
+    "feedback": "反馈", "appraisal": "考核", "evaluation": "评估",
+    # ── 薪酬 / 福利 ──
+    "payroll": "薪资", "payroll management": "薪资管理",
+    "compensation": "薪酬", "benefits": "福利", "salary": "工资",
+    "leave management": "请假管理", "expense management": "费用管理",
+    "reimbursement": "报销", "payslip": "工资单",
+    # ── 劳动关系 / 合规 ──
+    "labor relations": "劳动关系", "compliance": "合规",
+    "contract management": "合同管理", "policy": "制度",
+    "regulation": "法规", "dispute": "争议",
+    # ── 预算 / 成本 ──
+    "budget": "预算", "headcount": "编制", "workforce planning": "人力规划",
+    "labor cost": "人工成本", "cost analytics": "成本分析",
+    # ── 员工管理 ──
+    "onboarding": "入职", "offboarding": "离职",
     "workforce": "劳动力", "workforce management": "劳动力管理",
     "employee engagement": "员工敬业度", "employee experience": "员工体验",
     "human resources": "人力资源", "HR": "HR", "HRIS": "人力资源信息系统",
+    "HRMS": "人力资源管理系统", "HCM": "人力资本管理",
     "ATS": "招聘管理系统", "chatbot": "聊天机器人",
-    "interview": "面试", "assessment": "评估", "screening": "筛选",
-    "scheduling": "排程", "analytics": "数据分析", "insights": "洞察",
+    "interview": "面试", "assessment": "评估",
+    "scheduling": "排程", "shift scheduling": "排班",
+    "time attendance": "考勤", "attendance": "考勤",
+    "employee directory": "员工通讯录", "org chart": "组织架构图",
+    "employee self-service": "员工自助服务",
+    # ── 通用技术 ──
+    "analytics": "数据分析", "insights": "洞察",
     "open source": "开源", "open-source": "开源",
     "AI": "AI", "artificial intelligence": "人工智能",
     "machine learning": "机器学习", "ML": "机器学习",
@@ -91,8 +179,6 @@ TERMINOLOGY = {
     "framework": "框架", "toolkit": "工具包", "library": "库",
     "template": "模板", "builder": "构建器", "generator": "生成器",
     "matching": "匹配", "job": "职位", "career": "职业",
-    "candidate": "候选人", "hiring": "招聘", "job search": "求职",
-    "job application": "求职申请", "job board": "招聘网站",
     "freelance": "自由职业", "remote": "远程", "tracking": "追踪",
     "management": "管理系统", "software": "软件", "system": "系统",
     "solution": "解决方案", "service": "服务", "engine": "引擎",
@@ -354,21 +440,41 @@ def _star_level(stars: int) -> str:
 
 
 def _classify_project(p: dict) -> str:
-    """根据描述关键词给项目分类标签"""
+    """根据描述关键词给项目分类标签（覆盖 HR 全子领域）"""
     desc_lower = (p.get("description") or "").lower()
     name_lower = (p.get("name") or "").lower()
-    text = desc_lower + " " + name_lower
+    keyword_lower = (p.get("keyword") or "").lower()
+    text = desc_lower + " " + name_lower + " " + keyword_lower
     mapping = [
-        (["resume", "cv", "resume screening"],          "📄 简历/简历筛选"),
-        (["recruit", "talent acquisition", "sourc"],    "🎯 招聘/人才获取"),
-        (["chatbot", "conversational", "assistant"],     "🤖 HR 聊天机器人"),
-        (["onboard", "employee experience", "hcm"],      "👥 入职/员工管理"),
-        (["analytics", "insight", "people analyt"],       "📊 人力数据分析"),
-        (["performance", "review", "evaluation"],         "📝 绩效管理"),
-        (["payroll", "compensation", "salary", "benefit"],"💰 薪酬/福利"),
-        (["ats", "applicant track"],                      "📋 ATS 招聘管理"),
-        (["interview", "schedule", "assessment"],         "🎙️ 面试/评估"),
-        (["llm", "gpt", "transformer", "nlp"],            "🧠 AI/NLP 基础"),
+        # 招聘 / 人才获取
+        (["recruit", "talent acquisition", "sourc", "hiring", "referral"], "🎯 招聘/人才获取"),
+        # 简历 / CV
+        (["resume", "cv ", "resume screening", "resume builder", "resume parser"], "📄 简历/简历筛选"),
+        # 培训 / 学习发展
+        (["training", "learning", "lms", "e-learning", "course", "onboarding", "skill assessment",
+          "knowledge base", "tutorial"], "📚 培训/学习发展"),
+        # 绩效管理
+        (["performance", "okr", "kpi", "goal", "feedback", "evaluation", "review", "appraisal"], "📝 绩效管理"),
+        # 薪酬 / 福利 / 薪资
+        (["payroll", "compensation", "salary", "benefit", "leave management", "expense",
+          "reimbursement", "payslip"], "💰 薪酬/福利"),
+        # 劳动关系 / 合规
+        (["labor", "compliance", "contract", "policy", "regulation", "legal", "dispute"], "⚖️ 劳动关系/合规"),
+        # 预算 / 成本管控
+        (["budget", "cost", "headcount", "workforce planning", "labor cost"], "📊 预算/成本管控"),
+        # ATS 招聘管理
+        (["ats", "applicant track"], "📋 ATS 招聘管理"),
+        # 面试 / 评估
+        (["interview", "assessment", "schedule"], "🎙️ 面试/评估"),
+        # HR 聊天机器人 / AI
+        (["chatbot", "conversational", "assistant", "hrbot"], "🤖 HR 聊天机器人"),
+        # 入职 / 员工管理
+        (["onboard", "employee experience", "hcm", "employee directory", "org chart",
+          "shift", "attendance", "time track", "employee self-service"], "👥 入职/员工管理"),
+        # 人力数据分析
+        (["analytics", "insight", "people analyt", "data-driven hr"], "📊 人力数据分析"),
+        # AI/NLP 基础
+        (["llm", "gpt", "transformer", "nlp"], "🧠 AI/NLP 基础"),
     ]
     for keywords, label in mapping:
         if any(kw in text for kw in keywords):

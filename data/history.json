@@ -2135,7 +2135,7 @@
         "name": "santifer/career-ops",
         "url": "https://github.com/santifer/career-ops",
         "description": "基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。",
-        "stars": 43369,
+        "stars": 43370,
         "forks": 9074,
         "language": "JavaScript",
         "updated_at": "2026-05-08",
@@ -2839,7 +2839,7 @@
         "stars": 5538,
         "forks": 1355,
         "language": "Go",
-        "updated_at": "2026-05-07",
+        "updated_at": "2026-05-08",
         "topics": [
           "ai",
           "batch-systems",
@@ -3359,7 +3359,7 @@
         "stars": 2820,
         "forks": 502,
         "language": "Python",
-        "updated_at": "2026-05-07",
+        "updated_at": "2026-05-08",
         "topics": [
           "brrr",
           "cuda",

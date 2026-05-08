@@ -4,11 +4,11 @@
 
 ## 2026-05-08
 
-共 149 个项目，最高 Star：43,369
+共 149 个项目，最高 Star：43,370
 
 | 项目 | ⭐ Stars | 语言 |
 |------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,369 | JavaScript |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,370 | JavaScript |
 | [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,681 | TypeScript |
 | [google/comprehensive-rust](https://github.com/google/comprehensive-rust) | 32,932 | Rust |
 | [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,754 | Python |

@@ -8,7 +8,7 @@
 |------|------|
 | 项目总数 | 149 |
 | 平均 Star | 4495 |
-| 最高 Star | 43,369 |
+| 最高 Star | 43,370 |
 | 涉及编程语言 | 20 种 |
 
 ---
@@ -17,7 +17,7 @@
 
 | 项目名 | ⭐ Stars | 简介 |
 |--------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,369 | 基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。 |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,370 | 基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。 |
 | [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,681 | 独一无二的简历生成器，可保护您的隐私。完全安全、可定制、便携、开源且永久免费。立即试用！ |
 | [google/comprehensive-rust](https://github.com/google/comprehensive-rust) | 32,932 | 这是谷歌Android团队使用的Rust课程。它为您提供了快速教授Rust的材料。 |
 | [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,754 | AIHawk旨在通过自动化求职流程来简化求职流程。利用人工智能，它使用户能够以量身定制的方式申请多个工作。 |
@@ -44,7 +44,7 @@
 
 ### 🔍 重点项目分析
 
-#### 1. santifer/career-ops ⭐43,369
+#### 1. santifer/career-ops ⭐43,370
 
 - **分类**：📄 简历/简历筛选
 - **简介**：基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。
@@ -131,25 +131,25 @@
 
 #### 最近活跃项目
 
-- [santifer/career-ops](https://github.com/santifer/career-ops) — ⭐43,369　|　更新于 2026-05-08
-- [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) — ⭐36,681　|　更新于 2026-05-08
-- [google/comprehensive-rust](https://github.com/google/comprehensive-rust) — ⭐32,932　|　更新于 2026-05-08
-- [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) — ⭐26,957　|　更新于 2026-05-08
-- [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) — ⭐26,254　|　更新于 2026-05-08
+- [santifer/career-ops](https://github.com/santifer/career-ops) — ⭐43,370　|　更新于 2026-05-08　|　📄 简历/简历筛选
+- [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) — ⭐36,681　|　更新于 2026-05-08　|　📄 简历/简历筛选
+- [google/comprehensive-rust](https://github.com/google/comprehensive-rust) — ⭐32,932　|　更新于 2026-05-08　|　📚 培训/学习发展
+- [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) — ⭐26,957　|　更新于 2026-05-08　|　📄 简历/简历筛选
+- [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) — ⭐26,254　|　更新于 2026-05-08　|　📚 培训/学习发展
 
 #### 社区参与度 Top 5（按 Fork）
 
-- [santifer/career-ops](https://github.com/santifer/career-ops) — 🍴9,074　|　⭐43,369
-- [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) — 🍴6,978　|　⭐10,915
-- [sharu725/online-cv](https://github.com/sharu725/online-cv) — 🍴6,198　|　⭐3,479
-- [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) — 🍴5,604　|　⭐26,588
-- [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — 🍴5,222　|　⭐27,474
+- [santifer/career-ops](https://github.com/santifer/career-ops) — 🍴9,074　|　⭐43,370　|　📄 简历/简历筛选
+- [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) — 🍴6,978　|　⭐10,915　|　📚 培训/学习发展
+- [sharu725/online-cv](https://github.com/sharu725/online-cv) — 🍴6,198　|　⭐3,479　|　📄 简历/简历筛选
+- [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) — 🍴5,604　|　⭐26,588　|　🎙️ 面试/评估
+- [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) — 🍴5,222　|　⭐27,474　|　📄 简历/简历筛选
 
 ### 🏆 推荐优先级
 
 #### 🔴 S 级 — 必须关注
 
-- ⭐⭐⭐⭐⭐ **[santifer/career-ops](https://github.com/santifer/career-ops)** — 综合分 100/100　|　📄 简历/简历筛选　|　⭐43,369
+- ⭐⭐⭐⭐⭐ **[santifer/career-ops](https://github.com/santifer/career-ops)** — 综合分 100/100　|　📄 简历/简历筛选　|　⭐43,370
 - ⭐⭐⭐⭐⭐ **[amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume)** — 综合分 76/100　|　📄 简历/简历筛选　|　⭐36,681
 
 #### 🟠 A 级 — 强烈推荐

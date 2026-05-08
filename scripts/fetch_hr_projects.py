@@ -522,7 +522,7 @@ def render_github_md(projects: list[dict], title: str) -> str:
     # ── 1. 重点项目分析 ──
     lines += [f"### 🔍 重点项目分析", f""]
     if projects:
-        top10 = projects[:10]
+        top10 = projects[:5]
         for rank, p in enumerate(top10, 1):
             category = _classify_project(p)
             desc = p["description"] or "暂无简介"

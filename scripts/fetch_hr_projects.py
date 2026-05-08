@@ -97,6 +97,7 @@ GITHUB_SEARCH_QUERIES = [
 ]
 
 # Skillhub / Clawhub 搜索关键词（按子领域覆盖）
+# 真实 API: GET https://api.skillhub.cn/api/skills?keyword=xxx&pageSize=50&pageNumber=1
 SKILL_KEYWORDS = [
     "hr", "recruitment", "resume screening", "talent acquisition",
     "human resources", "ATS", "onboarding", "payroll", "performance review",
@@ -105,9 +106,8 @@ SKILL_KEYWORDS = [
     "leave management", "OKR", "KPI", "expense management", "shift scheduling",
     "time attendance", "org chart",
 ]
-
-# Skillhub / Clawhub 搜索关键词
-SKILL_KEYWORDS = ["hr", "recruitment", "resume screening", "talent acquisition", "human resources", "ATS", "onboarding"]
+SKILL_PAGE_SIZE = 50       # 每次请求获取数量
+SKILL_MAX_PER_KW = 100     # 每个关键词最多取多少
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"
@@ -354,41 +354,75 @@ def fetch_github_projects() -> list[dict]:
 # Skillhub 抓取
 # ────────────────────────────────────────────
 def fetch_skillhub_projects() -> list[dict]:
-    """从 Skillhub 搜索 HR 相关 skill"""
+    """从 Skillhub API 搜索 HR 相关 skill（真实 API）"""
     results = []
     seen = set()
-    base_url = "https://skillhub.dev/api/skills/search"
+    base_url = "https://api.skillhub.cn/api/skills"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Referer": "https://skillhub.cn/",
+    }
 
     for kw in SKILL_KEYWORDS:
+        page = 1
+        fetched = 0
         try:
-            resp = requests.get(base_url, params={"q": kw, "limit": 30}, timeout=15)
-            if resp.status_code != 200:
-                # 尝试备用接口路径
-                resp = requests.get(
-                    f"https://skillhub.dev/api/search",
-                    params={"keyword": kw},
-                    timeout=15,
-                )
-            if resp.status_code == 200:
-                items = resp.json() if isinstance(resp.json(), list) else resp.json().get("data", [])
-                for item in items:
-                    name = item.get("name") or item.get("title") or ""
-                    if name and name not in seen:
-                        seen.add(name)
+            while fetched < SKILL_MAX_PER_KW:
+                params = {
+                    "keyword": kw,
+                    "pageSize": SKILL_PAGE_SIZE,
+                    "pageNumber": page,
+                }
+                resp = requests.get(base_url, params=params, headers=headers, timeout=15)
+                if resp.status_code != 200:
+                    print(f"[WARN] Skillhub API 返回 {resp.status_code}，kw={kw}")
+                    break
+
+                data = resp.json()
+                if data.get("code") != 0:
+                    print(f"[WARN] Skillhub API 错误: {data.get('message', '未知错误')}")
+                    break
+
+                skills = data.get("data", {}).get("skills", [])
+                if not skills:
+                    break
+
+                for item in skills:
+                    slug = item.get("slug", "")
+                    if slug and slug not in seen:
+                        seen.add(slug)
+                        # 优先使用中文描述
+                        desc = item.get("description_zh") or item.get("description") or ""
                         results.append({
-                            "name": name,
-                            "url": item.get("url") or item.get("link") or f"https://skillhub.dev/skills/{name}",
-                            "description": item.get("description") or "",
-                            "stars": item.get("stars") or item.get("downloads") or 0,
-                            "category": item.get("category") or "HR",
+                            "name": item.get("name") or slug,
+                            "slug": slug,
+                            "url": item.get("homepage") or f"https://skillhub.cn/skills/{slug}",
+                            "description": desc,
+                            "description_zh": desc,
+                            "stars": item.get("stars") or 0,
+                            "downloads": item.get("downloads") or 0,
+                            "installs": item.get("installs") or 0,
+                            "category": item.get("category") or "",
+                            "source": item.get("source") or "unknown",
+                            "tags": item.get("tags") or [],
+                            "ownerName": item.get("ownerName") or "",
                             "keyword": kw,
                         })
+
+                fetched += len(skills)
+                page += 1
+
+                # 如果这一页数据不足 pageSize，说明已经是最后一页
+                if len(skills) < SKILL_PAGE_SIZE:
+                    break
+
+                time.sleep(0.3)  # 避免请求过快
+
         except Exception as e:
             print(f"[WARN] Skillhub 搜索异常 ({kw}): {e}")
-        time.sleep(0.8)
 
-    # Skillhub 无 star 数据时按名称展示
-    results.sort(key=lambda x: x.get("stars", 0), reverse=True)
+    # 按综合热度排序（downloads + installs*2 + stars*3）
+    results.sort(key=lambda x: x.get("downloads", 0) + x.get("installs", 0) * 2 + x.get("stars", 0) * 3, reverse=True)
     return results
 
 

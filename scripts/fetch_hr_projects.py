@@ -559,14 +559,16 @@ def render_github_md(projects: list[dict], title: str) -> str:
     active_projects = sorted(projects, key=lambda x: x["updated_at"], reverse=True)[:5]
     lines += [f"#### 最近活跃项目", f""]
     for p in active_projects:
-        lines.append(f"- [{p['name']}]({p['url']}) — ⭐{p['stars']:,}　|　更新于 {p['updated_at']}")
+        category = _classify_project(p)
+        lines.append(f"- [{p['name']}]({p['url']}) — ⭐{p['stars']:,}　|　更新于 {p['updated_at']}　|　{category}")
     lines.append("")
 
     # 高 Fork 项目（社区参与度高）
     high_fork = sorted(projects, key=lambda x: x["forks"], reverse=True)[:5]
     lines += [f"#### 社区参与度 Top 5（按 Fork）", f""]
     for p in high_fork:
-        lines.append(f"- [{p['name']}]({p['url']}) — 🍴{p['forks']:,}　|　⭐{p['stars']:,}")
+        category = _classify_project(p)
+        lines.append(f"- [{p['name']}]({p['url']}) — 🍴{p['forks']:,}　|　⭐{p['stars']:,}　|　{category}")
     lines.append("")
 
     # ── 3. 推荐优先级 ──

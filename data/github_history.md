@@ -4,25 +4,25 @@
 
 ## 2026-05-08
 
-共 149 个项目，最高 Star：43,370
+共 149 个项目，最高 Star：43,379
 
 | 项目 | ⭐ Stars | 语言 |
 |------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,370 | JavaScript |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,379 | JavaScript |
 | [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,681 | TypeScript |
 | [google/comprehensive-rust](https://github.com/google/comprehensive-rust) | 32,932 | Rust |
 | [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,754 | Python |
 | [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) | 27,474 | TeX |
 | [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,957 | TypeScript |
-| [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,588 | HTML |
+| [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,589 | HTML |
 | [haizlin/fe-interview](https://github.com/haizlin/fe-interview) | 26,262 | JavaScript |
 | [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) | 26,254 | Jupyter Notebook |
-| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,561 | TypeScript |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,562 | TypeScript |
 | [stas00/ml-engineering](https://github.com/stas00/ml-engineering) | 17,876 | Python |
-| [rendercv/rendercv](https://github.com/rendercv/rendercv) | 16,534 | Python |
+| [rendercv/rendercv](https://github.com/rendercv/rendercv) | 16,535 | Python |
 | [salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever) | 16,456 | Vue |
 | [digininja/DVWA](https://github.com/digininja/DVWA) | 13,022 | PHP |
-| [billryan/resume](https://github.com/billryan/resume) | 11,063 | TeX |
+| [billryan/resume](https://github.com/billryan/resume) | 11,064 | TeX |
 | [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) | 10,915 | Jupyter Notebook |
 | [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,497 | PHP |
 | [helloqingfeng/Awsome-Front-End-learning-resource](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource) | 9,956 | PHP |

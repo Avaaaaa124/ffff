@@ -99,85 +99,237 @@ GITHUB_SEARCH_QUERIES = [
 # ────────────────────────────────────────────
 # HR 八大分类关键词配置
 # ────────────────────────────────────────────
-# 每个分类包含：中文名、英文关键词列表
-# Skillhub 搜索时会用 "关键词 + HR" 组合提高精准度
+# 核心原则：
+#   1. 每个搜索词都是 "HR 场景组合"，避免匹配到金融/股票/电商等无关内容
+#   2. 所有词都带有 HR、employee、recruitment 等上下文限定
+#   3. 不使用裸短词（如单独 "payroll"/"training"/"KPI"），防止噪音
+#
 HR_CATEGORIES = {
     "招聘与人才获取": {
         "emoji": "🎯",
         "keywords": [
-            "recruitment", "talent acquisition", "candidate screening",
-            "ATS applicant tracking", "hiring", "job matching",
-            "interview", "resume screening", "referral program",
-            "sourcing", "headhunter", "campus recruitment",
-            "executive search", "job board",
+            # HR 限定组合（精准匹配）
+            "HR recruitment", "talent acquisition HR", "ATS applicant tracking",
+            "HR interview candidate", "HR hiring", "AI recruitment",
+            "HR recruiter", "candidate experience",
+            # 高召回 HR 词（宽泛匹配，靠过滤器去噪）
+            "recruitment", "resume screening", "candidate screening",
+            "job matching", "talent sourcing", "headhunter",
         ],
     },
     "薪酬福利与绩效管理": {
         "emoji": "💰",
         "keywords": [
-            "payroll", "compensation", "salary",
-            "performance review", "OKR", "KPI",
-            "360 feedback", "bonus", "equity",
-            "incentive", "benefits", "rewards", "wage",
+            # HR 限定组合
+            "HR payroll", "HR compensation", "salary management HR",
+            "employee performance review", "HR OKR", "employee KPI",
+            "360 feedback employee", "employee benefits",
+            # 高召回 HR 词
+            "payroll", "performance management", "compensation management",
         ],
     },
     "员工关系与劳动合规": {
         "emoji": "⚖️",
         "keywords": [
-            "labor", "employee compliance", "contract",
-            "workforce compliance", "employee handbook", "labor law",
-            "workplace policy", "grievance", "disciplinary",
-            "employment law", "workplace safety", "union",
+            # HR 限定组合
+            "HR labor relations", "employee compliance HR",
+            "employee contract HR", "HR labor law", "employment law HR",
+            "workplace policy HR",
+            # 高召回 HR 词
+            "labor relations", "employee handbook", "workplace safety",
         ],
     },
     "培训与人才发展": {
         "emoji": "📚",
         "keywords": [
-            "training", "learning management", "LMS",
-            "e-learning", "onboarding", "skill assessment",
-            "knowledge base", "mentor", "leadership development",
-            "career development", "competency", "microlearning",
+            # HR 限定组合
+            "employee training HR", "corporate training",
+            "HR onboarding", "corporate e-learning",
+            "leadership development HR", "career development HR",
+            # 高召回 HR 词
+            "learning management", "LMS", "employee learning",
+            "skill assessment", "microlearning",
         ],
     },
     "组织发展与组织设计": {
         "emoji": "🏗️",
         "keywords": [
-            "org chart", "organization design", "workforce planning",
-            "headcount", "succession planning", "org structure",
-            "change management", "HRBP", "talent management",
-            "workforce analytics", "organization",
+            # HR 限定组合
+            "HR org chart", "organization design HR", "HR workforce planning",
+            "HR headcount", "succession planning HR",
+            "HR change management", "HRBP",
+            # 高召回 HR 词
+            "org chart", "talent management", "workforce analytics",
         ],
     },
     "HR 数字化与系统工具": {
         "emoji": "🖥️",
         "keywords": [
-            "HRIS", "HRMS", "HCM",
-            "HR software", "employee self-service", "HR automation",
-            "HR dashboard", "people analytics", "HR chatbot",
-            "employee directory", "digital HR", "HR tech",
-            "human resources", "HR platform",
+            # HR 限定组合
+            "HRIS system", "HRMS HR", "HCM HR",
+            "HR automation", "HR dashboard", "HR people analytics",
+            "HR chatbot", "HR employee directory",
+            # 高召回 HR 词
+            "HR software", "HR platform", "human resources",
+            "employee self-service", "HR technology",
         ],
     },
     "人才测评与胜任力模型": {
         "emoji": "🧪",
         "keywords": [
-            "personality assessment", "aptitude test", "psychometric",
-            "competency model", "talent assessment", "behavioral interview",
-            "cognitive assessment", "job simulation", "culture fit",
-            "skill evaluation", "potential assessment", "talent calibration",
-            "assessment", "evaluation",
+            # HR 限定组合
+            "HR psychometric", "HR competency model", "HR talent assessment",
+            "behavioral interview HR", "HR cognitive assessment",
+            "HR culture fit", "HR assessment center",
+            # 高召回 HR 词
+            "personality assessment", "aptitude test", "job simulation",
+            "competency model", "skill evaluation",
         ],
     },
     "企业文化与员工体验": {
         "emoji": "🌈",
         "keywords": [
-            "employee engagement", "employee experience", "company culture",
-            "employee satisfaction", "team building", "wellness",
-            "employee recognition", "work-life balance", "diversity inclusion",
-            "employee wellbeing", "internal communication", "employer branding",
+            # HR 限定组合
+            "employee engagement HR", "employee experience HR", "company culture HR",
+            "employee satisfaction HR", "HR team building", "HR wellness",
+            "employee recognition HR", "HR diversity inclusion",
+            # 高召回 HR 词
+            "employee engagement", "work-life balance", "employer branding",
         ],
     },
 }
+
+# ────────────────────────────────────────────
+# HR 相关性过滤器
+# ────────────────────────────────────────────
+# 白名单：Skill 名称/描述/标签中包含这些词，视为 HR 相关
+HR_WHITELIST_WORDS = [
+    # HR 核心词汇
+    "hr", "human resource", "human capital", "people", "workforce", "employee",
+    "recruit", "hiring", "talent", "onboarding", "payroll", "compensation",
+    "benefit", "performance review", "candidate", "applicant", "job seeker",
+    "resume", "cv", "cover letter", "interview", "offer", "headcount",
+    "org chart", "organizational", "succession", "workforce planning",
+    "employee engagement", "employee experience", "company culture",
+    "labor law", "employment law", "workplace", "disciplinary",
+    "employee handbook", "grievance", "hris", "hrms", "hcm", "ats",
+    "learning management", "lms", "e-learning", "training course",
+    "skill assessment", "competency", "mentor", "coaching",
+    "performance appraisal", "360 feedback", "okr", "kpi dashboard",
+    "employee self-service", "people analytics", "hr dashboard",
+    "hr chatbot", "hr automation", "diversity inclusion",
+    "employer brand", "talent acquisition", "candidate screening",
+    "referral program", "job description", "salary", "pay slip",
+    "leave management", "attendance", "shift scheduling",
+    "employee directory", "offboarding", "exit interview",
+    "wellness program", "team building", "recognition",
+    "psychometric", "aptitude", "assessment center",
+    "behavioral interview", "culture fit", "job simulation",
+    "career development", "leadership development",
+    "change management", "hrbp", "hr tech", "hr software",
+    "talent management", "talent pool", "talent mapping",
+    "job board", "job posting", "job matching",
+]
+
+# 黑名单：包含这些词的 Skill 视为非 HR 相关，直接排除
+HR_BLACKLIST_WORDS = [
+    # 金融/股票/交易
+    "stock", "trading", "forex", "crypto", "bitcoin", "algorithmic trading",
+    "quantitative", "quant trading", "portfolio", "market analysis",
+    "technical analysis", "candlestick", "day trading", "swing trading",
+    "arbitrage", "futures", "options trading", "dividend", "ETF", "mutual fund",
+    "cryptocurrency", "blockchain", "defi", "nft", "token",
+    "financial market", "investment", "hedge fund",
+    # 电商/选品/营销
+    "amazon seller", "shopify", "woocommerce", "e-commerce", "ecommerce",
+    "dropshipping", "product sourcing", "ozon", "aliexpress",
+    "affiliate marketing", "SEO", "backlink", "serp",
+    # 编程/开发工具（非 HR 场景）
+    "code review", "debug", "git", "docker", "kubernetes",
+    "web scraper", "web scraping", "proxy", "vpn",
+    # 游戏/娱乐
+    "gaming", "minecraft", "roblox", "game mod",
+    # 其他无关
+    "hacker news", "prediction market", "reddit", "weather",
+    "recipe", "cooking", "travel", "flight", "hotel booking",
+    # AI 基础工具（非 HR 特化）
+    "ollama", "local llm", "language model management",
+]
+
+# 白名单加严：短词必须与 HR 上下文同现才算通过
+# 这些词单独出现不算 HR 相关，需要配合其他 HR 词
+HR_AMBIGUOUS_WORDS = {
+    "assessment", "evaluation", "analytics", "dashboard", "automation",
+    "management", "platform", "system", "toolkit", "assistant",
+    "chatbot", "simulation", "compliance", "screening",
+}
+
+
+def _is_hr_related(skill: dict) -> bool:
+    """判断一个 Skill 是否与 HR 相关（二次过滤）"""
+    name = (skill.get("name") or "").lower()
+    desc = (skill.get("description") or skill.get("description_zh") or "").lower()
+    tags = " ".join(skill.get("tags") or []).lower()
+    text = f"{name} {desc} {tags}"
+
+    # 先检查黑名单：命中任一黑名单词直接排除
+    for bw in HR_BLACKLIST_WORDS:
+        if bw.lower() in text:
+            return False
+
+    # 检查明确 HR 词（这些词出现就一定是 HR 相关）
+    hr_strong_words = [
+        "hr", "human resource", "human capital", "people", "workforce", "employee",
+        "recruit", "hiring", "talent", "onboarding", "payroll", "compensation",
+        "benefit", "candidate", "applicant", "resume", "cover letter",
+        "offer letter", "job seeker", "headcount",
+        "org chart", "organizational", "succession", "workforce planning",
+        "employee engagement", "employee experience", "company culture",
+        "labor law", "employment law", "workplace", "disciplinary",
+        "employee handbook", "grievance", "hris", "hrms", "hcm", "ats",
+        "learning management", "lms", "e-learning", "training course",
+        "competency", "mentor", "coaching",
+        "performance appraisal", "360 feedback", "okr", "kpi",
+        "employee self-service", "people analytics",
+        "diversity inclusion", "employer brand", "talent acquisition",
+        "referral program", "job description", "salary", "pay slip",
+        "leave management", "attendance", "shift scheduling",
+        "employee directory", "offboarding", "exit interview",
+        "wellness program", "team building", "recognition",
+        "psychometric", "aptitude", "assessment center",
+        "behavioral interview", "culture fit", "job simulation",
+        "career development", "leadership development",
+        "change management", "hrbp", "hr tech", "hr software",
+        "talent management", "talent pool", "talent mapping",
+        "job board", "job posting", "job matching",
+        "bamboohr", "zoho recruit", "workday", "sap successfactor",
+        "oracle hcm", "ukg", "adp payroll",
+    ]
+    for ww in hr_strong_words:
+        if ww in text:
+            return True
+
+    # 模糊词：需要与至少一个 HR 上下文词同现才算通过
+    hr_context_words = [
+        "employee", "staff", "worker", "recruit", "hiring", "talent",
+        "onboarding", "payroll", "compensation", "benefit", "salary",
+        "training", "learning", "performance", "workforce", "workplace",
+        "organization", "department", "manager", "supervisor",
+        "hr", "human resource", "people", "culture", "engagement",
+    ]
+
+    for aw in HR_AMBIGUOUS_WORDS:
+        if aw in text:
+            # 检查是否同时有 HR 上下文词
+            for ctx in hr_context_words:
+                if ctx in text:
+                    return True
+            # 没有上下文，不算 HR
+            return False
+
+    # 都没命中，视为不相关
+    return False
+
 
 # 从分类中提取 Skillhub/Clawhub 搜索用的关键词列表
 SKILL_KEYWORDS = []
@@ -435,7 +587,7 @@ def fetch_github_projects() -> list[dict]:
 # Skillhub 抓取
 # ────────────────────────────────────────────
 def fetch_skillhub_projects() -> list[dict]:
-    """从 Skillhub API 搜索 HR 相关 skill（真实 API），按 8 大分类标注"""
+    """从 Skillhub API 搜索 HR 相关 skill（真实 API），按 8 大分类标注，带 HR 相关性过滤"""
     results = []
     seen = set()
     base_url = "https://api.skillhub.cn/api/skills"
@@ -443,6 +595,9 @@ def fetch_skillhub_projects() -> list[dict]:
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Referer": "https://skillhub.cn/",
     }
+
+    total_fetched = 0
+    total_filtered = 0
 
     for kw in SKILL_KEYWORDS:
         category = _SKILL_KW_TO_CATEGORY.get(kw, "")
@@ -475,7 +630,7 @@ def fetch_skillhub_projects() -> list[dict]:
                         seen.add(slug)
                         # 优先使用中文描述
                         desc = item.get("description_zh") or item.get("description") or ""
-                        results.append({
+                        skill_data = {
                             "name": item.get("name") or slug,
                             "slug": slug,
                             "url": item.get("homepage") or f"https://skillhub.cn/skills/{slug}",
@@ -485,24 +640,34 @@ def fetch_skillhub_projects() -> list[dict]:
                             "downloads": item.get("downloads") or 0,
                             "installs": item.get("installs") or 0,
                             "category": item.get("category") or "",
-                            "hr_category": category,           # HR 八大分类
+                            "hr_category": category,
                             "source": item.get("source") or "unknown",
                             "tags": item.get("tags") or [],
                             "ownerName": item.get("ownerName") or "",
                             "keyword": kw,
-                        })
+                        }
+
+                        total_fetched += 1
+
+                        # 二次过滤：只保留 HR 相关的 Skill
+                        if not _is_hr_related(skill_data):
+                            total_filtered += 1
+                            continue
+
+                        results.append(skill_data)
 
                 fetched += len(skills)
                 page += 1
 
-                # 如果这一页数据不足 pageSize，说明已经是最后一页
                 if len(skills) < SKILL_PAGE_SIZE:
                     break
 
-                time.sleep(0.3)  # 避免请求过快
+                time.sleep(0.3)
 
         except Exception as e:
             print(f"[WARN] Skillhub 搜索异常 ({kw}): {e}")
+
+    print(f"      Skillhub 抓取: {total_fetched} 个 → 过滤后: {len(results)} 个 (过滤掉 {total_filtered} 个非 HR)")
 
     # 按综合热度排序（downloads + installs*2 + stars*3）
     results.sort(key=lambda x: x.get("downloads", 0) + x.get("installs", 0) * 2 + x.get("stars", 0) * 3, reverse=True)
@@ -513,10 +678,13 @@ def fetch_skillhub_projects() -> list[dict]:
 # Clawhub 抓取
 # ────────────────────────────────────────────
 def fetch_clawhub_projects() -> list[dict]:
-    """从 Clawhub 搜索 HR 相关项目，按 8 大分类标注"""
+    """从 Clawhub 搜索 HR 相关项目，按 8 大分类标注，带 HR 相关性过滤"""
     results = []
     seen = set()
     base_url = "https://clawhub.cn/api/mcp/search"
+
+    total_fetched = 0
+    total_filtered = 0
 
     for kw in SKILL_KEYWORDS:
         category = _SKILL_KW_TO_CATEGORY.get(kw, "")
@@ -529,18 +697,28 @@ def fetch_clawhub_projects() -> list[dict]:
                     name = item.get("name") or item.get("title") or ""
                     if name and name not in seen:
                         seen.add(name)
-                        results.append({
+                        skill_data = {
                             "name": name,
                             "url": item.get("url") or item.get("link") or f"https://clawhub.cn/mcp/{name}",
                             "description": item.get("description") or "",
                             "stars": item.get("stars") or item.get("installs") or 0,
                             "category": item.get("category") or "HR",
-                            "hr_category": category,           # HR 八大分类
+                            "hr_category": category,
                             "keyword": kw,
-                        })
+                        }
+
+                        total_fetched += 1
+
+                        if not _is_hr_related(skill_data):
+                            total_filtered += 1
+                            continue
+
+                        results.append(skill_data)
         except Exception as e:
             print(f"[WARN] Clawhub 搜索异常 ({kw}): {e}")
         time.sleep(0.8)
+
+    print(f"      Clawhub 抓取: {total_fetched} 个 → 过滤后: {len(results)} 个 (过滤掉 {total_filtered} 个非 HR)")
 
     results.sort(key=lambda x: x.get("stars", 0), reverse=True)
     return results

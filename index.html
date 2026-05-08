@@ -15,11 +15,16 @@
       --green: #22c55e;
       --yellow: #fbbf24;
       --red: #f87171;
+      --orange: #fb923c;
+      --cyan: #22d3ee;
       --text: #e2e8f0;
       --text2: #94a3b8;
+      --text3: #64748b;
       --border: #2d3254;
       --card: #1e2235;
+      --card2: #252a42;
       --radius: 14px;
+      --radius2: 10px;
       --shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
 
@@ -39,7 +44,7 @@
       padding: 28px 32px 20px;
     }
     .header-inner {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .header h1 {
@@ -73,31 +78,32 @@
 
     /* ── Stats Cards ── */
     .stats-row {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 24px auto 0;
       padding: 0 32px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
     }
     .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 22px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .stat-icon { font-size: 2rem; }
-    .stat-label { font-size: 0.78rem; color: var(--text2); margin-bottom: 4px; }
-    .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--accent2); }
+    .stat-icon { font-size: 1.8rem; }
+    .stat-label { font-size: 0.75rem; color: var(--text2); margin-bottom: 3px; }
+    .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--accent2); }
+    .stat-sub { font-size: 0.7rem; color: var(--text3); margin-top: 2px; }
 
     /* ── Tabs ── */
     .tab-container {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 28px auto 0;
       padding: 0 32px 40px;
     }
@@ -118,6 +124,7 @@
       margin-bottom: -2px;
       transition: color 0.2s, border-color 0.2s;
       border-radius: 6px 6px 0 0;
+      white-space: nowrap;
     }
     .tab-btn.active {
       color: var(--accent2);
@@ -162,6 +169,14 @@
       border-radius: 2px;
     }
     .md-content h3 { font-size: 1rem; color: var(--accent2); margin: 20px 0 10px; }
+    .md-content h4 {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
+      margin: 18px 0 6px;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent2);
+    }
     .md-content p { color: var(--text2); margin-bottom: 12px; }
     .md-content blockquote {
       border-left: 3px solid var(--accent);
@@ -176,7 +191,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 16px 0;
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       overflow-x: auto;
       display: block;
     }
@@ -218,27 +233,208 @@
       color: var(--text2);
     }
     .md-content li { margin-bottom: 6px; }
-
-    /* ── 深度分析 h4 样式 ── */
-    .md-content h4 {
-      font-size: 0.95rem;
-      color: var(--text);
-      font-weight: 600;
-      margin: 18px 0 8px;
-      padding-left: 12px;
-      border-left: 3px solid var(--accent2);
-    }
-
-    /* 优先级列表样式 */
     .md-content li strong a {
       color: var(--accent2);
       font-weight: 700;
     }
+    .md-content td a { font-weight: 600; }
 
-    /* 项目名链接加粗突出 */
-    .md-content td a {
-      font-weight: 600;
+    /* ── Skills 卡片式布局 ── */
+    .skills-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
     }
+    .skills-search {
+      flex: 1;
+      min-width: 200px;
+      max-width: 360px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px 9px 36px;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 12px center;
+    }
+    .skills-search:focus { border-color: var(--accent); }
+    .skills-search::placeholder { color: var(--text3); }
+
+    .sort-btn {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sort-btn:hover, .sort-btn.active {
+      border-color: var(--accent);
+      color: var(--accent2);
+      background: rgba(108, 99, 255, 0.1);
+    }
+
+    .source-filter {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      outline: none;
+    }
+    .source-filter option { background: var(--bg2); color: var(--text); }
+
+    .result-count {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-left: auto;
+    }
+
+    /* 卡片网格 */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .skill-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 20px 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .skill-card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .skill-card-name a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .skill-card-name a:hover { color: var(--accent2); }
+
+    .skill-card-source {
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(108, 99, 255, 0.15);
+      color: var(--accent2);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .skill-card-source.clawhub {
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--cyan);
+    }
+    .skill-card-source.skillhub {
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green);
+    }
+
+    .skill-card-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .skill-card-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--text3);
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(45, 50, 84, 0.6);
+    }
+    .skill-card-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .meta-item.downloads { color: var(--green); }
+    .meta-item.installs { color: var(--cyan); }
+    .meta-item.stars { color: var(--yellow); }
+    .meta-item.heat { color: var(--orange); font-weight: 600; }
+
+    .skill-card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .skill-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--bg3);
+      color: var(--text3);
+      border: 1px solid rgba(45, 50, 84, 0.6);
+    }
+
+    .skill-card-rank {
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      background: linear-gradient(135deg, var(--accent), #818cf8);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(108, 99, 255, 0.4);
+    }
+    .skill-card-rank.top3 {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    }
+
+    /* 空状态 */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3);
+      font-size: 0.95rem;
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
 
     /* ── Loading & Error ── */
     .loading {
@@ -306,6 +502,11 @@
       .header { padding: 20px 16px 16px; }
       .stats-row, .tab-container { padding: 0 16px; }
       .md-content { padding: 20px 16px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-toolbar { flex-direction: column; align-items: stretch; }
+      .skills-search { max-width: 100%; }
+      .result-count { margin-left: 0; text-align: right; }
+      .tab-nav { overflow-x: auto; }
     }
   </style>
 </head>
@@ -315,7 +516,7 @@
 <div class="header">
   <div class="header-inner">
     <h1>🧑‍💼 HR AGENT MONITOR</h1>
-    <p class="subtitle">自动监控 GitHub · Skillhub · Clawhub 三大渠道的人力资源相关 AI 项目</p>
+    <p class="subtitle">自动监控 GitHub · Skillhub · Clawhub 三大渠道的人力资源相关 AI 项目与 Skills</p>
     <div class="tag-row">
       <div class="tag">🐙 GitHub <span id="tag-github">...</span></div>
       <div class="tag">🛠️ Skillhub <span id="tag-skillhub">...</span></div>
@@ -332,6 +533,7 @@
     <div>
       <div class="stat-label">GitHub HR 项目</div>
       <div class="stat-value" id="stat-github">—</div>
+      <div class="stat-sub" id="stat-github-sub"></div>
     </div>
   </div>
   <div class="stat-card">
@@ -339,6 +541,7 @@
     <div>
       <div class="stat-label">Skillhub Skills</div>
       <div class="stat-value" id="stat-skillhub">—</div>
+      <div class="stat-sub" id="stat-skillhub-sub"></div>
     </div>
   </div>
   <div class="stat-card">
@@ -346,6 +549,7 @@
     <div>
       <div class="stat-label">Clawhub MCP</div>
       <div class="stat-value" id="stat-clawhub">—</div>
+      <div class="stat-sub" id="stat-clawhub-sub"></div>
     </div>
   </div>
   <div class="stat-card">
@@ -360,10 +564,10 @@
 <!-- Tabs -->
 <div class="tab-container">
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('today-github')">⭐ GitHub 今日监控</button>
-    <button class="tab-btn" onclick="switchTab('today-skills')">🛠️ Skills 今日监控</button>
-    <button class="tab-btn" onclick="switchTab('history-github')">📚 GitHub 历史项目</button>
-    <button class="tab-btn" onclick="switchTab('history-skills')">📋 Skills 历史记录</button>
+    <button class="tab-btn active" onclick="switchTab(this, 'today-github')">⭐ GitHub 今日</button>
+    <button class="tab-btn" onclick="switchTab(this, 'today-skills')">🛠️ Skills 今日</button>
+    <button class="tab-btn" onclick="switchTab(this, 'history-github')">📚 GitHub 历史</button>
+    <button class="tab-btn" onclick="switchTab(this, 'history-skills')">📋 Skills 历史</button>
   </div>
 
   <!-- GitHub 今日 -->
@@ -377,11 +581,27 @@
     </div>
   </div>
 
-  <!-- Skills 今日 -->
+  <!-- Skills 今日 — 卡片式布局 -->
   <div class="tab-panel" id="panel-today-skills">
-    <div class="md-content" id="content-today-skills">
-      <div class="loading"><div class="spinner"></div>正在加载 Skills 今日监控...</div>
+    <div class="skills-toolbar">
+      <input type="text" class="skills-search" id="skill-search" placeholder="🔍 搜索 Skill 名称、描述、标签..." oninput="filterSkills()" />
+      <button class="sort-btn active" data-sort="heat" onclick="sortSkills(this, 'heat')">🔥 热度</button>
+      <button class="sort-btn" data-sort="downloads" onclick="sortSkills(this, 'downloads')">⬇️ 下载</button>
+      <button class="sort-btn" data-sort="installs" onclick="sortSkills(this, 'installs')">📥 安装</button>
+      <button class="sort-btn" data-sort="stars" onclick="sortSkills(this, 'stars')">⭐ Stars</button>
+      <button class="sort-btn" data-sort="name" onclick="sortSkills(this, 'name')">🔤 名称</button>
+      <select class="source-filter" id="source-filter" onchange="filterSkills()">
+        <option value="">全部来源</option>
+        <option value="skillhub">Skillhub</option>
+        <option value="clawhub">Clawhub</option>
+      </select>
+      <span class="result-count" id="skill-count"></span>
     </div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="loading"><div class="spinner"></div>正在加载 Skills...</div>
+    </div>
+    <!-- 兜底：如果 JSON 解析失败，显示 Markdown -->
+    <div class="md-content" id="content-today-skills-fallback" style="display:none;"></div>
   </div>
 
   <!-- GitHub 历史 -->
@@ -404,19 +624,160 @@
 </footer>
 
 <script>
+  // ── 全局状态 ──
+  let allSkillData = [];        // 所有 skill 卡片数据
+  let currentSort = 'heat';     // 当前排序字段
+  let currentSortDir = -1;      // 排序方向 (-1 降序, 1 升序)
+
   // ── Tab 切换 ──
-  function switchTab(id) {
+  function switchTab(btn, id) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('panel-' + id).classList.add('active');
-    event.target.classList.add('active');
+    btn.classList.add('active');
   }
 
   // ── Markdown 渲染 ──
   function renderMd(el, text) {
     el.innerHTML = marked.parse(text);
-    // 链接新标签打开
     el.querySelectorAll('a').forEach(a => a.setAttribute('target', '_blank'));
+  }
+
+  // ── 从 Skills MD 中提取 JSON 数据 ──
+  function extractSkillData(mdText) {
+    const match = mdText.match(/<!-- SKILL_DATA:(.+?):SKILL_DATA -->/s);
+    if (!match) return null;
+    try {
+      return JSON.parse(match[1]);
+    } catch (e) {
+      console.error('Failed to parse SKILL_DATA JSON', e);
+      return null;
+    }
+  }
+
+  // ── 数字格式化 ──
+  function fmtNum(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+    return n.toLocaleString();
+  }
+
+  // ── 渲染 Skills 卡片 ──
+  function renderSkillCards(data) {
+    const grid = document.getElementById('skills-grid');
+    const fallback = document.getElementById('content-today-skills-fallback');
+
+    if (!data || !data.skillhub || data.skillhub.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无 Skills 数据<br><small>等待 GitHub Actions 更新...</small></div>';
+      return;
+    }
+
+    allSkillData = data.skillhub;
+    // 合并 clawhub 数据（如果有的话）
+    if (data.clawhub && data.clawhub.length > 0) {
+      data.clawhub.forEach(item => {
+        allSkillData.push({
+          name: item.name,
+          slug: '',
+          url: item.url,
+          desc: (item.description || '').substring(0, 120),
+          downloads: 0,
+          installs: 0,
+          stars: 0,
+          heat: 0,
+          source: 'clawhub',
+          tags: [],
+          keyword: item.keyword || '',
+        });
+      });
+    }
+
+    currentSort = 'heat';
+    currentSortDir = -1;
+    allSkillData.sort((a, b) => (b.heat || 0) - (a.heat || 0));
+
+    renderCards(allSkillData);
+  }
+
+  function renderCards(cards) {
+    const grid = document.getElementById('skills-grid');
+    document.getElementById('skill-count').textContent = `共 ${cards.length} 个 Skills`;
+
+    if (cards.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🤷</div>没有匹配的 Skill<br><small>试试其他关键词？</small></div>';
+      return;
+    }
+
+    grid.innerHTML = cards.map((skill, idx) => {
+      const rank = allSkillData.indexOf(skill) + 1;
+      const isTop3 = rank <= 3;
+      const sourceClass = skill.source || 'skillhub';
+      const sourceLabel = skill.source === 'clawhub' ? 'Clawhub' : (skill.source || 'Skillhub');
+      const tagsHtml = (skill.tags || []).slice(0, 4).map(t => `<span class="skill-tag">${t}</span>`).join('');
+      const hasMeta = skill.downloads > 0 || skill.installs > 0 || skill.stars > 0;
+
+      return `
+        <div class="skill-card">
+          ${isTop3 ? `<div class="skill-card-rank top3">#${rank}</div>` : (rank <= 10 ? `<div class="skill-card-rank">#${rank}</div>` : '')}
+          <div class="skill-card-header">
+            <div class="skill-card-name"><a href="${skill.url || '#'}" target="_blank">${skill.name || '—'}</a></div>
+            <span class="skill-card-source ${sourceClass}">${sourceLabel}</span>
+          </div>
+          <div class="skill-card-desc">${skill.desc || '暂无描述'}</div>
+          ${tagsHtml ? `<div class="skill-card-tags">${tagsHtml}</div>` : ''}
+          ${hasMeta ? `
+          <div class="skill-card-meta">
+            ${skill.heat > 0 ? `<span class="meta-item heat">🔥 ${fmtNum(skill.heat)}</span>` : ''}
+            ${skill.downloads > 0 ? `<span class="meta-item downloads">⬇️ ${fmtNum(skill.downloads)}</span>` : ''}
+            ${skill.installs > 0 ? `<span class="meta-item installs">📥 ${fmtNum(skill.installs)}</span>` : ''}
+            ${skill.stars > 0 ? `<span class="meta-item stars">⭐ ${fmtNum(skill.stars)}</span>` : ''}
+          </div>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ── 搜索过滤 ──
+  function filterSkills() {
+    const query = document.getElementById('skill-search').value.toLowerCase().trim();
+    const source = document.getElementById('source-filter').value;
+
+    let filtered = allSkillData;
+    if (source) {
+      filtered = filtered.filter(s => s.source === source);
+    }
+    if (query) {
+      filtered = filtered.filter(s =>
+        (s.name || '').toLowerCase().includes(query) ||
+        (s.desc || '').toLowerCase().includes(query) ||
+        (s.keyword || '').toLowerCase().includes(query) ||
+        (s.tags || []).some(t => t.toLowerCase().includes(query))
+      );
+    }
+
+    // 保持当前排序
+    filtered.sort((a, b) => {
+      const aVal = a[currentSort] || 0;
+      const bVal = b[currentSort] || 0;
+      if (typeof aVal === 'string') return aVal.localeCompare(bVal) * currentSortDir;
+      return (aVal - bVal) * currentSortDir;
+    });
+
+    renderCards(filtered);
+  }
+
+  // ── 排序切换 ──
+  function sortSkills(btn, field) {
+    if (currentSort === field) {
+      currentSortDir *= -1;
+    } else {
+      currentSort = field;
+      currentSortDir = field === 'name' ? 1 : -1;
+    }
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterSkills();
   }
 
   // ── 从 MD 文件提取统计数字 ──
@@ -427,21 +788,31 @@
       if (ghMatch) {
         document.getElementById('stat-github').textContent = ghMatch[1] + '+';
         document.getElementById('tag-github').textContent = ghMatch[1] + ' 个项目';
+        // 提取最高 Star
+        const topStar = githubMd.match(/最高 Star\s*\|\s*([\d,]+)/);
+        if (topStar) {
+          document.getElementById('stat-github-sub').textContent = '最高 ⭐' + topStar[1];
+        }
       }
       // Skillhub
-      const shMatch = skillsMd.match(/Skillhub.*?共\s*\*\*(\d+)\*\*/);
+      const shMatch = skillsMd.match(/Skillhub[：:]\s*\*\*(\d+)\*\*/);
       if (shMatch) {
         document.getElementById('stat-skillhub').textContent = shMatch[1];
         document.getElementById('tag-skillhub').textContent = shMatch[1] + ' 个';
+        // 提取总下载量
+        const totalDl = skillsMd.match(/总下载量\s*\|\s*([\d,]+)/);
+        if (totalDl) {
+          document.getElementById('stat-skillhub-sub').textContent = '⬇️' + totalDl[1] + ' 下载';
+        }
       }
       // Clawhub
-      const chMatch = skillsMd.match(/Clawhub.*?共\s*\*\*(\d+)\*\*/);
+      const chMatch = skillsMd.match(/Clawhub[：:]\s*\*\*(\d+)\*\*/);
       if (chMatch) {
         document.getElementById('stat-clawhub').textContent = chMatch[1];
         document.getElementById('tag-clawhub').textContent = chMatch[1] + ' 个';
       }
       // 日期
-      const dateMatch = githubMd.match(/更新时间：(\d{4}-\d{2}-\d{2})/);
+      const dateMatch = githubMd.match(/更新时间[：:](\d{4}-\d{2}-\d{2})/);
       if (dateMatch) {
         document.getElementById('stat-date').textContent = dateMatch[1];
         document.getElementById('update-time').textContent = '最后更新：' + dateMatch[1];
@@ -460,16 +831,16 @@
   async function loadAllData() {
     const files = [
       { id: 'content-today-github',   path: 'data/github_today.md' },
-      { id: 'content-today-skills',   path: 'data/skills_today.md' },
+      { id: '_skills',                 path: 'data/skills_today.md' },
       { id: 'content-history-github', path: 'data/github_history.md' },
       { id: 'content-history-skills', path: 'data/skills_history.md' },
     ];
 
     // 显示 loading
-    files.forEach(f => {
-      const el = document.getElementById(f.id);
-      el.innerHTML = `<div class="loading"><div class="spinner"></div>正在加载 ${f.path}...</div>`;
-    });
+    document.getElementById('content-today-github').innerHTML = '<div class="loading"><div class="spinner"></div>正在加载...</div>';
+    document.getElementById('skills-grid').innerHTML = '<div class="loading"><div class="spinner"></div>正在加载 Skills...</div>';
+    document.getElementById('content-history-github').innerHTML = '<div class="loading"><div class="spinner"></div>正在加载...</div>';
+    document.getElementById('content-history-skills').innerHTML = '<div class="loading"><div class="spinner"></div>正在加载...</div>';
 
     const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
 
@@ -477,13 +848,37 @@
     let skillsMdText = '';
 
     results.forEach((result, i) => {
-      const el = document.getElementById(files[i].id);
       if (result.status === 'fulfilled') {
-        if (i === 0) githubMdText = result.value;
-        if (i === 1) skillsMdText = result.value;
-        renderMd(el, result.value);
+        const text = result.value;
+        if (i === 0) {
+          githubMdText = text;
+          renderMd(document.getElementById(files[i].id), text);
+        }
+        if (i === 1) {
+          skillsMdText = text;
+          // 尝试提取 JSON 数据渲染卡片
+          const skillData = extractSkillData(text);
+          if (skillData) {
+            renderSkillCards(skillData);
+          } else {
+            // 没有结构化数据，回退到 Markdown 渲染
+            document.getElementById('skills-grid').style.display = 'none';
+            document.querySelector('.skills-toolbar').style.display = 'none';
+            const fallback = document.getElementById('content-today-skills-fallback');
+            fallback.style.display = 'block';
+            renderMd(fallback, text);
+          }
+        }
+        if (i === 2) {
+          renderMd(document.getElementById(files[i].id), text);
+        }
+        if (i === 3) {
+          renderMd(document.getElementById(files[i].id), text);
+        }
       } else {
-        el.innerHTML = `<div class="error-box">⚠️ 加载失败：${files[i].path}<br><small>${result.reason}</small></div>`;
+        const targetId = i === 1 ? 'skills-grid' : files[i].id;
+        const el = i === 1 ? document.getElementById(targetId) : document.getElementById(targetId);
+        el.innerHTML = `<div class="error-box">⚠️ 加载失败：${files[i].path}<br><small>${results[i].reason}</small></div>`;
       }
     });
 

@@ -661,39 +661,120 @@ def render_github_md(projects: list[dict], title: str) -> str:
 
 
 def render_skills_md(skillhub: list[dict], clawhub: list[dict], title: str) -> str:
+    """渲染 Skills/MCP 看板 Markdown，输出结构化 JSON 供前端卡片渲染"""
     lines = [
         f"# {title}",
         f"",
-        f"> 更新时间：{TODAY}　｜　来源：Skillhub + Clawhub",
+        f"> 更新时间：{TODAY}　｜　Skillhub：**{len(skillhub)}** 个　｜　Clawhub：**{len(clawhub)}** 个",
         f"",
     ]
 
-    # Skillhub
-    lines += [
-        f"## 🛠️ Skillhub HR Skill",
-        f"",
-        f"共 **{len(skillhub)}** 个匹配项",
-        f"",
-        f"| # | Skill 名称 | 描述 | 分类 | 关键词 |",
-        f"|---|-----------|------|------|-------|",
-    ]
-    for i, p in enumerate(skillhub[:50], 1):
-        desc = p["description"][:50].replace("|", "｜") if p["description"] else "—"
-        lines.append(f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p.get('category','—')} | {p.get('keyword','—')} |")
+    # ── Skillhub 概览统计 ──
+    if skillhub:
+        total_downloads = sum(p.get("downloads", 0) for p in skillhub)
+        total_installs = sum(p.get("installs", 0) for p in skillhub)
+        total_stars = sum(p.get("stars", 0) for p in skillhub)
+        top_skill = skillhub[0]
+        top_heat = top_skill.get("downloads", 0) + top_skill.get("installs", 0) * 2 + top_skill.get("stars", 0) * 3
 
-    # Clawhub
-    lines += [
-        f"",
-        f"## 📦 Clawhub HR MCP",
-        f"",
-        f"共 **{len(clawhub)}** 个匹配项",
-        f"",
-        f"| # | MCP 名称 | 描述 | 分类 | 关键词 |",
-        f"|---|---------|------|------|-------|",
-    ]
-    for i, p in enumerate(clawhub[:50], 1):
-        desc = p["description"][:50].replace("|", "｜") if p["description"] else "—"
-        lines.append(f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p.get('category','—')} | {p.get('keyword','—')} |")
+        lines += [
+            f"## 概览",
+            f"",
+            f"| 指标 | 数值 |",
+            f"|------|------|",
+            f"| Skill 总数 | {len(skillhub)} |",
+            f"| 总下载量 | {total_downloads:,} |",
+            f"| 总安装量 | {total_installs:,} |",
+            f"| 总 Star 数 | {total_stars:,} |",
+            f"| 最热 Skill | [{top_skill.get('name', '—')}]({top_skill.get('url', '#')}) (热度 {top_heat:,}) |",
+            f"",
+            f"---",
+            f"",
+        ]
+
+        # ── Skillhub 按热度分级（仿 GitHub 看板风格）──
+        # 先给每个 skill 计算热度
+        for p in skillhub:
+            p["_heat"] = p.get("downloads", 0) + p.get("installs", 0) * 2 + p.get("stars", 0) * 3
+
+        lines += [
+            f"## 🔥 Skillhub 热门 Skills",
+            f"",
+        ]
+
+        # Top 10
+        lines.append(f"### 🏆 Top 10 热门")
+        lines.append("")
+        for i, p in enumerate(skillhub[:10], 1):
+            name = p.get("name") or p.get("slug") or "—"
+            url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
+            desc = (p.get("description_zh") or p.get("description") or "—")[:80]
+            heat = p.get("_heat", 0)
+            source = p.get("source", "skillhub")
+            tags = p.get("tags") or []
+            tag_str = " ".join(f"`{t}`" for t in tags[:3])
+            meta = f"⬇️{p.get('downloads', 0):,}　📥{p.get('installs', 0):,}　⭐{p.get('stars', 0):,}　📦{source}"
+            lines.append(f"#### {i}. [{name}]({url})")
+            lines.append(f"- **热度**：{heat:,}　|　{meta}")
+            if desc != "—":
+                lines.append(f"- **简介**：{desc}")
+            if tag_str:
+                lines.append(f"- **标签**：{tag_str}")
+            lines.append("")
+
+        # 完整列表表格（前 50）
+        lines += [
+            f"### 📋 完整列表（Top 50）",
+            f"",
+            f"| # | Skill | 热度 | ⬇️ 下载 | 📥 安装 | ⭐ Stars | 来源 | 标签 |",
+            f"|---|-------|------|---------|---------|---------|------|------|",
+        ]
+        for i, p in enumerate(skillhub[:50], 1):
+            name = p.get("name") or p.get("slug") or "—"
+            url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
+            heat = p.get("_heat", 0)
+            tags = p.get("tags") or []
+            tag_str = "、".join(tags[:2]) if tags else "—"
+            lines.append(
+                f"| {i} | [{name}]({url}) | {heat:,} | {p.get('downloads', 0):,} | {p.get('installs', 0):,} | {p.get('stars', 0):,} | {p.get('source', '—')} | {tag_str} |"
+            )
+        lines.append("")
+
+    # ── Clawhub 部分 ──
+    if clawhub:
+        lines += [
+            f"## 📦 Clawhub HR MCP",
+            f"",
+            f"共 **{len(clawhub)}** 个匹配项",
+            f"",
+            f"| # | MCP 名称 | 描述 | 分类 | 关键词 |",
+            f"|---|---------|------|------|-------|",
+        ]
+        for i, p in enumerate(clawhub[:50], 1):
+            desc = p["description"][:50].replace("|", "｜") if p["description"] else "—"
+            lines.append(f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p.get('category','—')} | {p.get('keyword','—')} |")
+        lines.append("")
+
+    # ── 嵌入结构化 JSON 供前端卡片渲染 ──
+    import json as _json
+    # 只保留前端需要的字段，减少体积
+    skillhub_light = []
+    for p in skillhub[:100]:
+        skillhub_light.append({
+            "name": p.get("name") or p.get("slug") or "",
+            "slug": p.get("slug", ""),
+            "url": p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}",
+            "desc": (p.get("description_zh") or p.get("description") or "")[:120],
+            "downloads": p.get("downloads", 0),
+            "installs": p.get("installs", 0),
+            "stars": p.get("stars", 0),
+            "heat": p.get("_heat", 0),
+            "source": p.get("source", ""),
+            "tags": (p.get("tags") or [])[:5],
+            "keyword": p.get("keyword", ""),
+        })
+    json_block = _json.dumps({"skillhub": skillhub_light, "clawhub": clawhub[:50]}, ensure_ascii=False)
+    lines.append(f"<!-- SKILL_DATA:{json_block}:SKILL_DATA -->")
 
     lines.append(f"\n---\n\n*由 HR Agent Monitor 自动生成 · {TODAY}*")
     return "\n".join(lines)

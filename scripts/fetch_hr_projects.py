@@ -96,16 +96,97 @@ GITHUB_SEARCH_QUERIES = [
     "employee+directory stars:>200",
 ]
 
-# Skillhub / Clawhub 搜索关键词（按子领域覆盖）
-# 真实 API: GET https://api.skillhub.cn/api/skills?keyword=xxx&pageSize=50&pageNumber=1
-SKILL_KEYWORDS = [
-    "hr", "recruitment", "resume screening", "talent acquisition",
-    "human resources", "ATS", "onboarding", "payroll", "performance review",
-    "employee training", "learning management", "compensation", "HRIS",
-    "workforce management", "labor relations", "compliance", "HRBP",
-    "leave management", "OKR", "KPI", "expense management", "shift scheduling",
-    "time attendance", "org chart",
-]
+# ────────────────────────────────────────────
+# HR 八大分类关键词配置
+# ────────────────────────────────────────────
+# 每个分类包含：中文名、英文关键词列表
+# Skillhub 搜索时会用 "关键词 + HR" 组合提高精准度
+HR_CATEGORIES = {
+    "招聘与人才获取": {
+        "emoji": "🎯",
+        "keywords": [
+            "recruitment", "talent acquisition", "candidate screening",
+            "ATS applicant tracking", "hiring", "job matching",
+            "interview", "resume screening", "referral program",
+            "sourcing", "headhunter", "campus recruitment",
+            "executive search", "job board",
+        ],
+    },
+    "薪酬福利与绩效管理": {
+        "emoji": "💰",
+        "keywords": [
+            "payroll", "compensation", "salary",
+            "performance review", "OKR", "KPI",
+            "360 feedback", "bonus", "equity",
+            "incentive", "benefits", "rewards", "wage",
+        ],
+    },
+    "员工关系与劳动合规": {
+        "emoji": "⚖️",
+        "keywords": [
+            "labor", "employee compliance", "contract",
+            "workforce compliance", "employee handbook", "labor law",
+            "workplace policy", "grievance", "disciplinary",
+            "employment law", "workplace safety", "union",
+        ],
+    },
+    "培训与人才发展": {
+        "emoji": "📚",
+        "keywords": [
+            "training", "learning management", "LMS",
+            "e-learning", "onboarding", "skill assessment",
+            "knowledge base", "mentor", "leadership development",
+            "career development", "competency", "microlearning",
+        ],
+    },
+    "组织发展与组织设计": {
+        "emoji": "🏗️",
+        "keywords": [
+            "org chart", "organization design", "workforce planning",
+            "headcount", "succession planning", "org structure",
+            "change management", "HRBP", "talent management",
+            "workforce analytics", "organization",
+        ],
+    },
+    "HR 数字化与系统工具": {
+        "emoji": "🖥️",
+        "keywords": [
+            "HRIS", "HRMS", "HCM",
+            "HR software", "employee self-service", "HR automation",
+            "HR dashboard", "people analytics", "HR chatbot",
+            "employee directory", "digital HR", "HR tech",
+            "human resources", "HR platform",
+        ],
+    },
+    "人才测评与胜任力模型": {
+        "emoji": "🧪",
+        "keywords": [
+            "personality assessment", "aptitude test", "psychometric",
+            "competency model", "talent assessment", "behavioral interview",
+            "cognitive assessment", "job simulation", "culture fit",
+            "skill evaluation", "potential assessment", "talent calibration",
+            "assessment", "evaluation",
+        ],
+    },
+    "企业文化与员工体验": {
+        "emoji": "🌈",
+        "keywords": [
+            "employee engagement", "employee experience", "company culture",
+            "employee satisfaction", "team building", "wellness",
+            "employee recognition", "work-life balance", "diversity inclusion",
+            "employee wellbeing", "internal communication", "employer branding",
+        ],
+    },
+}
+
+# 从分类中提取 Skillhub/Clawhub 搜索用的关键词列表
+SKILL_KEYWORDS = []
+_SKILL_KW_TO_CATEGORY = {}  # 关键词 → 分类名的映射
+for _cat_name, _cat_info in HR_CATEGORIES.items():
+    for _kw in _cat_info["keywords"]:
+        SKILL_KEYWORDS.append(_kw)
+        _SKILL_KW_TO_CATEGORY[_kw] = _cat_name
+
 SKILL_PAGE_SIZE = 50       # 每次请求获取数量
 SKILL_MAX_PER_KW = 100     # 每个关键词最多取多少
 
@@ -354,7 +435,7 @@ def fetch_github_projects() -> list[dict]:
 # Skillhub 抓取
 # ────────────────────────────────────────────
 def fetch_skillhub_projects() -> list[dict]:
-    """从 Skillhub API 搜索 HR 相关 skill（真实 API）"""
+    """从 Skillhub API 搜索 HR 相关 skill（真实 API），按 8 大分类标注"""
     results = []
     seen = set()
     base_url = "https://api.skillhub.cn/api/skills"
@@ -364,6 +445,7 @@ def fetch_skillhub_projects() -> list[dict]:
     }
 
     for kw in SKILL_KEYWORDS:
+        category = _SKILL_KW_TO_CATEGORY.get(kw, "")
         page = 1
         fetched = 0
         try:
@@ -403,6 +485,7 @@ def fetch_skillhub_projects() -> list[dict]:
                             "downloads": item.get("downloads") or 0,
                             "installs": item.get("installs") or 0,
                             "category": item.get("category") or "",
+                            "hr_category": category,           # HR 八大分类
                             "source": item.get("source") or "unknown",
                             "tags": item.get("tags") or [],
                             "ownerName": item.get("ownerName") or "",
@@ -430,12 +513,13 @@ def fetch_skillhub_projects() -> list[dict]:
 # Clawhub 抓取
 # ────────────────────────────────────────────
 def fetch_clawhub_projects() -> list[dict]:
-    """从 Clawhub 搜索 HR 相关项目"""
+    """从 Clawhub 搜索 HR 相关项目，按 8 大分类标注"""
     results = []
     seen = set()
     base_url = "https://clawhub.cn/api/mcp/search"
 
     for kw in SKILL_KEYWORDS:
+        category = _SKILL_KW_TO_CATEGORY.get(kw, "")
         try:
             resp = requests.get(base_url, params={"q": kw, "limit": 30}, timeout=15)
             if resp.status_code == 200:
@@ -451,6 +535,7 @@ def fetch_clawhub_projects() -> list[dict]:
                             "description": item.get("description") or "",
                             "stars": item.get("stars") or item.get("installs") or 0,
                             "category": item.get("category") or "HR",
+                            "hr_category": category,           # HR 八大分类
                             "keyword": kw,
                         })
         except Exception as e:
@@ -661,7 +746,7 @@ def render_github_md(projects: list[dict], title: str) -> str:
 
 
 def render_skills_md(skillhub: list[dict], clawhub: list[dict], title: str) -> str:
-    """渲染 Skills/MCP 看板 Markdown，输出结构化 JSON 供前端卡片渲染"""
+    """渲染 Skills/MCP 看板 Markdown，按 HR 八大分类展示"""
     lines = [
         f"# {title}",
         f"",
@@ -688,78 +773,117 @@ def render_skills_md(skillhub: list[dict], clawhub: list[dict], title: str) -> s
             f"| 总 Star 数 | {total_stars:,} |",
             f"| 最热 Skill | [{top_skill.get('name', '—')}]({top_skill.get('url', '#')}) (热度 {top_heat:,}) |",
             f"",
-            f"---",
-            f"",
         ]
 
-        # ── Skillhub 按热度分级（仿 GitHub 看板风格）──
-        # 先给每个 skill 计算热度
+        # ── 按分类统计 ──
+        cat_stats: dict[str, dict] = {}
+        for p in skillhub:
+            cat = p.get("hr_category") or "未分类"
+            if cat not in cat_stats:
+                cat_stats[cat] = {"count": 0, "downloads": 0, "installs": 0, "stars": 0}
+            cat_stats[cat]["count"] += 1
+            cat_stats[cat]["downloads"] += p.get("downloads", 0)
+            cat_stats[cat]["installs"] += p.get("installs", 0)
+            cat_stats[cat]["stars"] += p.get("stars", 0)
+
+        lines += [
+            f"### 📊 分类分布",
+            f"",
+            f"| 分类 | 数量 | 下载量 | 安装量 | Stars |",
+            f"|------|------|--------|--------|-------|",
+        ]
+        for cat_name, cat_info in HR_CATEGORIES.items():
+            stats = cat_stats.get(cat_name, {"count": 0, "downloads": 0, "installs": 0, "stars": 0})
+            emoji = cat_info["emoji"]
+            if stats["count"] > 0:
+                lines.append(
+                    f"| {emoji} {cat_name} | {stats['count']} | {stats['downloads']:,} | {stats['installs']:,} | {stats['stars']:,} |"
+                )
+        # 未分类的也显示
+        uncategorized = cat_stats.get("未分类", {"count": 0})
+        if uncategorized["count"] > 0:
+            lines.append(f"| ❓ 未分类 | {uncategorized['count']} | — | — | — |")
+        lines.append("")
+
+        # ── 热度计算 ──
         for p in skillhub:
             p["_heat"] = p.get("downloads", 0) + p.get("installs", 0) * 2 + p.get("stars", 0) * 3
 
-        lines += [
-            f"## 🔥 Skillhub 热门 Skills",
-            f"",
-        ]
-
-        # Top 10
-        lines.append(f"### 🏆 Top 10 热门")
+        lines.append(f"---")
         lines.append("")
-        for i, p in enumerate(skillhub[:10], 1):
-            name = p.get("name") or p.get("slug") or "—"
-            url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
-            desc = (p.get("description_zh") or p.get("description") or "—")[:80]
-            heat = p.get("_heat", 0)
-            source = p.get("source", "skillhub")
-            tags = p.get("tags") or []
-            tag_str = " ".join(f"`{t}`" for t in tags[:3])
-            meta = f"⬇️{p.get('downloads', 0):,}　📥{p.get('installs', 0):,}　⭐{p.get('stars', 0):,}　📦{source}"
-            lines.append(f"#### {i}. [{name}]({url})")
-            lines.append(f"- **热度**：{heat:,}　|　{meta}")
-            if desc != "—":
-                lines.append(f"- **简介**：{desc}")
-            if tag_str:
-                lines.append(f"- **标签**：{tag_str}")
+
+        # ── 按分类详细展示 ──
+        lines += [f"## 🔥 各分类热门 Skills", f""]
+
+        for cat_name, cat_info in HR_CATEGORIES.items():
+            emoji = cat_info["emoji"]
+            cat_skills = [p for p in skillhub if p.get("hr_category") == cat_name]
+            if not cat_skills:
+                continue
+
+            # 每个分类显示 Top 5
+            lines.append(f"### {emoji} {cat_name}（{len(cat_skills)} 个）")
             lines.append("")
+            for i, p in enumerate(cat_skills[:5], 1):
+                name = p.get("name") or p.get("slug") or "—"
+                url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
+                desc = (p.get("description_zh") or p.get("description") or "—")[:80]
+                heat = p.get("_heat", 0)
+                meta = f"⬇️{p.get('downloads', 0):,}　📥{p.get('installs', 0):,}　⭐{p.get('stars', 0):,}"
+                lines.append(f"#### {i}. [{name}]({url})")
+                lines.append(f"- **热度**：{heat:,}　|　{meta}")
+                if desc != "—":
+                    lines.append(f"- **简介**：{desc}")
+                lines.append("")
 
-        # 完整列表表格（前 50）
-        lines += [
-            f"### 📋 完整列表（Top 50）",
-            f"",
-            f"| # | Skill | 热度 | ⬇️ 下载 | 📥 安装 | ⭐ Stars | 来源 | 标签 |",
-            f"|---|-------|------|---------|---------|---------|------|------|",
-        ]
-        for i, p in enumerate(skillhub[:50], 1):
-            name = p.get("name") or p.get("slug") or "—"
-            url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
-            heat = p.get("_heat", 0)
-            tags = p.get("tags") or []
-            tag_str = "、".join(tags[:2]) if tags else "—"
-            lines.append(
-                f"| {i} | [{name}]({url}) | {heat:,} | {p.get('downloads', 0):,} | {p.get('installs', 0):,} | {p.get('stars', 0):,} | {p.get('source', '—')} | {tag_str} |"
-            )
-        lines.append("")
+            # 超过 5 个的显示表格
+            if len(cat_skills) > 5:
+                lines.append(f"<details><summary>查看全部 {len(cat_skills)} 个 →</summary>")
+                lines.append("")
+                lines.append(f"| # | Skill | 热度 | ⬇️ | 📥 | ⭐ | 来源 |")
+                lines.append(f"|---|-------|------|-----|-----|-----|------|")
+                for i, p in enumerate(cat_skills, 1):
+                    name = p.get("name") or p.get("slug") or "—"
+                    url = p.get("url") or f"https://skillhub.cn/skills/{p.get('slug', '')}"
+                    lines.append(
+                        f"| {i} | [{name}]({url}) | {p.get('_heat', 0):,} | {p.get('downloads', 0):,} | {p.get('installs', 0):,} | {p.get('stars', 0):,} | {p.get('source', '—')} |"
+                    )
+                lines.append("")
+                lines.append("</details>")
+                lines.append("")
 
-    # ── Clawhub 部分 ──
+    # ── Clawhub 按分类展示 ──
     if clawhub:
+        ch_cat_stats: dict[str, int] = {}
+        for p in clawhub:
+            cat = p.get("hr_category") or "未分类"
+            ch_cat_stats[cat] = ch_cat_stats.get(cat, 0) + 1
+
         lines += [
+            f"---",
+            f"",
             f"## 📦 Clawhub HR MCP",
             f"",
-            f"共 **{len(clawhub)}** 个匹配项",
-            f"",
-            f"| # | MCP 名称 | 描述 | 分类 | 关键词 |",
-            f"|---|---------|------|------|-------|",
         ]
-        for i, p in enumerate(clawhub[:50], 1):
-            desc = p["description"][:50].replace("|", "｜") if p["description"] else "—"
-            lines.append(f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p.get('category','—')} | {p.get('keyword','—')} |")
-        lines.append("")
+
+        for cat_name, cat_info in HR_CATEGORIES.items():
+            emoji = cat_info["emoji"]
+            cat_items = [p for p in clawhub if p.get("hr_category") == cat_name]
+            if not cat_items:
+                continue
+            lines.append(f"### {emoji} {cat_name}（{len(cat_items)} 个）")
+            lines.append("")
+            lines.append(f"| # | MCP 名称 | 描述 | 关键词 |")
+            lines.append(f"|---|---------|------|-------|")
+            for i, p in enumerate(cat_items[:20], 1):
+                desc = p["description"][:60].replace("|", "｜") if p["description"] else "—"
+                lines.append(f"| {i} | [{p['name']}]({p['url']}) | {desc} | {p.get('keyword','—')} |")
+            lines.append("")
 
     # ── 嵌入结构化 JSON 供前端卡片渲染 ──
     import json as _json
-    # 只保留前端需要的字段，减少体积
     skillhub_light = []
-    for p in skillhub[:100]:
+    for p in skillhub[:200]:
         skillhub_light.append({
             "name": p.get("name") or p.get("slug") or "",
             "slug": p.get("slug", ""),
@@ -772,6 +896,7 @@ def render_skills_md(skillhub: list[dict], clawhub: list[dict], title: str) -> s
             "source": p.get("source", ""),
             "tags": (p.get("tags") or [])[:5],
             "keyword": p.get("keyword", ""),
+            "hr_category": p.get("hr_category", ""),
         })
     json_block = _json.dumps({"skillhub": skillhub_light, "clawhub": clawhub[:50]}, ensure_ascii=False)
     lines.append(f"<!-- SKILL_DATA:{json_block}:SKILL_DATA -->")

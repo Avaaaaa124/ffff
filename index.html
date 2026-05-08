@@ -401,6 +401,16 @@
       gap: 6px;
       flex-wrap: wrap;
     }
+    .skill-card-category {
+      font-size: 12px;
+      color: var(--accent2);
+      background: rgba(167, 139, 250, 0.12);
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(167, 139, 250, 0.2);
+    }
     .skill-tag {
       font-size: 0.7rem;
       padding: 2px 8px;
@@ -595,6 +605,17 @@
         <option value="skillhub">Skillhub</option>
         <option value="clawhub">Clawhub</option>
       </select>
+      <select class="source-filter" id="category-filter" onchange="filterSkills()">
+        <option value="">全部分类</option>
+        <option value="招聘与人才获取">🎯 招聘与人才获取</option>
+        <option value="薪酬福利与绩效管理">💰 薪酬福利与绩效管理</option>
+        <option value="员工关系与劳动合规">⚖️ 员工关系与劳动合规</option>
+        <option value="培训与人才发展">📚 培训与人才发展</option>
+        <option value="组织发展与组织设计">🏗️ 组织发展与组织设计</option>
+        <option value="HR 数字化与系统工具">🖥️ HR 数字化与系统工具</option>
+        <option value="人才测评与胜任力模型">🧪 人才测评与胜任力模型</option>
+        <option value="企业文化与员工体验">🌈 企业文化与员工体验</option>
+      </select>
       <span class="result-count" id="skill-count"></span>
     </div>
     <div class="skills-grid" id="skills-grid">
@@ -723,6 +744,7 @@
             <div class="skill-card-name"><a href="${skill.url || '#'}" target="_blank">${skill.name || '—'}</a></div>
             <span class="skill-card-source ${sourceClass}">${sourceLabel}</span>
           </div>
+          ${skill.hr_category ? `<div class="skill-card-category">${skill.hr_category}</div>` : ''}
           <div class="skill-card-desc">${skill.desc || '暂无描述'}</div>
           ${tagsHtml ? `<div class="skill-card-tags">${tagsHtml}</div>` : ''}
           ${hasMeta ? `
@@ -742,16 +764,21 @@
   function filterSkills() {
     const query = document.getElementById('skill-search').value.toLowerCase().trim();
     const source = document.getElementById('source-filter').value;
+    const category = document.getElementById('category-filter').value;
 
     let filtered = allSkillData;
     if (source) {
       filtered = filtered.filter(s => s.source === source);
+    }
+    if (category) {
+      filtered = filtered.filter(s => s.hr_category === category);
     }
     if (query) {
       filtered = filtered.filter(s =>
         (s.name || '').toLowerCase().includes(query) ||
         (s.desc || '').toLowerCase().includes(query) ||
         (s.keyword || '').toLowerCase().includes(query) ||
+        (s.hr_category || '').toLowerCase().includes(query) ||
         (s.tags || []).some(t => t.toLowerCase().includes(query))
       );
     }

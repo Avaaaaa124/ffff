@@ -518,6 +518,98 @@
       .result-count { margin-left: 0; text-align: right; }
       .tab-nav { overflow-x: auto; }
     }
+
+    /* ── GitHub 卡片样式（复用 skills 基础样式） ── */
+    .github-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 20px 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .github-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+    .github-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .github-card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .github-card-name a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .github-card-name a:hover { color: var(--accent2); }
+    .github-card-lang {
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(108, 99, 255, 0.12);
+      color: var(--accent2);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+    .github-card-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .github-card-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--text3);
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(45, 50, 84, 0.6);
+    }
+    .github-card-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .meta-item.stars { color: var(--yellow); font-weight: 600; }
+    .meta-item.forks { color: var(--cyan); font-weight: 600; }
+    .github-card-topics {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .github-card-rank {
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      background: linear-gradient(135deg, #6c63ff, #818cf8);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(108, 99, 255, 0.4);
+    }
+    .github-card-rank.top3 {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    }
   </style>
 </head>
 <body>
@@ -580,12 +672,32 @@
     <button class="tab-btn" onclick="switchTab(this, 'history-skills')">📋 Skills 历史</button>
   </div>
 
-  <!-- GitHub 今日 -->
+  <!-- GitHub 今日 — 卡片式布局 -->
   <div class="tab-panel active" id="panel-today-github">
     <div class="action-bar">
       <button class="refresh-btn" onclick="loadAllData()">🔄 手动刷新</button>
       <span class="last-update" id="update-time">正在加载...</span>
     </div>
+    <div class="skills-toolbar" id="github-toolbar" style="display:none;">
+      <input type="text" class="skills-search" id="github-search" placeholder="🔍 搜索项目名、描述、Topics..." oninput="filterGithubCards()" />
+      <button class="sort-btn active" data-sort="stars" onclick="sortGithubCards(this, 'stars')">⭐ Stars</button>
+      <button class="sort-btn" data-sort="forks" onclick="sortGithubCards(this, 'forks')">🍴 Forks</button>
+      <button class="sort-btn" data-sort="name" onclick="sortGithubCards(this, 'name')">🔤 名称</button>
+      <select class="source-filter" id="github-category-filter" onchange="filterGithubCards()">
+        <option value="">全部分类</option>
+        <option value="招聘与人才获取">🎯 招聘与人才获取</option>
+        <option value="薪酬福利与绩效管理">💰 薪酬福利与绩效管理</option>
+        <option value="员工关系与劳动合规">⚖️ 员工关系与劳动合规</option>
+        <option value="培训与人才发展">📚 培训与人才发展</option>
+        <option value="组织发展与组织设计">🏗️ 组织发展与组织设计</option>
+        <option value="HR 数字化与系统工具">🖥️ HR 数字化与系统工具</option>
+        <option value="人才测评与胜任力模型">🧪 人才测评与胜任力模型</option>
+        <option value="企业文化与员工体验">🌈 企业文化与员工体验</option>
+      </select>
+      <span class="result-count" id="github-count"></span>
+    </div>
+    <div class="skills-grid" id="github-grid" style="display:none;"></div>
+    <!-- 兜底：JSON 解析失败，显示 Markdown -->
     <div class="md-content" id="content-today-github">
       <div class="loading"><div class="spinner"></div>正在加载 GitHub 今日监控...</div>
     </div>
@@ -807,6 +919,125 @@
     filterSkills();
   }
 
+  // ── GitHub 卡片相关逻辑 ──
+  let allGithubData = [];
+  let currentGithubSort = 'stars';
+  let currentGithubSortDir = -1;
+
+  // 从 GitHub MD 中提取 JSON 数据
+  function extractGithubData(mdText) {
+    const match = mdText.match(/<!-- GITHUB_DATA:(.+?):GITHUB_DATA -->/s);
+    if (!match) return null;
+    try {
+      return JSON.parse(match[1]);
+    } catch (e) {
+      console.error('Failed to parse GITHUB_DATA JSON', e);
+      return null;
+    }
+  }
+
+  // 渲染 GitHub 卡片
+  function renderGithubCards(data) {
+    const grid = document.getElementById('github-grid');
+    const fallback = document.getElementById('content-today-github');
+    const toolbar = document.getElementById('github-toolbar');
+
+    if (!data || data.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无 GitHub 数据<br><small>等待 GitHub Actions 更新...</small></div>';
+      return;
+    }
+
+    allGithubData = data;
+    currentGithubSort = 'stars';
+    currentGithubSortDir = -1;
+    allGithubData.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+
+    toolbar.style.display = 'flex';
+    grid.style.display = 'grid';
+    fallback.style.display = 'none';
+
+    renderGithubCardsList(allGithubData);
+  }
+
+  function renderGithubCardsList(data) {
+    const grid = document.getElementById('github-grid');
+    document.getElementById('github-count').textContent = `共 ${data.length} 个项目`;
+
+    if (data.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🤷</div>没有匹配的项目<br><small>试试其他关键词？</small></div>';
+      return;
+    }
+
+    grid.innerHTML = data.map((proj, idx) => {
+      const rank = allGithubData.indexOf(proj) + 1;
+      const isTop3 = rank <= 3;
+      const lang = proj.language || '—';
+      const topicsHtml = (proj.topics || []).slice(0, 5).map(t => `<span class="skill-tag">${t}</span>`).join('');
+
+      return `
+        <div class="github-card">
+          ${isTop3 ? `<div class="github-card-rank top3">#${rank}</div>` : (rank <= 10 ? `<div class="github-card-rank">#${rank}</div>` : '')}
+          <div class="github-card-header">
+            <div class="github-card-name"><a href="${proj.url || '#'}" target="_blank">${proj.name || '—'}</a></div>
+            <span class="github-card-lang">${lang}</span>
+          </div>
+          ${proj.hr_category ? `<div class="skill-card-category">${proj.hr_category}</div>` : ''}
+          <div class="github-card-desc">${proj.desc || '暂无描述'}</div>
+          ${topicsHtml ? `<div class="github-card-topics">${topicsHtml}</div>` : ''}
+          <div class="github-card-meta">
+            <span class="meta-item stars">⭐ ${fmtNum(proj.stars || 0)}</span>
+            <span class="meta-item forks">🍴 ${fmtNum(proj.forks || 0)}</span>
+            ${proj.updated_at ? `<span class="meta-item">📅 ${proj.updated_at}</span>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // GitHub 搜索过滤
+  function filterGithubCards() {
+    const query = document.getElementById('github-search').value.toLowerCase().trim();
+    const category = document.getElementById('github-category-filter').value;
+
+    let filtered = allGithubData;
+    if (category) {
+      filtered = filtered.filter(s => s.hr_category === category);
+    }
+    if (query) {
+      filtered = filtered.filter(s =>
+        (s.name || '').toLowerCase().includes(query) ||
+        (s.desc || '').toLowerCase().includes(query) ||
+        (s.keyword || '').toLowerCase().includes(query) ||
+        (s.hr_category || '').toLowerCase().includes(query) ||
+        (s.topics || []).some(t => t.toLowerCase().includes(query))
+      );
+    }
+
+    // 保持当前排序
+    filtered.sort((a, b) => {
+      const aVal = a[currentGithubSort] || 0;
+      const bVal = b[currentGithubSort] || 0;
+      if (typeof aVal === 'string') return aVal.localeCompare(bVal) * currentGithubSortDir;
+      return (aVal - bVal) * currentGithubSortDir;
+    });
+
+    renderGithubCardsList(filtered);
+  }
+
+  // GitHub 排序切换
+  function sortGithubCards(btn, field) {
+    if (currentGithubSort === field) {
+      currentGithubSortDir *= -1;
+    } else {
+      currentGithubSort = field;
+      currentGithubSortDir = field === 'name' ? 1 : -1;
+    }
+    // 只更新 GitHub 的排序按钮
+    document.querySelectorAll('#github-toolbar .sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterGithubCards();
+  }
+
   // ── 从 MD 文件提取统计数字 ──
   function extractStats(githubMd, skillsMd) {
     try {
@@ -879,7 +1110,18 @@
         const text = result.value;
         if (i === 0) {
           githubMdText = text;
-          renderMd(document.getElementById(files[i].id), text);
+          // 尝试提取 JSON 数据渲染卡片
+          const githubData = extractGithubData(text);
+          if (githubData) {
+            renderGithubCards(githubData);
+          } else {
+            // 没有结构化数据，回退到 Markdown 渲染
+            document.getElementById('github-grid').style.display = 'none';
+            document.getElementById('github-toolbar').style.display = 'none';
+            const contentEl = document.getElementById('content-today-github');
+            contentEl.style.display = 'block';
+            renderMd(contentEl, text);
+          }
         }
         if (i === 1) {
           skillsMdText = text;

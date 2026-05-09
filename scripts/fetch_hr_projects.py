@@ -535,7 +535,7 @@ def send_wechat(title: str, content: str):
 # GitHub 抓取
 # ────────────────────────────────────────────
 def fetch_github_projects() -> list[dict]:
-    """搜索 GitHub 上 HR 相关、star > 200 的项目"""
+    """搜索 GitHub 上 HR 相关、star > 200 的项目，并标注 HR 八大分类"""
     seen = set()
     results = []
 
@@ -563,7 +563,7 @@ def fetch_github_projects() -> list[dict]:
             for item in items:
                 if item["full_name"] not in seen:
                     seen.add(item["full_name"])
-                    results.append({
+                    proj = {
                         "name": item["full_name"],
                         "url": item["html_url"],
                         "description": item.get("description") or "",
@@ -573,7 +573,10 @@ def fetch_github_projects() -> list[dict]:
                         "updated_at": item["updated_at"][:10],
                         "topics": item.get("topics", []),
                         "keyword": query,
-                    })
+                    }
+                    # 标注 HR 八大分类
+                    proj["hr_category"] = _classify_github_category(proj)
+                    results.append(proj)
         except Exception as e:
             print(f"[ERROR] GitHub 搜索异常 ({query[:40]}): {e}")
         time.sleep(2)  # 避免触发速率限制
@@ -737,7 +740,7 @@ def _star_level(stars: int) -> str:
 
 
 def _classify_project(p: dict) -> str:
-    """根据描述关键词给项目分类标签（覆盖 HR 全子领域）"""
+    """根据描述关键词给项目分类标签（覆盖 HR 全子领域），返回带 emoji 的显示标签"""
     desc_lower = (p.get("description") or "").lower()
     name_lower = (p.get("name") or "").lower()
     keyword_lower = (p.get("keyword") or "").lower()
@@ -777,6 +780,50 @@ def _classify_project(p: dict) -> str:
         if any(kw in text for kw in keywords):
             return label
     return "🏢 综合HR平台"
+
+
+def _classify_github_category(p: dict) -> str:
+    """
+    GitHub 项目归类到 HR 八大分类（返回分类名，如 '招聘与人才获取'），
+    用于前端卡片的分类筛选。
+    逻辑与 _classify_project 一致，但返回标准化分类名。
+    """
+    desc_lower = (p.get("description") or "").lower()
+    name_lower = (p.get("name") or "").lower()
+    keyword_lower = (p.get("keyword") or "").lower()
+    text = desc_lower + " " + name_lower + " " + keyword_lower
+
+    # 分类关键词 → 八大分类名
+    category_mapping = [
+        (["recruit", "talent acquisition", "sourc", "hiring", "referral", "applicant", "candidate"],
+         "招聘与人才获取"),
+        (["payroll", "compensation", "salary", "benefit", "leave management", "expense",
+          "reimbursement", "payslip", "performance", "okr", "kpi", "goal", "feedback",
+          "evaluation", "review", "appraisal"],
+         "薪酬福利与绩效管理"),
+        (["labor", "compliance", "contract", "policy", "regulation", "legal", "dispute",
+          "workplace", "safety", "handbook"],
+         "员工关系与劳动合规"),
+        (["training", "learning", "lms", "e-learning", "course", "skill assessment",
+          "knowledge base", "tutorial", "onboarding"],
+         "培训与人才发展"),
+        (["org chart", "organization", "workforce planning", "headcount", "succession",
+          "talent management", "people analytics"],
+         "组织发展与组织设计"),
+        (["hr", "human resource", "hris", "hrms", "hcm", "ats", "chatbot",
+          "hrbot", "automation", "employee self-service"],
+         "HR 数字化与系统工具"),
+        (["assessment", "evaluation", "psychometric", "competency", "aptitude",
+          "interview", "screening"],
+         "人才测评与胜任力模型"),
+        (["employee experience", "engagement", "culture", "wellness", "recognition",
+          "diversity", "inclusion"],
+         "企业文化与员工体验"),
+    ]
+    for keywords, cat_name in category_mapping:
+        if any(kw in text for kw in keywords):
+            return cat_name
+    return "HR 数字化与系统工具"  # 默认归类
 
 
 def render_github_md(projects: list[dict], title: str) -> str:
@@ -918,6 +965,25 @@ def render_github_md(projects: list[dict], title: str) -> str:
     else:
         lines.append("> 本期暂无 B 级项目")
     lines.append("")
+
+    # ── 嵌入结构化 JSON 供前端卡片渲染 ──
+    import json as _json
+    github_light = []
+    for p in projects:
+        github_light.append({
+            "name": p.get("name", ""),
+            "url": p.get("url", ""),
+            "desc": (p.get("description") or "")[:120],
+            "stars": p.get("stars", 0),
+            "forks": p.get("forks", 0),
+            "language": p.get("language", ""),
+            "updated_at": p.get("updated_at", ""),
+            "topics": (p.get("topics") or [])[:5],
+            "keyword": p.get("keyword", ""),
+            "hr_category": p.get("hr_category", ""),
+        })
+    json_block = _json.dumps(github_light, ensure_ascii=False)
+    lines.append(f"<!-- GITHUB_DATA:{json_block}:GITHUB_DATA -->")
 
     lines.append(f"\n---\n\n*由 HR Agent Monitor 自动生成 · {TODAY}*")
     return "\n".join(lines)

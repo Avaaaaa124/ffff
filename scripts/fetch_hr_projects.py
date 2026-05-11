@@ -25,75 +25,89 @@ STAR_THRESHOLD = 200
 # 覆盖：招聘、简历、培训、绩效、薪酬、劳动关系、预算、HRBP、入职、员工管理
 GITHUB_SEARCH_QUERIES = [
     # ═══════════ 招聘 / 人才获取 ═══════════
+    # 保留 topic:recruitment 但后期过滤；ATS 精准
     "topic:recruitment stars:>200",
-    "ATS+applicant+tracking stars:>200",
-    "talent+acquisition stars:>200",
-    "recruitment+AI stars:>200",
-    "candidate+screening stars:>200",
-    "interview+AI stars:>200",
-    "job+matching+AI stars:>200",
-    "hiring+management stars:>200",
-    "referral+program+employee stars:>200",
+    "applicant+tracking+system stars:>200",
+    "ATS+recruitment+software stars:>200",
+    "talent+acquisition+platform stars:>200",
+    "AI+recruitment+hiring stars:>200",
+    "candidate+screening+HR stars:>200",
+    # 求职助手（HR 视角的候选人工具也算 HR 生态）
+    "job+application+automation stars:>200",
+    "job+hunting+AI stars:>200",
 
     # ═══════════ 简历 / CV ═══════════
+    # topic:resume 保留，过滤器负责排除开发者模板
     "topic:resume stars:>200",
+    "resume+parser+HR stars:>200",
     "resume+screening+AI stars:>200",
-    "resume+builder+parser stars:>200",
-    "CV+generator stars:>200",
+    "CV+resume+builder stars:>200",
 
-    # ═══════════ 培训 / 学习发展 ═══════════
-    "topic:training stars:>200",
-    "employee+training+platform stars:>200",
+    # ═══════════ 培训 / 学习发展（精准化，去掉 topic:training）═══════════
+    # 不再使用 topic:training（污染严重）
+    "employee+training+management stars:>200",
+    "corporate+learning+platform stars:>200",
     "learning+management+system stars:>200",
-    "LMS+corporate+training stars:>200",
-    "e-learning+course stars:>200",
-    "onboarding+training stars:>200",
-    "skill+assessment+employee stars:>200",
-    "knowledge+base+employee stars:>200",
+    "LMS+elearning+corporate stars:>200",
+    "employee+onboarding+platform stars:>200",
+    "HR+onboarding+automation stars:>200",
+    "corporate+elearning+course stars:>200",
 
     # ═══════════ 绩效管理 ═══════════
-    "performance+review+management stars:>200",
-    "performance+evaluation+employee stars:>200",
-    "OKR+goal+tracking stars:>200",
-    "KPI+dashboard+employee stars:>200",
-    "360+feedback+review stars:>200",
-    "goal+setting+employee stars:>200",
+    "employee+performance+review stars:>200",
+    "performance+management+HR stars:>200",
+    "OKR+management+tool stars:>200",
+    "employee+KPI+dashboard stars:>200",
+    "360+feedback+employee stars:>200",
 
     # ═══════════ 薪酬 / 福利 / 薪资 ═══════════
-    "payroll+management stars:>200",
-    "compensation+benefits stars:>200",
-    "salary+calculation stars:>200",
-    "leave+management+employee stars:>200",
-    "expense+management+employee stars:>200",
+    "payroll+software+HR stars:>200",
+    "payroll+management+system stars:>200",
+    "employee+compensation+benefits stars:>200",
+    "salary+management+HR stars:>200",
+    "leave+management+system stars:>200",
+    "employee+expense+reimbursement stars:>200",
 
     # ═══════════ 劳动关系 / 合规 ═══════════
-    "labor+relations+management stars:>200",
-    "employee+compliance stars:>200",
-    "workforce+compliance stars:>200",
-    "contract+management+employee stars:>200",
-    "policy+management+HR stars:>200",
+    "employee+compliance+HR stars:>200",
+    "HR+policy+management stars:>200",
+    "employment+contract+management stars:>200",
+    "workforce+compliance+management stars:>200",
 
     # ═══════════ 预算 / 成本管控 ═══════════
-    "HR+budget+management stars:>200",
-    "workforce+planning+budget stars:>200",
-    "headcount+planning stars:>200",
-    "labor+cost+analytics stars:>200",
+    "workforce+planning+HR stars:>200",
+    "headcount+planning+HR stars:>200",
+    "HR+analytics+workforce stars:>200",
 
-    # ═══════════ HRBP / 综合 HR 平台 ═══════════
+    # ═══════════ 综合 HR 平台 / HRIS ═══════════
     "topic:human-resources stars:>200",
     "topic:hr stars:>200",
-    "HRIS+human+resource stars:>200",
-    "HRMS+HR+management stars:>200",
-    "HCM+human+capital stars:>200",
+    "HRIS+HR+system stars:>200",
+    "HRMS+HR+platform stars:>200",
+    "HCM+human+capital+management stars:>200",
     "people+analytics+HR stars:>200",
-    "workforce+management stars:>200",
-    "employee+engagement stars:>200",
-    "HR+chatbot+assistant stars:>200",
-    "employee+self+service stars:>200",
-    "org+chart+organization stars:>200",
+    "HR+chatbot+employee stars:>200",
+    "employee+self+service+HR stars:>200",
+    "org+chart+HR+tool stars:>200",
     "shift+scheduling+employee stars:>200",
-    "time+attendance+tracking stars:>200",
-    "employee+directory stars:>200",
+    "time+attendance+HR stars:>200",
+    "employee+directory+HR stars:>200",
+    "HR+open+source+platform stars:>200",
+    "human+resource+management+system stars:>200",
+
+    # ═══════════ 面试 / 评估（精准限定 HR 语境）═══════════
+    # 去掉 interview+AI（大量技术面试题污染）
+    "HR+interview+scheduling stars:>200",
+    "interview+management+HR stars:>200",
+    "HR+assessment+tool stars:>200",
+    "employee+assessment+platform stars:>200",
+
+    # ═══════════ 员工体验 / 文化 ═══════════
+    "employee+engagement+platform stars:>200",
+    "employee+experience+HR stars:>200",
+    "employee+recognition+platform stars:>200",
+    "diversity+inclusion+HR stars:>200",
+    "employer+branding+tool stars:>200",
 ]
 
 # ────────────────────────────────────────────
@@ -532,12 +546,145 @@ def send_wechat(title: str, content: str):
 
 
 # ────────────────────────────────────────────
+# GitHub 专用 HR 相关性过滤器
+# ────────────────────────────────────────────
+
+# GitHub 项目必须包含以下 HR 核心词之一才算通过（name + description + topics 三合一）
+_GH_HR_STRONG_WORDS = [
+    # 人力资源核心
+    "human resource", "human capital", "hr ", " hr", "hris", "hrms", "hcm", "hrbp",
+    # 招聘/人才
+    "recruit", "hiring", "talent acquisition", "applicant", "candidate", "ats ",
+    "job posting", "job board", "job matching", "resume screening", "cv screening",
+    "headhunting", "sourcing", "onboarding",
+    # 薪酬/福利/考勤
+    "payroll", "compensation", "salary", "employee benefit", "leave management",
+    "time attendance", "shift scheduling", "expense reimburs",
+    # 绩效/学习发展
+    "performance review", "performance appraisal", "okr", "360 feedback",
+    "employee training", "corporate training", "corporate learning", "lms",
+    "learning management", "employee onboarding",
+    # 员工管理/组织
+    "employee engagement", "employee experience", "employee directory",
+    "employee self-service", "org chart", "workforce planning",
+    "workforce analytics", "people analytics", "succession planning",
+    # 劳动关系/合规
+    "employment law", "labor law", "employee handbook", "workplace policy",
+    "employee compliance", "disciplinary",
+    # 系统/平台
+    "hr software", "hr platform", "hr tool", "hr system", "hr automation",
+    "hr chatbot", "hr dashboard", "hr analytics",
+]
+
+# GitHub 项目命中这些词直接排除（明显非 HR 领域）
+_GH_HR_BLACKLIST = [
+    # AI 模型训练（最大污染源）
+    "model training", "neural network training", "deep learning training",
+    "machine learning training", "train a model", "fine-tuning", "finetune",
+    "pytorch training", "tensorflow training", "gpu training", "distributed training",
+    "reinforcement learning", "llm training", "model fine",
+    # 编程培训/学习（非 HR 场景）
+    "programming training", "coding training", "developer training",
+    "security training", "hacking training", "malware", "pentest", "ctf",
+    "algorithm", "data structure", "competitive programming",
+    # 技术面试（非 HR 系统）
+    "coding interview", "leetcode", "system design interview", "interview prep",
+    "interview question", "tech interview", "algorithm interview",
+    "programming interview",
+    # 开发者简历/个人主页
+    "developer portfolio", "personal portfolio", "portfolio template",
+    "personal website", "developer resume", "latex resume", "portfolio site",
+    "awesome resume", "resume template", "cv template",
+    # git 工具 / 代码分析（非 HR）
+    "git analytics", "git stats", "github stats", "git repository analysis",
+    "git commit", "git tool", "gitem",
+    # 金融/股票
+    "stock", "trading", "crypto", "blockchain", "defi", "nft",
+    # 其他
+    "game", "minecraft", "vpn", "proxy", "scraper", "bot spam",
+    "web security", "reverse engineering", "exploit",
+    "pentesting", "ethical hacking", "vulnerability",
+    # 纯学术/通用教育（不聚焦企业 HR 场景）
+    "university course", "academic course", "open course", "mooc",
+]
+
+# 需要结合 HR 上下文才算通过的模糊词
+_GH_HR_AMBIGUOUS = [
+    "training", "interview", "assessment", "evaluation", "performance",
+    "management", "platform", "scheduling", "learning", "analytics",
+    "compliance", "onboarding", "feedback",
+]
+
+# HR 上下文词（与模糊词同现才算 HR）
+_GH_HR_CONTEXT = [
+    "employee", "hr", "human resource", "workforce", "recruit", "hiring",
+    "talent", "payroll", "salary", "staff", "personnel", "people ops",
+    "workplace", "organizational", "onboard",
+]
+
+
+def _is_hr_related_github(proj: dict) -> bool:
+    """
+    GitHub 项目 HR 相关性二次过滤。
+    综合 name + description + topics + keyword 三维判断。
+    """
+    name = (proj.get("name") or "").lower()
+    desc = (proj.get("description") or "").lower()
+    topics = " ".join(proj.get("topics") or []).lower()
+    keyword = (proj.get("keyword") or "").lower()
+    text = f"{name} {desc} {topics}"
+
+    # ① 黑名单优先排除
+    for bw in _GH_HR_BLACKLIST:
+        if bw in text:
+            return False
+
+    # ② 针对 topic:resume 来源：必须是 HR/招聘/简历解析工具，
+    #    排除纯个人简历模板、开发者 portfolio、LaTeX 简历等
+    if "topic:resume" in keyword:
+        # 必须包含至少一个 HR 场景强词才通过
+        resume_hr_signals = [
+            "hr", "recruit", "hiring", "applicant", "candidate", "ats",
+            "job seeker", "talent", "screening", "parser", "matcher",
+            "career", "job search", "job application", "resume matcher",
+            "resume parser", "resume screening", "resume builder for",
+        ]
+        if not any(sig in text for sig in resume_hr_signals):
+            return False
+
+    # ③ 搜索关键词本身已明确包含 HR 语境（如 HR+chatbot+employee），直接通过
+    #    但 topic:training / topic:resume / interview+AI 这些宽泛 kw 不信任
+    trusted_kw_prefixes = [
+        "employee+", "hr+", "payroll+", "workforce+", "onboarding+",
+        "lms+", "hris+", "hrms+", "hcm+", "performance+management",
+        "topic:human-resources", "topic:hr", "topic:recruitment",
+        "leave+management", "applicant+tracking",
+    ]
+    if any(keyword.startswith(p) or keyword == p for p in trusted_kw_prefixes):
+        # 通过黑名单后直接认定
+        return True
+
+    # ④ 强 HR 词命中即通过
+    for sw in _GH_HR_STRONG_WORDS:
+        if sw in text:
+            return True
+
+    # ⑤ 模糊词 + HR 上下文同现才算通过
+    has_ambiguous = any(aw in text for aw in _GH_HR_AMBIGUOUS)
+    has_context = any(cw in text for cw in _GH_HR_CONTEXT)
+    if has_ambiguous and has_context:
+        return True
+
+    return False
+
+
+# ────────────────────────────────────────────
 # GitHub 抓取
 # ────────────────────────────────────────────
 def fetch_github_projects() -> list[dict]:
-    """搜索 GitHub 上 HR 相关、star > 200 的项目，并标注 HR 八大分类"""
+    """搜索 GitHub 上 HR 相关、star > 200 的项目，并经过二次 HR 过滤，标注八大分类"""
     seen = set()
-    results = []
+    raw_results = []
 
     for query in GITHUB_SEARCH_QUERIES:
         url = "https://api.github.com/search/repositories"
@@ -559,11 +706,11 @@ def fetch_github_projects() -> list[dict]:
             data = resp.json()
             total = data.get("total_count", 0)
             items = data.get("items", [])
-            print(f"      query '{query[:40]}...' → {total} results, fetched {len(items)}")
+            print(f"      query '{query[:42]}' → {total} results, fetched {len(items)}")
             for item in items:
                 if item["full_name"] not in seen:
                     seen.add(item["full_name"])
-                    proj = {
+                    raw_results.append({
                         "name": item["full_name"],
                         "url": item["html_url"],
                         "description": item.get("description") or "",
@@ -573,13 +720,25 @@ def fetch_github_projects() -> list[dict]:
                         "updated_at": item["updated_at"][:10],
                         "topics": item.get("topics", []),
                         "keyword": query,
-                    }
-                    # 标注 HR 八大分类
-                    proj["hr_category"] = _classify_github_category(proj)
-                    results.append(proj)
+                    })
         except Exception as e:
             print(f"[ERROR] GitHub 搜索异常 ({query[:40]}): {e}")
         time.sleep(2)  # 避免触发速率限制
+
+    # ── 二次 HR 相关性过滤 ──
+    filtered_out = []
+    results = []
+    for proj in raw_results:
+        if _is_hr_related_github(proj):
+            proj["hr_category"] = _classify_github_category(proj)
+            results.append(proj)
+        else:
+            filtered_out.append(proj["name"])
+
+    if filtered_out:
+        print(f"  [GitHub 过滤] 原始 {len(raw_results)} 个 → 过滤掉 {len(filtered_out)} 个非 HR 项目 → 剩余 {len(results)} 个")
+        if len(filtered_out) <= 20:
+            print(f"  [过滤掉]: {', '.join(filtered_out)}")
 
     # 按 star 降序
     results.sort(key=lambda x: x["stars"], reverse=True)

@@ -4,7 +4,7 @@
 
 ## 2026-05-11
 
-Skillhub：78 个　｜　Clawhub：0 个
+Skillhub：77 个　｜　Clawhub：0 个
 
 ## 2026-05-10
 

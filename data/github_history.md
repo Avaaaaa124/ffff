@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-05-11
+
+共 149 个项目，最高 Star：43,927
+
+| 项目 | ⭐ Stars | 语言 |
+|------|---------|------|
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,927 | JavaScript |
+| [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 36,730 | TypeScript |
+| [google/comprehensive-rust](https://github.com/google/comprehensive-rust) | 32,935 | Rust |
+| [feder-cr/Jobs_Applier_AI_Agent_AIHawk](https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk) | 29,759 | Python |
+| [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV) | 27,482 | TeX |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,990 | TypeScript |
+| [aishwaryanr/awesome-generative-ai-guide](https://github.com/aishwaryanr/awesome-generative-ai-guide) | 26,623 | HTML |
+| [The-Art-of-Hacking/h4cker](https://github.com/The-Art-of-Hacking/h4cker) | 26,286 | Jupyter Notebook |
+| [haizlin/fe-interview](https://github.com/haizlin/fe-interview) | 26,260 | JavaScript |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,855 | TypeScript |
+| [stas00/ml-engineering](https://github.com/stas00/ml-engineering) | 17,894 | Python |
+| [rendercv/rendercv](https://github.com/rendercv/rendercv) | 16,564 | Python |
+| [salomonelli/best-resume-ever](https://github.com/salomonelli/best-resume-ever) | 16,456 | Vue |
+| [digininja/DVWA](https://github.com/digininja/DVWA) | 13,045 | PHP |
+| [billryan/resume](https://github.com/billryan/resume) | 11,069 | TeX |
+| [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples) | 10,918 | Jupyter Notebook |
+| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,519 | PHP |
+| [helloqingfeng/Awsome-Front-End-learning-resource](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource) | 9,954 | PHP |
+| [xitanggg/open-resume](https://github.com/xitanggg/open-resume) | 8,600 | TypeScript |
+| [alirezadir/Machine-Learning-Interviews](https://github.com/alirezadir/Machine-Learning-Interviews) | 8,157 | Jupyter Notebook |
+
 ## 2026-05-10
 
 共 149 个项目，最高 Star：43,813

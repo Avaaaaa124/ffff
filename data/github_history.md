@@ -4,15 +4,15 @@
 
 ## 2026-05-11
 
-共 46 个项目，最高 Star：43,961
+共 46 个项目，最高 Star：43,964
 
 | 项目 | ⭐ Stars | 语言 |
 |------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,961 | JavaScript |
-| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,994 | TypeScript |
-| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,860 | TypeScript |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,964 | JavaScript |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,995 | TypeScript |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,861 | TypeScript |
 | [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,519 | PHP |
-| [frappe/hrms](https://github.com/frappe/hrms) | 7,950 | Python |
+| [frappe/hrms](https://github.com/frappe/hrms) | 7,951 | Python |
 | [GreaterWMS/GreaterWMS](https://github.com/GreaterWMS/GreaterWMS) | 4,264 | Python |
 | [ever-co/ever-gauzy](https://github.com/ever-co/ever-gauzy) | 3,683 | TypeScript |
 | [frappe/lms](https://github.com/frappe/lms) | 2,890 | Vue |

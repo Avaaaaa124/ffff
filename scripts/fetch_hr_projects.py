@@ -740,6 +740,9 @@ def fetch_github_projects() -> list[dict]:
         if len(filtered_out) <= 20:
             print(f"  [过滤掉]: {', '.join(filtered_out)}")
 
+    # ── 批量翻译描述为中文 ──
+    _batch_translate_projects(results)
+
     # 按 star 降序
     results.sort(key=lambda x: x["stars"], reverse=True)
     return results
@@ -941,6 +944,122 @@ def _classify_project(p: dict) -> str:
     return "🏢 综合HR平台"
 
 
+# ────────────────────────────────────────────
+# 描述翻译（英文 → 中文）
+# ────────────────────────────────────────────
+
+# 常见 HR 开源项目的固定中文描述映射（避免重复 API 调用，优先命中）
+_KNOWN_DESC_ZH: dict[str, str] = {
+    "santifer/career-ops": "基于 Claude Code 的 AI 求职系统，含 14 种技能模式、Go 仪表盘、PDF 生成与批量处理",
+    "srbhr/Resume-Matcher": "AI 简历优化工具，提供关键词建议，将简历与职位描述进行智能匹配",
+    "hcengineering/platform": "Huly — 一体化项目管理平台（Linear、Jira、Slack、Notion 的开源替代方案）",
+    "aureuserp/aureuserp": "免费开源的 ERP 平台",
+    "frappe/hrms": "开源 HR 与薪资管理软件",
+    "GreaterWMS/GreaterWMS": "供应链管理系统（库存管理），支持多仓库与 WMS 场景",
+    "ever-co/ever-gauzy": "Ever Gauzy™ — 开源企业管理平台（ERP/CRM/HRM/项目管理）",
+    "frappe/lms": "易于使用的 100% 开源学习管理系统",
+    "kdeldycke/awesome-engineering-team-management": "工程师晋升为技术管理者的资源合集（管理、招聘、文化）",
+    "vapid/vapid": "以模板优先理念构建的简洁内容管理系统",
+    "horilla/horilla-hr": "免费开源的 HR 与 CRM 软件",
+    "dromara/skyeye": "智能办公 OA 系统，适用于医院、学校、中小企业的综合管理平台",
+    "WorkWorkLabs/Web3-Recruitment-Platform": "远程及 Web3 工作招聘平台与频道汇总",
+    "orangehrm/orangehrm": "OrangeHRM — 面向各规模企业的综合人力资源管理系统",
+    "timeoff-management/timeoff-management-application": "适用于中小企业的简洁高效假期与缺勤管理软件",
+    "getrebuild/rebuild": "高度可配置的企业管理系统，支持零代码/低代码搭建 CRM、WMS、TMS 等",
+    "pupilfirst/pupilfirst": "支持异步课程交付的学习管理系统（LMS）",
+    "chamilo/chamilo-lms": "Chamilo — 注重易用性与可访问性的开源学习管理系统",
+    "officelifehq/officelife": "OfficeLife — 首个 EmpOps 平台，全面管理员工职业生涯",
+    "chiefonboarding/ChiefOnboarding": "免费开源的员工入职平台，支持新员工线上入职流程自动化",
+    "icehrm/icehrm": "IceHrm — 中小企业 HR 管理系统，涵盖考勤、假期、薪资模块",
+    "nicholasgasior/gsfmt": "Golang 源代码格式化工具",
+    "netdata/netdata": "面向基础设施的实时性能监控工具",
+    "nocodb/nocodb": "开源的 Airtable 替代品，将数据库转化为智能电子表格",
+    "makeplane/plane": "开源软件开发工具，Jira、Linear、Asana 的替代方案",
+    "calcom/cal.com": "开源日程排期与预约管理平台",
+    "actualbudget/actual": "本地优先的个人财务管理工具",
+    "twentyhq/twenty": "现代化开源 CRM 平台",
+    "mattermost/mattermost": "面向企业的开源安全协作平台",
+    "hoppscotch/hoppscotch": "开源 API 开发与测试平台",
+    "n8n-io/n8n": "可扩展的工作流自动化工具，支持自托管",
+    "appsmithorg/appsmith": "用于构建内部工具与管理面板的低代码平台",
+    "gristlabs/grist-core": "Grist — 开源的现代关系型电子表格，兼具数据库能力",
+    "RocketChat/Rocket.Chat": "开源企业通讯平台，支持全面的团队协作",
+    "ONLYOFFICE/DocumentServer": "ONLYOFFICE 文档服务器，支持在线文档协同编辑",
+    "frappe/frappe": "Frappe 全栈 Web 开发框架，ERPNext 的基础框架",
+    "eggmactool/eggmactool": "Mac 效率工具集",
+    "requestly/requestly": "浏览器流量拦截与 Mock 工具，面向开发者和测试人员",
+}
+
+
+def _translate_desc(name: str, desc: str) -> str:
+    """
+    将英文描述翻译为中文。
+    优先命中固定映射表；否则调用 MyMemory 免费翻译 API。
+    若 API 失败或描述已是中文则直接返回原文。
+    """
+    if not desc or not desc.strip():
+        return ""
+
+    # 固定映射优先
+    if name in _KNOWN_DESC_ZH:
+        return _KNOWN_DESC_ZH[name]
+
+    # 判断是否已经基本是中文（含中文字符超过 30%）
+    zh_chars = sum(1 for c in desc if '\u4e00' <= c <= '\u9fff')
+    if len(desc) > 0 and zh_chars / len(desc) > 0.3:
+        return desc
+
+    # 调用 MyMemory 免费翻译 API（每天 5000 词免费，无需 key）
+    try:
+        url = "https://api.mymemory.translated.net/get"
+        params = {
+            "q": desc[:400],  # 限制长度
+            "langpair": "en|zh",
+        }
+        resp = requests.get(url, params=params, timeout=8)
+        if resp.status_code == 200:
+            data = resp.json()
+            translated = data.get("responseData", {}).get("translatedText", "")
+            # MyMemory 有时返回错误消息（如 QUERY LENGTH LIMIT EXCEDEED）
+            if translated and not translated.upper().startswith(("QUERY", "MYMEMORY", "PLEASE")):
+                return translated
+    except Exception:
+        pass
+
+    # 翻译失败，返回原文
+    return desc
+
+
+def _batch_translate_projects(projects: list[dict]) -> None:
+    """
+    批量翻译 GitHub 项目描述，结果写入 proj['desc_zh']。
+    有固定映射的直接命中，其余调用 API（带限速）。
+    """
+    need_api = []
+    for proj in projects:
+        name = proj.get("name", "")
+        desc = proj.get("description", "") or ""
+        if name in _KNOWN_DESC_ZH:
+            proj["desc_zh"] = _KNOWN_DESC_ZH[name]
+        elif not desc.strip():
+            proj["desc_zh"] = ""
+        else:
+            # 判断是否已是中文
+            zh_chars = sum(1 for c in desc if '\u4e00' <= c <= '\u9fff')
+            if len(desc) > 0 and zh_chars / len(desc) > 0.3:
+                proj["desc_zh"] = desc
+            else:
+                need_api.append(proj)
+
+    if need_api:
+        print(f"  [翻译] 需要调用 API 翻译 {len(need_api)} 个项目描述...")
+        for i, proj in enumerate(need_api):
+            proj["desc_zh"] = _translate_desc(proj["name"], proj.get("description", ""))
+            if i < len(need_api) - 1:
+                time.sleep(0.6)  # MyMemory API 限速保护
+        print(f"  [翻译] 完成")
+
+
 def _classify_github_category(p: dict) -> str:
     """
     GitHub 项目归类到 HR 八大分类（返回分类名，如 '招聘与人才获取'），
@@ -1013,7 +1132,8 @@ def render_github_md(projects: list[dict], title: str) -> str:
         f"|--------|---------|------|",
     ]
     for p in projects[:20]:
-        desc = p["description"] or "暂无简介"
+        # 优先使用中文描述，回退到英文原文
+        desc = p.get("desc_zh") or p.get("description") or "暂无简介"
         # 简介截断，避免表格过宽
         desc_short = desc[:60] + "..." if len(desc) > 60 else desc
         lines.append(f"| [{p['name']}]({p['url']}) | {p['stars']:,} | {desc_short} |")
@@ -1028,7 +1148,7 @@ def render_github_md(projects: list[dict], title: str) -> str:
         top10 = projects[:5]
         for rank, p in enumerate(top10, 1):
             category = _classify_project(p)
-            desc = p["description"] or "暂无简介"
+            desc = p.get("desc_zh") or p.get("description") or "暂无简介"
             lines += [
                 f"#### {rank}. {p['name']} ⭐{p['stars']:,}",
                 f"",
@@ -1133,6 +1253,7 @@ def render_github_md(projects: list[dict], title: str) -> str:
             "name": p.get("name", ""),
             "url": p.get("url", ""),
             "desc": (p.get("description") or "")[:120],
+            "desc_zh": (p.get("desc_zh") or "")[:120],
             "stars": p.get("stars", 0),
             "forks": p.get("forks", 0),
             "language": p.get("language", ""),

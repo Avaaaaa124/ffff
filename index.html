@@ -982,7 +982,7 @@
             <span class="github-card-lang">${lang}</span>
           </div>
           ${proj.hr_category ? `<div class="skill-card-category">${proj.hr_category}</div>` : ''}
-          <div class="github-card-desc">${proj.desc || '暂无描述'}</div>
+          <div class="github-card-desc">${proj.desc_zh || proj.description || '暂无描述'}</div>
           ${topicsHtml ? `<div class="github-card-topics">${topicsHtml}</div>` : ''}
           <div class="github-card-meta">
             <span class="meta-item stars">⭐ ${fmtNum(proj.stars || 0)}</span>
@@ -1006,7 +1006,8 @@
     if (query) {
       filtered = filtered.filter(s =>
         (s.name || '').toLowerCase().includes(query) ||
-        (s.desc || '').toLowerCase().includes(query) ||
+        (s.desc_zh || '').toLowerCase().includes(query) ||
+        (s.description || '').toLowerCase().includes(query) ||
         (s.keyword || '').toLowerCase().includes(query) ||
         (s.hr_category || '').toLowerCase().includes(query) ||
         (s.topics || []).some(t => t.toLowerCase().includes(query))

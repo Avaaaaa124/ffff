@@ -4,28 +4,28 @@
 
 ## 2026-05-11
 
-共 46 个项目，最高 Star：43,964
+共 46 个项目，最高 Star：44,001
 
 | 项目 | ⭐ Stars | 语言 |
 |------|---------|------|
-| [santifer/career-ops](https://github.com/santifer/career-ops) | 43,964 | JavaScript |
-| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,995 | TypeScript |
-| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,861 | TypeScript |
-| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,519 | PHP |
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 44,001 | JavaScript |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 26,997 | TypeScript |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 25,866 | TypeScript |
+| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 10,523 | PHP |
 | [frappe/hrms](https://github.com/frappe/hrms) | 7,951 | Python |
 | [GreaterWMS/GreaterWMS](https://github.com/GreaterWMS/GreaterWMS) | 4,264 | Python |
-| [ever-co/ever-gauzy](https://github.com/ever-co/ever-gauzy) | 3,683 | TypeScript |
-| [frappe/lms](https://github.com/frappe/lms) | 2,890 | Vue |
-| [kdeldycke/awesome-engineering-team-management](https://github.com/kdeldycke/awesome-engineering-team-management) | 2,458 | Unknown |
+| [ever-co/ever-gauzy](https://github.com/ever-co/ever-gauzy) | 3,684 | TypeScript |
+| [frappe/lms](https://github.com/frappe/lms) | 2,894 | Vue |
+| [kdeldycke/awesome-engineering-team-management](https://github.com/kdeldycke/awesome-engineering-team-management) | 2,460 | Unknown |
 | [vapid/vapid](https://github.com/vapid/vapid) | 1,500 | SCSS |
-| [horilla/horilla-hr](https://github.com/horilla/horilla-hr) | 1,220 | HTML |
+| [horilla/horilla-hr](https://github.com/horilla/horilla-hr) | 1,221 | HTML |
 | [dromara/skyeye](https://github.com/dromara/skyeye) | 1,171 | Java |
 | [WorkWorkLabs/Web3-Recruitment-Platform](https://github.com/WorkWorkLabs/Web3-Recruitment-Platform) | 1,091 | Unknown |
 | [orangehrm/orangehrm](https://github.com/orangehrm/orangehrm) | 1,052 | PHP |
 | [timeoff-management/timeoff-management-application](https://github.com/timeoff-management/timeoff-management-application) | 1,034 | JavaScript |
 | [getrebuild/rebuild](https://github.com/getrebuild/rebuild) | 991 | Java |
-| [pupilfirst/pupilfirst](https://github.com/pupilfirst/pupilfirst) | 960 | Ruby |
-| [chamilo/chamilo-lms](https://github.com/chamilo/chamilo-lms) | 949 | PHP |
+| [pupilfirst/pupilfirst](https://github.com/pupilfirst/pupilfirst) | 959 | Ruby |
+| [chamilo/chamilo-lms](https://github.com/chamilo/chamilo-lms) | 950 | PHP |
 | [officelifehq/officelife](https://github.com/officelifehq/officelife) | 946 | PHP |
 | [chiefonboarding/ChiefOnboarding](https://github.com/chiefonboarding/ChiefOnboarding) | 893 | Python |
 

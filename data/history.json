@@ -11498,8 +11498,8 @@
         "name": "santifer/career-ops",
         "url": "https://github.com/santifer/career-ops",
         "description": "基于Claude Code构建的人工智能求职系统。14种技能模式、Go仪表板、PDF生成、批量处理。",
-        "stars": 43964,
-        "forks": 9230,
+        "stars": 44001,
+        "forks": 9235,
         "language": "JavaScript",
         "updated_at": "2026-05-11",
         "topics": [
@@ -11524,8 +11524,8 @@
         "name": "srbhr/Resume-Matcher",
         "url": "https://github.com/srbhr/Resume-Matcher",
         "description": "使用简历匹配器改进您的简历。获取见解、关键词建议，并根据职位描述调整简历。",
-        "stars": 26995,
-        "forks": 4827,
+        "stars": 26997,
+        "forks": 4828,
         "language": "TypeScript",
         "updated_at": "2026-05-11",
         "topics": [
@@ -11552,8 +11552,8 @@
         "name": "hcengineering/platform",
         "url": "https://github.com/hcengineering/platform",
         "description": "Huly — All-in-One Project Management Platform (alternative to Linear, Jira, Slack, Notion, Motion)",
-        "stars": 25861,
-        "forks": 1898,
+        "stars": 25866,
+        "forks": 1897,
         "language": "TypeScript",
         "updated_at": "2026-05-11",
         "topics": [
@@ -11581,7 +11581,7 @@
         "name": "aureuserp/aureuserp",
         "url": "https://github.com/aureuserp/aureuserp",
         "description": "免费开源ERP平台",
-        "stars": 10519,
+        "stars": 10523,
         "forks": 428,
         "language": "PHP",
         "updated_at": "2026-05-11",
@@ -11662,10 +11662,10 @@
         "name": "ever-co/ever-gauzy",
         "url": "https://github.com/ever-co/ever-gauzy",
         "description": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co",
-        "stars": 3683,
+        "stars": 3684,
         "forks": 768,
         "language": "TypeScript",
-        "updated_at": "2026-05-10",
+        "updated_at": "2026-05-11",
         "topics": [
           "accounting",
           "billing",
@@ -11696,7 +11696,7 @@
         "name": "frappe/lms",
         "url": "https://github.com/frappe/lms",
         "description": "易于使用， 100%开源学习管理系统",
-        "stars": 2890,
+        "stars": 2894,
         "forks": 1288,
         "language": "Vue",
         "updated_at": "2026-05-11",
@@ -11722,10 +11722,10 @@
         "name": "kdeldycke/awesome-engineering-team-management",
         "url": "https://github.com/kdeldycke/awesome-engineering-team-management",
         "description": "👔 如何从软件开发过渡到工程管理",
-        "stars": 2458,
+        "stars": 2460,
         "forks": 179,
         "language": "Unknown",
-        "updated_at": "2026-05-09",
+        "updated_at": "2026-05-11",
         "topics": [
           "awesome",
           "awesome-list",
@@ -11773,7 +11773,7 @@
         "name": "horilla/horilla-hr",
         "url": "https://github.com/horilla/horilla-hr",
         "description": "Horilla是一款免费的开源人力资源和客户关系管理软件。",
-        "stars": 1220,
+        "stars": 1221,
         "forks": 804,
         "language": "HTML",
         "updated_at": "2026-05-11",
@@ -11930,10 +11930,10 @@
         "name": "pupilfirst/pupilfirst",
         "url": "https://github.com/pupilfirst/pupilfirst",
         "description": "一种学习管理系统(LMS) ，可让您运行异步在线学校，通过重点任务、定向反馈、迭代工作流程和社区互动来实现学习。",
-        "stars": 960,
+        "stars": 959,
         "forks": 285,
         "language": "Ruby",
-        "updated_at": "2026-04-28",
+        "updated_at": "2026-05-11",
         "topics": [
           "graphql",
           "hacktoberfest",
@@ -11952,10 +11952,10 @@
         "name": "chamilo/chamilo-lms",
         "url": "https://github.com/chamilo/chamilo-lms",
         "description": "Chamilo是一个专注于易用性和可访问性的学习管理系统",
-        "stars": 949,
+        "stars": 950,
         "forks": 546,
         "language": "PHP",
-        "updated_at": "2026-05-10",
+        "updated_at": "2026-05-11",
         "topics": [
           "chamilo",
           "elearning",
@@ -12047,7 +12047,7 @@
         "url": "https://github.com/gamonoid/icehrm",
         "description": "借助强大高效的人力资源管理系统，轻松管理您的员工",
         "stars": 702,
-        "forks": 422,
+        "forks": 423,
         "language": "JavaScript",
         "updated_at": "2026-05-10",
         "topics": [],
@@ -12062,7 +12062,7 @@
         "stars": 691,
         "forks": 314,
         "language": "PHP",
-        "updated_at": "2026-05-10",
+        "updated_at": "2026-05-11",
         "topics": [
           "accounting",
           "crm",
@@ -12122,8 +12122,8 @@
         "name": "SkyCascade/SkyLearn",
         "url": "https://github.com/SkyCascade/SkyLearn",
         "description": "全球轻量级学习管理系统。使用django web框架。基础人员，如课程添加和丢弃、成绩和评估结果管理、在线测验、报告生成器、学生和讲师管理、仪表板等。",
-        "stars": 623,
-        "forks": 189,
+        "stars": 624,
+        "forks": 190,
         "language": "Python",
         "updated_at": "2026-05-11",
         "topics": [
@@ -12208,10 +12208,10 @@
         "name": "tough-dev-school/education-backend",
         "url": "https://github.com/tough-dev-school/education-backend",
         "description": "基于Django的学习管理系统后端",
-        "stars": 482,
+        "stars": 483,
         "forks": 80,
         "language": "Python",
-        "updated_at": "2026-05-08",
+        "updated_at": "2026-05-11",
         "topics": [
           "django",
           "django-application",
@@ -12230,7 +12230,7 @@
         "stars": 422,
         "forks": 165,
         "language": "Java",
-        "updated_at": "2026-05-09",
+        "updated_at": "2026-05-11",
         "topics": [
           "assessment",
           "content",
@@ -12451,7 +12451,7 @@
         "url": "https://github.com/Devnawjesh/hr-payroll",
         "description": "人力资源管理是一个现代化且响应迅速的人力资源管理系统。它是由PHP和Laravel框架开发的。它是为办公室管理和公司员工管理而设计和开发的。",
         "stars": 268,
-        "forks": 162,
+        "forks": 163,
         "language": "PHP",
         "updated_at": "2026-05-06",
         "topics": [
@@ -12559,7 +12559,7 @@
         "name": "can4hou6joeng4/boss-agent-cli",
         "url": "https://github.com/can4hou6joeng4/boss-agent-cli",
         "description": "AI-agent-first CLI for BOSS 直聘 — 职位搜索、福利筛选、招聘者工作流、MCP 工具与 AI 简历优化",
-        "stars": 203,
+        "stars": 206,
         "forks": 29,
         "language": "Python",
         "updated_at": "2026-05-11",
@@ -22003,7 +22003,7 @@
           "description": "Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重新...的情况。",
           "description_zh": "Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重新...的情况。",
           "stars": 3,
-          "downloads": 14985,
+          "downloads": 14996,
           "installs": 2097,
           "category": "productivity",
           "hr_category": "招聘与人才获取",
@@ -22011,7 +22011,7 @@
           "tags": [],
           "ownerName": "byungkyu",
           "keyword": "recruitment",
-          "_heat": 19188
+          "_heat": 19199
         },
         {
           "name": "Bamboohr Automation",
@@ -22037,7 +22037,7 @@
           "description": "管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。",
           "description_zh": "管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。",
           "stars": 4,
-          "downloads": 1366,
+          "downloads": 1367,
           "installs": 134,
           "category": "security-compliance",
           "hr_category": "组织发展与组织设计",
@@ -22045,7 +22045,7 @@
           "tags": [],
           "ownerName": "ivangdavila",
           "keyword": "workforce analytics",
-          "_heat": 1646
+          "_heat": 1647
         },
         {
           "name": "HR",
@@ -22054,7 +22054,7 @@
           "description": "完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。",
           "description_zh": "完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。",
           "stars": 1,
-          "downloads": 1103,
+          "downloads": 1105,
           "installs": 178,
           "category": "productivity",
           "hr_category": "HR 数字化与系统工具",
@@ -22068,7 +22068,7 @@
           ],
           "ownerName": "agenticio",
           "keyword": "human resources",
-          "_heat": 1462
+          "_heat": 1464
         },
         {
           "name": "Hr Toolkit",
@@ -22077,7 +22077,7 @@
           "description": "HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruitment, onboarding, offboarding, policy, handbook.",
           "description_zh": "HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruitment, onboarding, offboarding, policy, handbook.",
           "stars": 1,
-          "downloads": 1006,
+          "downloads": 1010,
           "installs": 120,
           "category": "productivity",
           "hr_category": "招聘与人才获取",
@@ -22087,7 +22087,24 @@
           ],
           "ownerName": "bytesagain3",
           "keyword": "recruitment",
-          "_heat": 1249
+          "_heat": 1253
+        },
+        {
+          "name": "DevTool Answer Monitor",
+          "slug": "devtool-answer-monitor",
+          "url": "https://api.skillhub.cn/veeicwgy/devtool-answer-monitor",
+          "description": "Use when the user wants to monitor how ChatGPT, Claude, Gemini, and other LLMs describe a developer tool, API, SDK, or open-source project. DevTool Answer Mo...",
+          "description_zh": "Use when the user wants to monitor how ChatGPT, Claude, Gemini, and other LLMs describe a developer tool, API, SDK, or open-source project. DevTool Answer Mo...",
+          "stars": 0,
+          "downloads": 1054,
+          "installs": 0,
+          "category": "",
+          "hr_category": "培训与人才发展",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "veeicwgy",
+          "keyword": "LMS",
+          "_heat": 1054
         },
         {
           "name": "Recruiter Assistant",
@@ -22119,7 +22136,7 @@
           "description": "智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理",
           "description_zh": "智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理",
           "stars": 0,
-          "downloads": 778,
+          "downloads": 780,
           "installs": 125,
           "category": "ai-intelligence",
           "hr_category": "招聘与人才获取",
@@ -22127,7 +22144,7 @@
           "tags": [],
           "ownerName": "huyong2023",
           "keyword": "recruitment",
-          "_heat": 1028
+          "_heat": 1030
         },
         {
           "name": "recruitment-assistant",
@@ -22136,7 +22153,7 @@
           "description": "智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简历、评估候选人匹配度、准备面试问题时触发。",
           "description_zh": "智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简历、评估候选人匹配度、准备面试问题时触发。",
           "stars": 1,
-          "downloads": 721,
+          "downloads": 722,
           "installs": 127,
           "category": "ai-intelligence",
           "hr_category": "招聘与人才获取",
@@ -22147,7 +22164,7 @@
           ],
           "ownerName": "heyweekly",
           "keyword": "recruitment",
-          "_heat": 978
+          "_heat": 979
         },
         {
           "name": "Employee Handbook Generator",
@@ -22156,7 +22173,7 @@
           "description": "生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求...",
           "description_zh": "生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求...",
           "stars": 0,
-          "downloads": 800,
+          "downloads": 801,
           "installs": 44,
           "category": "security-compliance",
           "hr_category": "员工关系与劳动合规",
@@ -22170,7 +22187,7 @@
           ],
           "ownerName": "1kalin",
           "keyword": "employee handbook",
-          "_heat": 888
+          "_heat": 889
         },
         {
           "name": "Jobclaw Recruit",
@@ -22196,7 +22213,7 @@
           "description": "生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。",
           "description_zh": "生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。",
           "stars": 1,
-          "downloads": 832,
+          "downloads": 833,
           "installs": 10,
           "category": "security-compliance",
           "hr_category": "员工关系与劳动合规",
@@ -22210,7 +22227,7 @@
           ],
           "ownerName": "1kalin",
           "keyword": "workplace safety",
-          "_heat": 855
+          "_heat": 856
         },
         {
           "name": "IDA: Instructional Design Agent",
@@ -22219,7 +22236,7 @@
           "description": "分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。",
           "description_zh": "分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。",
           "stars": 2,
-          "downloads": 682,
+          "downloads": 683,
           "installs": 56,
           "category": "security-compliance",
           "hr_category": "培训与人才发展",
@@ -22238,7 +22255,7 @@
           ],
           "ownerName": "mrummler17",
           "keyword": "corporate training",
-          "_heat": 800
+          "_heat": 801
         },
         {
           "name": "Payroll Compliance Audit",
@@ -22247,7 +22264,7 @@
           "description": "执行全面薪酬审计，涵盖工种分类、加班费、预扣税准确性及合规性清单，并生成详细报告。",
           "description_zh": "执行全面薪酬审计，涵盖工种分类、加班费、预扣税准确性及合规性清单，并生成详细报告。",
           "stars": 0,
-          "downloads": 724,
+          "downloads": 725,
           "installs": 20,
           "category": "security-compliance",
           "hr_category": "薪酬福利与绩效管理",
@@ -22262,7 +22279,7 @@
           ],
           "ownerName": "1kalin",
           "keyword": "payroll",
-          "_heat": 764
+          "_heat": 765
         },
         {
           "name": "People Strategy",
@@ -22271,7 +22288,7 @@
           "description": "管理与查询基于 SQLite 的持久化人员关系图谱，适用于个人 CRM、组织架构、导师制及协作映射。",
           "description_zh": "管理与查询基于 SQLite 的持久化人员关系图谱，适用于个人 CRM、组织架构、导师制及协作映射。",
           "stars": 0,
-          "downloads": 716,
+          "downloads": 717,
           "installs": 13,
           "category": "data-analysis",
           "hr_category": "组织发展与组织设计",
@@ -22279,7 +22296,7 @@
           "tags": [],
           "ownerName": "makkzone",
           "keyword": "org chart",
-          "_heat": 742
+          "_heat": 743
         },
         {
           "name": "llms.txt File Builder",
@@ -22320,23 +22337,6 @@
           "_heat": 652
         },
         {
-          "name": "KU Portal",
-          "slug": "ku-portal",
-          "url": "https://api.skillhub.cn/garibong-labs/ku-portal",
-          "description": "查询高丽大学KUPID门户：通知公告、学期日程、奖学金通知、图书馆座位、课程表、已选课程、LMS集成（基于SonAIengine/ku-portal-mcp）",
-          "description_zh": "查询高丽大学KUPID门户：通知公告、学期日程、奖学金通知、图书馆座位、课程表、已选课程、LMS集成（基于SonAIengine/ku-portal-mcp）",
-          "stars": 0,
-          "downloads": 615,
-          "installs": 8,
-          "category": "ai-intelligence",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "garibong-labs",
-          "keyword": "LMS",
-          "_heat": 631
-        },
-        {
           "name": "ERP Claw",
           "slug": "erp-claw",
           "url": "https://api.skillhub.cn/mailnike/erp-claw",
@@ -22352,6 +22352,23 @@
           "ownerName": "mailnike",
           "keyword": "payroll",
           "_heat": 630
+        },
+        {
+          "name": "Mcp Builder Anthropic",
+          "slug": "mcp-builder-anthropic",
+          "url": "https://api.skillhub.cn/pupuking723/mcp-builder-anthropic",
+          "description": "创建高质量 MCP（模型上下文协议）服务器的指南，该服务器通过精心设计的工具使 LLM 能够与外部服务交互。",
+          "description_zh": "创建高质量 MCP（模型上下文协议）服务器的指南，该服务器通过精心设计的工具使 LLM 能够与外部服务交互。",
+          "stars": 0,
+          "downloads": 582,
+          "installs": 23,
+          "category": "content-creation",
+          "hr_category": "培训与人才发展",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "pupuking723",
+          "keyword": "LMS",
+          "_heat": 628
         },
         {
           "name": "Recruiting",
@@ -22383,7 +22400,7 @@
           "description": "一种全面的AI代理技能，用于精准及时地管理薪酬。帮助无专职HR的小企业主运行薪酬流程，并解释相关事宜。",
           "description_zh": "一种全面的AI代理技能，用于精准及时地管理薪酬。帮助无专职HR的小企业主运行薪酬流程，并解释相关事宜。",
           "stars": 0,
-          "downloads": 474,
+          "downloads": 475,
           "installs": 22,
           "category": "productivity",
           "hr_category": "薪酬福利与绩效管理",
@@ -22397,7 +22414,7 @@
           ],
           "ownerName": "agenticio",
           "keyword": "payroll",
-          "_heat": 518
+          "_heat": 519
         },
         {
           "name": "Adp Workforce",
@@ -22415,35 +22432,6 @@
           "ownerName": "gora050",
           "keyword": "payroll",
           "_heat": 517
-        },
-        {
-          "name": "AI Intelligence Hub - Real-time Model Capability Tracking",
-          "slug": "model-benchmarks",
-          "url": "https://api.skillhub.cn/notestone/model-benchmarks",
-          "description": "通过排行榜（如 LMSYS Arena、HuggingFace 等）实时追踪 AI 模型能力，实现智能计算路由和成本优化",
-          "description_zh": "通过排行榜（如 LMSYS Arena、HuggingFace 等）实时追踪 AI 模型能力，实现智能计算路由和成本优化",
-          "stars": 0,
-          "downloads": 488,
-          "installs": 13,
-          "category": "data-analysis",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [
-            "ai",
-            "benchmarks",
-            "bigcode",
-            "cost-optimization",
-            "data-driven",
-            "huggingface",
-            "intelligence",
-            "lmsys",
-            "models",
-            "performance",
-            "routing"
-          ],
-          "ownerName": "notestone",
-          "keyword": "LMS",
-          "_heat": 514
         },
         {
           "name": "Rippling Hr",
@@ -22469,7 +22457,7 @@
           "description": "{\"answer\":\"工伤赔偿专家：员工分类、优化保费、管理理赔、确保合规、提升职场安全。\"}",
           "description_zh": "{\"answer\":\"工伤赔偿专家：员工分类、优化保费、管理理赔、确保合规、提升职场安全。\"}",
           "stars": 0,
-          "downloads": 486,
+          "downloads": 487,
           "installs": 10,
           "category": "security-compliance",
           "hr_category": "员工关系与劳动合规",
@@ -22486,7 +22474,7 @@
           ],
           "ownerName": "1kalin",
           "keyword": "workplace safety",
-          "_heat": 506
+          "_heat": 507
         },
         {
           "name": "Ukg Ready",
@@ -22512,7 +22500,7 @@
           "description": "提供工资判定查询、认证薪资合规、分类一致性审查、违规风险评估及学徒跟踪服务。",
           "description_zh": "提供工资判定查询、认证薪资合规、分类一致性审查、违规风险评估及学徒跟踪服务。",
           "stars": 0,
-          "downloads": 464,
+          "downloads": 465,
           "installs": 9,
           "category": "security-compliance",
           "hr_category": "薪酬福利与绩效管理",
@@ -22530,7 +22518,7 @@
           ],
           "ownerName": "1kalin",
           "keyword": "payroll",
-          "_heat": 482
+          "_heat": 483
         },
         {
           "name": "Staffing Agency Operations",
@@ -22539,7 +22527,7 @@
           "description": "管理招聘机构财务、合规与运营，跨多业务领域优化计费、利润率、工资负担和关键绩效指标。",
           "description_zh": "管理招聘机构财务、合规与运营，跨多业务领域优化计费、利润率、工资负担和关键绩效指标。",
           "stars": 0,
-          "downloads": 431,
+          "downloads": 432,
           "installs": 17,
           "category": "security-compliance",
           "hr_category": "薪酬福利与绩效管理",
@@ -22555,7 +22543,24 @@
           ],
           "ownerName": "1kalin",
           "keyword": "payroll",
-          "_heat": 465
+          "_heat": 466
+        },
+        {
+          "name": "Lmstudio Model Switch",
+          "slug": "lmstudio-model-switch",
+          "url": "https://api.skillhub.cn/endihunn/lmstudio-model-switch",
+          "description": "在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。",
+          "description_zh": "在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。",
+          "stars": 2,
+          "downloads": 412,
+          "installs": 23,
+          "category": "ai-intelligence",
+          "hr_category": "培训与人才发展",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "endihunn",
+          "keyword": "LMS",
+          "_heat": 464
         },
         {
           "name": "Finance Recruitment Jd",
@@ -22564,7 +22569,7 @@
           "description": "生成符合集团财务与经营管理中心能力模型的详细财务职位说明书，包括职责、资格与考核指标。",
           "description_zh": "生成符合集团财务与经营管理中心能力模型的详细财务职位说明书，包括职责、资格与考核指标。",
           "stars": 0,
-          "downloads": 461,
+          "downloads": 462,
           "installs": 0,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -22572,7 +22577,7 @@
           "tags": [],
           "ownerName": "7679457979",
           "keyword": "recruitment",
-          "_heat": 461
+          "_heat": 462
         },
         {
           "name": "Recruiting",
@@ -22652,6 +22657,23 @@
           "_heat": 371
         },
         {
+          "name": "LLMs-Conclave",
+          "slug": "llmconclave",
+          "url": "https://api.skillhub.cn/dreamarc77/llmconclave",
+          "description": "多模型AI辩论平台：提交主题，多个AI多轮辩论，产出结构化洞见与精炼研究报告。",
+          "description_zh": "多模型AI辩论平台：提交主题，多个AI多轮辩论，产出结构化洞见与精炼研究报告。",
+          "stars": 1,
+          "downloads": 345,
+          "installs": 4,
+          "category": "",
+          "hr_category": "培训与人才发展",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "dreamarc77",
+          "keyword": "LMS",
+          "_heat": 356
+        },
+        {
           "name": "Uplo Hr",
           "slug": "uplo-hr",
           "url": "https://api.skillhub.cn/roojenkins/uplo-hr",
@@ -22726,7 +22748,7 @@
           "description": "招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Boss直聘最新/未读消息；②将候选人存入人才库（先搜索比对，再新建或更新）；③添加人才决策记录（入库/约面试/跟进/发Offer/归档）；④更新人才库中候选人的...",
           "description_zh": "招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Boss直聘最新/未读消息；②将候选人存入人才库（先搜索比对，再新建或更新）；③添加人才决策记录（入库/约面试/跟进/发Offer/归档）；④更新人才库中候选人的...",
           "stars": 1,
-          "downloads": 265,
+          "downloads": 266,
           "installs": 1,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -22734,7 +22756,7 @@
           "tags": [],
           "ownerName": "billzhuang6569",
           "keyword": "recruitment",
-          "_heat": 270
+          "_heat": 271
         },
         {
           "name": "Payroll GL Reconciliation",
@@ -22827,30 +22849,13 @@
           "_heat": 186
         },
         {
-          "name": "SJTU Canvas 课程助手",
-          "slug": "sjtu-canvas",
-          "url": "https://api.skillhub.cn/xhh678876/sjtu-canvas",
-          "description": "上海交通大学 Canvas LMS课程助手。管理 oc.sjtu.edu.cn 课程数据，修改 base_url 后也可用于其他基于 Canvas LMS 的高校。功能：(1) 查看/下载课程文件(PPT/PDF)、批量下载课件 (2) 查看作业列表、截止日期、提交状态等",
-          "description_zh": "上海交通大学 Canvas LMS课程助手。管理 oc.sjtu.edu.cn 课程数据，修改 base_url 后也可用于其他基于 Canvas LMS 的高校。功能：(1) 查看/下载课程文件(PPT/PDF)、批量下载课件 (2) 查看作业列表、截止日期、提交状态等",
-          "stars": 0,
-          "downloads": 179,
-          "installs": 0,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "xhh678876",
-          "keyword": "LMS",
-          "_heat": 179
-        },
-        {
           "name": "Archery Range Video — Beginner Recruitment and Community Videos for Archery Ranges and Bow Shops",
           "slug": "archery-range-video",
           "url": "https://api.skillhub.cn/peand-rover/archery-range-video",
           "description": "制作面向新手的射箭入门视频，展示靶场氛围，突出教练指导，以提升新手招募和社区活跃度。",
           "description_zh": "制作面向新手的射箭入门视频，展示靶场氛围，突出教练指导，以提升新手招募和社区活跃度。",
           "stars": 0,
-          "downloads": 177,
+          "downloads": 178,
           "installs": 0,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -22858,7 +22863,7 @@
           "tags": [],
           "ownerName": "peand-rover",
           "keyword": "recruitment",
-          "_heat": 177
+          "_heat": 178
         },
         {
           "name": "Patient Recruitment Ad Gen",
@@ -22895,30 +22900,13 @@
           "_heat": 171
         },
         {
-          "name": "Byted Security Llmscanner",
-          "slug": "byted-security-llmscanner",
-          "url": "https://api.skillhub.cn/volcengine-skills/byted-security-llmscanner",
-          "description": "大模型安全测评全流程管理工具，支持模型及智能体测评资产的创建与更新、资源查询、合规和安全测评任务发起及结果分析。",
-          "description_zh": "大模型安全测评全流程管理工具，支持模型及智能体测评资产的创建与更新、资源查询、合规和安全测评任务发起及结果分析。",
-          "stars": 0,
-          "downloads": 170,
-          "installs": 0,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "volcengine-skills",
-          "keyword": "LMS",
-          "_heat": 170
-        },
-        {
           "name": "Knowledge Base Pro",
           "slug": "raai-knowledge-base-pro",
           "url": "https://api.skillhub.cn/raaipro/raai-knowledge-base-pro",
           "description": "Corporate knowledge brain for Russian-speaking teams. Replaces HR onboarding department + internal communications team on 40-60% of routine. FAQ bot, role-ba...",
           "description_zh": "Corporate knowledge brain for Russian-speaking teams. Replaces HR onboarding department + internal communications team on 40-60% of routine. FAQ bot, role-ba...",
           "stars": 0,
-          "downloads": 160,
+          "downloads": 161,
           "installs": 0,
           "category": "",
           "hr_category": "培训与人才发展",
@@ -22926,28 +22914,7 @@
           "tags": [],
           "ownerName": "raaipro",
           "keyword": "HR onboarding",
-          "_heat": 160
-        },
-        {
-          "name": "Canvas LMS Student Skill",
-          "slug": "canvas-lms-student",
-          "url": "https://api.skillhub.cn/efan404/canvas-lms-student",
-          "description": "当用户需要以学生身份与 Canvas LMS 交互时使用。触发短语包括“检查我的作业”“有什么作业”“下载我的课堂 PDF”“列...",
-          "description_zh": "当用户需要以学生身份与 Canvas LMS 交互时使用。触发短语包括“检查我的作业”“有什么作业”“下载我的课堂 PDF”“列...",
-          "stars": 0,
-          "downloads": 159,
-          "installs": 0,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [
-            "canvas",
-            "education",
-            "lms"
-          ],
-          "ownerName": "efan404",
-          "keyword": "LMS",
-          "_heat": 159
+          "_heat": 161
         },
         {
           "name": "Employee Handbook Generator (UK)",
@@ -23008,6 +22975,23 @@
           "_heat": 154
         },
         {
+          "name": "Eu Ai Act Compliance",
+          "slug": "eu-ai-act-compliance",
+          "url": "https://api.skillhub.cn/rochyroch/eu-ai-act-compliance",
+          "description": "依据欧盟《人工智能法案》对HR人工智能系统进行风险等级分类，提供合规差距分析，并为招聘和人力资源规划工具推荐整改措施。",
+          "description_zh": "依据欧盟《人工智能法案》对HR人工智能系统进行风险等级分类，提供合规差距分析，并为招聘和人力资源规划工具推荐整改措施。",
+          "stars": 0,
+          "downloads": 153,
+          "installs": 0,
+          "category": "",
+          "hr_category": "招聘与人才获取",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "rochyroch",
+          "keyword": "recruitment",
+          "_heat": 153
+        },
+        {
           "name": "job-analysis-train",
           "slug": "job-analysis-train",
           "url": "https://api.skillhub.cn/junwugit/job-analysis-train",
@@ -23025,20 +23009,20 @@
           "_heat": 153
         },
         {
-          "name": "Eu Ai Act Compliance",
-          "slug": "eu-ai-act-compliance",
-          "url": "https://api.skillhub.cn/rochyroch/eu-ai-act-compliance",
-          "description": "依据欧盟《人工智能法案》对HR人工智能系统进行风险等级分类，提供合规差距分析，并为招聘和人力资源规划工具推荐整改措施。",
-          "description_zh": "依据欧盟《人工智能法案》对HR人工智能系统进行风险等级分类，提供合规差距分析，并为招聘和人力资源规划工具推荐整改措施。",
+          "name": "ERPClaw-Payroll",
+          "slug": "erpclaw-payroll",
+          "url": "https://api.skillhub.cn/skipzhang/erpclaw-payroll",
+          "description": "US Payroll management -- salary structures, components, slips, payroll processing, FICA, income tax withholding, W-2 generation for ERPClaw ERP",
+          "description_zh": "US Payroll management -- salary structures, components, slips, payroll processing, FICA, income tax withholding, W-2 generation for ERPClaw ERP",
           "stars": 0,
-          "downloads": 152,
-          "installs": 0,
+          "downloads": 136,
+          "installs": 8,
           "category": "",
-          "hr_category": "招聘与人才获取",
+          "hr_category": "薪酬福利与绩效管理",
           "source": "clawhub",
           "tags": [],
-          "ownerName": "rochyroch",
-          "keyword": "recruitment",
+          "ownerName": "skipzhang",
+          "keyword": "payroll",
           "_heat": 152
         },
         {
@@ -23057,23 +23041,6 @@
           "ownerName": "membranedev",
           "keyword": "payroll",
           "_heat": 152
-        },
-        {
-          "name": "ERPClaw-Payroll",
-          "slug": "erpclaw-payroll",
-          "url": "https://api.skillhub.cn/skipzhang/erpclaw-payroll",
-          "description": "US Payroll management -- salary structures, components, slips, payroll processing, FICA, income tax withholding, W-2 generation for ERPClaw ERP",
-          "description_zh": "US Payroll management -- salary structures, components, slips, payroll processing, FICA, income tax withholding, W-2 generation for ERPClaw ERP",
-          "stars": 0,
-          "downloads": 135,
-          "installs": 8,
-          "category": "",
-          "hr_category": "薪酬福利与绩效管理",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "skipzhang",
-          "keyword": "payroll",
-          "_heat": 151
         },
         {
           "name": "Evidence Based Training Designer",
@@ -23100,30 +23067,13 @@
           "_heat": 150
         },
         {
-          "name": "LoRA Toolkit",
-          "slug": "bytesagain-lora-toolkit",
-          "url": "https://api.skillhub.cn/loutai0307-prog/bytesagain-lora-toolkit",
-          "description": "Configure, estimate, and generate LoRA fine-tuning scripts for LLMs. Input: base model name, dataset size, GPU spec. Output: training config, PEFT script, co...",
-          "description_zh": "Configure, estimate, and generate LoRA fine-tuning scripts for LLMs. Input: base model name, dataset size, GPU spec. Output: training config, PEFT script, co...",
-          "stars": 0,
-          "downloads": 146,
-          "installs": 1,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "loutai0307-prog",
-          "keyword": "LMS",
-          "_heat": 148
-        },
-        {
           "name": "ERPClaw-HR",
           "slug": "erpclaw-hr",
           "url": "https://api.skillhub.cn/skipzhang/erpclaw-hr",
           "description": "Human Resources management -- employees, departments, leave, attendance, expense claims, and employee lifecycle for ERPClaw ERP",
           "description_zh": "Human Resources management -- employees, departments, leave, attendance, expense claims, and employee lifecycle for ERPClaw ERP",
           "stars": 0,
-          "downloads": 130,
+          "downloads": 131,
           "installs": 9,
           "category": "",
           "hr_category": "HR 数字化与系统工具",
@@ -23131,7 +23081,7 @@
           "tags": [],
           "ownerName": "skipzhang",
           "keyword": "human resources",
-          "_heat": 148
+          "_heat": 149
         },
         {
           "name": "Pilot Recruitment Pipeline Setup",
@@ -23157,7 +23107,7 @@
           "description": "使用 Playwright 将 HTML 模板渲染为像素级完美的 PNG 图片卡片，并以富图消息形式发送，替代纯文本。在需要时使用此技能。",
           "description_zh": "使用 Playwright 将 HTML 模板渲染为像素级完美的 PNG 图片卡片，并以富图消息形式发送，替代纯文本。在需要时使用此技能。",
           "stars": 0,
-          "downloads": 139,
+          "downloads": 140,
           "installs": 0,
           "category": "",
           "hr_category": "培训与人才发展",
@@ -23165,7 +23115,7 @@
           "tags": [],
           "ownerName": "clarence-g",
           "keyword": "LMS",
-          "_heat": 139
+          "_heat": 140
         },
         {
           "name": "UpKuaJing contact validity check, verify phone numbers, email addresses, and domains for B2B lead qualification. UpKuaJing helps sales teams, recruiters, and traders validate contact data, reduce bounced emails, and improve outreach efficiency — essential for CRM data cleaning, candidate screening, and supplier verification.",
@@ -23185,35 +23135,13 @@
           "_heat": 136
         },
         {
-          "name": "Arena Council",
-          "slug": "arena-council",
-          "url": "https://api.skillhub.cn/nerua1/arena-council",
-          "description": "多模型议会——并行执行多个LLM，投票/共识决策。",
-          "description_zh": "多模型议会——并行执行多个LLM，投票/共识决策。",
-          "stars": 0,
-          "downloads": 133,
-          "installs": 0,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [
-            "council",
-            "lmstudio",
-            "multi-model",
-            "voting"
-          ],
-          "ownerName": "nerua1",
-          "keyword": "LMS",
-          "_heat": 133
-        },
-        {
           "name": "Legal Employment Policy Reviewer",
           "slug": "legal-employment-policy-reviewer",
           "url": "https://api.skillhub.cn/harrylabsj/legal-employment-policy-reviewer",
           "description": "提供结构化检查清单和模板，帮助专业人士进行员工手册、HR政策和雇佣风险的法律审查。",
           "description_zh": "提供结构化检查清单和模板，帮助专业人士进行员工手册、HR政策和雇佣风险的法律审查。",
           "stars": 0,
-          "downloads": 127,
+          "downloads": 128,
           "installs": 1,
           "category": "",
           "hr_category": "员工关系与劳动合规",
@@ -23221,7 +23149,7 @@
           "tags": [],
           "ownerName": "harrylabsj",
           "keyword": "employee handbook",
-          "_heat": 129
+          "_heat": 130
         },
         {
           "name": "HireMate — AI招聘助手",
@@ -23230,7 +23158,7 @@
           "description": "AI招聘助手，可生成职位描述、简历筛选标准、面试问题、候选人评分、匹配分析和薪资报告等。",
           "description_zh": "AI招聘助手，可生成职位描述、简历筛选标准、面试问题、候选人评分、匹配分析和薪资报告等。",
           "stars": 0,
-          "downloads": 117,
+          "downloads": 118,
           "installs": 0,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -23242,7 +23170,7 @@
           ],
           "ownerName": "keybryant",
           "keyword": "resume screening",
-          "_heat": 117
+          "_heat": 118
         },
         {
           "name": "Ukg Pro Hcm",
@@ -23268,7 +23196,7 @@
           "description": "北美领先独立制片发行商，精准运营《饥饿游戏》《疾速追杀》等IP，扩展多渠道影视市场。",
           "description_zh": "北美领先独立制片发行商，精准运营《饥饿游戏》《疾速追杀》等IP，扩展多渠道影视市场。",
           "stars": 0,
-          "downloads": 108,
+          "downloads": 109,
           "installs": 0,
           "category": "",
           "hr_category": "培训与人才发展",
@@ -23276,7 +23204,7 @@
           "tags": [],
           "ownerName": "hanxueyuan",
           "keyword": "LMS",
-          "_heat": 108
+          "_heat": 109
         },
         {
           "name": "Cover Letter Architect",
@@ -23285,7 +23213,7 @@
           "description": "为求职者定制求职信，将真实经历与岗位需求相结合，结构清晰、语气个性化，并避免捏造内容。",
           "description_zh": "为求职者定制求职信，将真实经历与岗位需求相结合，结构清晰、语气个性化，并避免捏造内容。",
           "stars": 0,
-          "downloads": 89,
+          "downloads": 90,
           "installs": 0,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -23293,24 +23221,7 @@
           "tags": [],
           "ownerName": "harrylabsj",
           "keyword": "candidate experience",
-          "_heat": 89
-        },
-        {
-          "name": "A24 Films",
-          "slug": "a24-films",
-          "url": "https://api.skillhub.cn/hanxueyuan/a24-films",
-          "description": "深入剖析 A24——重新定义作者导向电影制作的独立工作室，已成为文化现象。",
-          "description_zh": "深入剖析 A24——重新定义作者导向电影制作的独立工作室，已成为文化现象。",
-          "stars": 0,
-          "downloads": 86,
-          "installs": 0,
-          "category": "",
-          "hr_category": "培训与人才发展",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "hanxueyuan",
-          "keyword": "LMS",
-          "_heat": 86
+          "_heat": 90
         },
         {
           "name": "Erpclaw Region In",
@@ -23330,6 +23241,23 @@
           "_heat": 71
         },
         {
+          "name": "Epic Systems",
+          "slug": "epic-systems",
+          "url": "https://api.skillhub.cn/hanxueyuan/epic-systems",
+          "description": "Epic Systems 开发并授权 EHR 软件，通过医院向超过 300 万美国患者提供集成患者记录与数据交换服务。",
+          "description_zh": "Epic Systems 开发并授权 EHR 软件，通过医院向超过 300 万美国患者提供集成患者记录与数据交换服务。",
+          "stars": 0,
+          "downloads": 68,
+          "installs": 0,
+          "category": "",
+          "hr_category": "HR 数字化与系统工具",
+          "source": "clawhub",
+          "tags": [],
+          "ownerName": "hanxueyuan",
+          "keyword": "HR software",
+          "_heat": 68
+        },
+        {
           "name": "Agent Recruitment",
           "slug": "agent-recruitment",
           "url": "https://api.skillhub.cn/usewild2026/agent-recruitment",
@@ -23344,23 +23272,6 @@
           "tags": [],
           "ownerName": "usewild2026",
           "keyword": "recruitment",
-          "_heat": 67
-        },
-        {
-          "name": "Epic Systems",
-          "slug": "epic-systems",
-          "url": "https://api.skillhub.cn/hanxueyuan/epic-systems",
-          "description": "Epic Systems 开发并授权 EHR 软件，通过医院向超过 300 万美国患者提供集成患者记录与数据交换服务。",
-          "description_zh": "Epic Systems 开发并授权 EHR 软件，通过医院向超过 300 万美国患者提供集成患者记录与数据交换服务。",
-          "stars": 0,
-          "downloads": 67,
-          "installs": 0,
-          "category": "",
-          "hr_category": "HR 数字化与系统工具",
-          "source": "clawhub",
-          "tags": [],
-          "ownerName": "hanxueyuan",
-          "keyword": "HR software",
           "_heat": 67
         },
         {
@@ -23387,7 +23298,7 @@
           "description": "面向HR和用人经理的招聘需求沟通助手。核心解决三个问题：用人经理开口就是\"帮我招个人\"但信息零散不完整；HR反复沟通补信息耗时低效；招进来的人不对岗或岗位本身可被AI替代造成资源浪费。\n工作流四步：① Agent把\"帮我招个电商产品经理\"这种自然语言转成结构化需求表（职位、职级、技能、汇报线等）；② 缺必填字段时自动追问补全；③ 诊断需求质量——工作内容vs职级是否匹配、技能要求是否过度、市场上这类人好不好找；④ 判断AI可替代性——能替代的建议走AI Agent方案，不能替代的推荐猎头/寻访/内推最优渠道，并输出可直接复制到飞书文档的完整分析报告。",
           "description_zh": "面向HR和用人经理的招聘需求沟通助手。核心解决三个问题：用人经理开口就是\"帮我招个人\"但信息零散不完整；HR反复沟通补信息耗时低效；招进来的人不对岗或岗位本身可被AI替代造成资源浪费。\n工作流四步：① Agent把\"帮我招个电商产品经理\"这种自然语言转成结构化需求表（职位、职级、技能、汇报线等）；② 缺必填字段时自动追问补全；③ 诊断需求质量——工作内容vs职级是否匹配、技能要求是否过度、市场上这类人好不好找；④ 判断AI可替代性——能替代的建议走AI Agent方案，不能替代的推荐猎头/寻访/内推最优渠道，并输出可直接复制到飞书文档的完整分析报告。",
           "stars": 0,
-          "downloads": 50,
+          "downloads": 52,
           "installs": 0,
           "category": "",
           "hr_category": "招聘与人才获取",
@@ -23395,7 +23306,24 @@
           "tags": [],
           "ownerName": "user_dbd0e202",
           "keyword": "recruitment",
-          "_heat": 50
+          "_heat": 52
+        },
+        {
+          "name": "aaaa",
+          "slug": "aaa-new",
+          "url": "https://api.skillhub.cn/user_76b490f9/aaa-new",
+          "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+          "description_zh": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+          "stars": 0,
+          "downloads": 44,
+          "installs": 0,
+          "category": "",
+          "hr_category": "培训与人才发展",
+          "source": "community",
+          "tags": [],
+          "ownerName": "user_76b490f9",
+          "keyword": "LMS",
+          "_heat": 44
         },
         {
           "name": "ORG chart",
@@ -23404,7 +23332,7 @@
           "description": "",
           "description_zh": "",
           "stars": 0,
-          "downloads": 39,
+          "downloads": 40,
           "installs": 0,
           "category": "",
           "hr_category": "组织发展与组织设计",
@@ -23412,7 +23340,24 @@
           "tags": [],
           "ownerName": "user_26bdbd50",
           "keyword": "org chart",
-          "_heat": 39
+          "_heat": 40
+        },
+        {
+          "name": "ai-人事职能系统开发",
+          "slug": "ai-renshi",
+          "url": "https://api.skillhub.cn/user_1d515cca/ai-renshi",
+          "description": ">基于池川胜《整体人事系统设计与导入指南》，以\"职能\"为中心，帮助企业从年功人事转向能力主义人事制度的完整方法论skill。适用对象是，HR专业人士 · 企业管理咨询师 · 负责制度体系搭建的HRBP · 学习《整体人事系统》的读者",
+          "description_zh": ">基于池川胜《整体人事系统设计与导入指南》，以\"职能\"为中心，帮助企业从年功人事转向能力主义人事制度的完整方法论skill。适用对象是，HR专业人士 · 企业管理咨询师 · 负责制度体系搭建的HRBP · 学习《整体人事系统》的读者",
+          "stars": 0,
+          "downloads": 13,
+          "installs": 0,
+          "category": "",
+          "hr_category": "组织发展与组织设计",
+          "source": "community",
+          "tags": [],
+          "ownerName": "user_1d515cca",
+          "keyword": "HRBP",
+          "_heat": 13
         },
         {
           "name": "陈列培训规划",
@@ -23430,23 +23375,6 @@
           "ownerName": "user_c121a566",
           "keyword": "microlearning",
           "_heat": 12
-        },
-        {
-          "name": "ai-人事职能系统开发",
-          "slug": "ai-renshi",
-          "url": "https://api.skillhub.cn/user_1d515cca/ai-renshi",
-          "description": ">基于池川胜《整体人事系统设计与导入指南》，以\"职能\"为中心，帮助企业从年功人事转向能力主义人事制度的完整方法论skill。适用对象是，HR专业人士 · 企业管理咨询师 · 负责制度体系搭建的HRBP · 学习《整体人事系统》的读者",
-          "description_zh": ">基于池川胜《整体人事系统设计与导入指南》，以\"职能\"为中心，帮助企业从年功人事转向能力主义人事制度的完整方法论skill。适用对象是，HR专业人士 · 企业管理咨询师 · 负责制度体系搭建的HRBP · 学习《整体人事系统》的读者",
-          "stars": 0,
-          "downloads": 11,
-          "installs": 0,
-          "category": "",
-          "hr_category": "组织发展与组织设计",
-          "source": "community",
-          "tags": [],
-          "ownerName": "user_1d515cca",
-          "keyword": "HRBP",
-          "_heat": 11
         }
       ],
       "clawhub": []

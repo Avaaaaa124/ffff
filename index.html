@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🧑‍💼 HR Agent Monitor</title>
+  <title>🤖 AI Skill Monitor</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -437,6 +437,103 @@
       box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
     }
 
+    /* ── 版块切换导航 ── */
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin: 0 auto;
+      max-width: 1400px;
+      padding: 0 32px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-nav-btn {
+      background: none;
+      border: none;
+      color: var(--text3);
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .section-nav-btn.active {
+      color: var(--accent2);
+      border-bottom-color: var(--accent);
+    }
+    .section-nav-btn:hover:not(.active) {
+      color: var(--text);
+    }
+    .section-panel { display: none; }
+    .section-panel.active { display: block; }
+
+    /* ── 办公技能版块特有样式 ── */
+    .office-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 20px 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .office-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+    .office-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .office-card-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .office-card-name a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .office-card-name a:hover { color: var(--green); }
+    .office-card-category {
+      font-size: 12px;
+      color: var(--green);
+      background: rgba(34, 197, 94, 0.12);
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      flex-shrink: 0;
+    }
+    .office-card-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .office-card-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--text3);
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(45, 50, 84, 0.6);
+    }
+
     /* 空状态 */
     .empty-state {
       text-align: center;
@@ -617,17 +714,20 @@
 <!-- Header -->
 <div class="header">
   <div class="header-inner">
-    <h1>🧑‍💼 HR AGENT MONITOR</h1>
-    <p class="subtitle">自动监控 Skillhub · GitHub 两大渠道的人力资源相关 AI 项目与 Skills</p>
-    <div class="tag-row">
-      <div class="tag">🛠️ Skillhub <span id="tag-skillhub">...</span></div>
-      <div class="tag">🐙 GitHub <span id="tag-github">...</span></div>
-      <div class="tag">⭐ 筛选 Star <span>> 200</span></div>
-    </div>
+    <h1>🤖 AI SKILL MONITOR</h1>
+    <p class="subtitle">自动监控 Skillhub · GitHub 两大渠道的 AI 技能与工具</p>
   </div>
 </div>
 
-<!-- Stats Row -->
+<!-- 版块切换 -->
+<div class="section-nav">
+  <button class="section-nav-btn active" onclick="switchSection(this, 'hr-section')">🧑‍💼 HR 技能监控</button>
+  <button class="section-nav-btn" onclick="switchSection(this, 'office-section')">💼 办公通用技能</button>
+</div>
+
+<!-- ═══════════════════ HR 技能监控版块 ═══════════════════ -->
+<div class="section-panel active" id="hr-section">
+<!-- HR Stats Row -->
 <div class="stats-row">
   <div class="stat-card">
     <div class="stat-icon">🛠️</div>
@@ -740,17 +840,141 @@
       <div class="loading"><div class="spinner"></div>正在加载 Skills 历史记录...</div>
     </div>
   </div>
+</div><!-- end hr-section -->
+
+<!-- ═══════════════════ 办公通用技能版块 ═══════════════════ -->
+<div class="section-panel" id="office-section">
+<!-- Office Stats Row -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-icon">📄</div>
+    <div>
+      <div class="stat-label">办公技能</div>
+      <div class="stat-value" id="stat-office-skills">—</div>
+      <div class="stat-sub" id="stat-office-skills-sub"></div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📊</div>
+    <div>
+      <div class="stat-label">GitHub 办公工具</div>
+      <div class="stat-value" id="stat-office-github">—</div>
+      <div class="stat-sub" id="stat-office-github-sub"></div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📅</div>
+    <div>
+      <div class="stat-label">最近更新</div>
+      <div class="stat-value" id="stat-office-date" style="font-size:1.1rem">—</div>
+    </div>
+  </div>
 </div>
 
+<!-- Office Tabs -->
+<div class="tab-container">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab(this, 'office-today-skills')">📄 技能总览</button>
+    <button class="tab-btn" onclick="switchTab(this, 'office-today-github')">⭐ GitHub 工具</button>
+    <button class="tab-btn" onclick="switchTab(this, 'office-history')">📋 历史记录</button>
+  </div>
+
+  <!-- 办公技能总览 -->
+  <div class="tab-panel active" id="panel-office-today-skills">
+    <div class="skills-toolbar">
+      <input type="text" class="skills-search" id="office-skill-search" placeholder="🔍 搜索技能名称、描述、分类..." oninput="filterOfficeSkills()" />
+      <button class="sort-btn active" data-sort="heat" onclick="sortOfficeSkills(this, 'heat')">🔥 热度</button>
+      <button class="sort-btn" data-sort="downloads" onclick="sortOfficeSkills(this, 'downloads')">⬇️ 下载</button>
+      <button class="sort-btn" data-sort="stars" onclick="sortOfficeSkills(this, 'stars')">⭐ Stars</button>
+      <button class="sort-btn" data-sort="name" onclick="sortOfficeSkills(this, 'name')">🔤 名称</button>
+      <select class="source-filter" id="office-category-filter" onchange="filterOfficeSkills()">
+        <option value="">全部分类</option>
+        <option value="办公软件与文档处理">📄 办公软件与文档处理</option>
+        <option value="数据分析与可视化">📊 数据分析与可视化</option>
+        <option value="演示与信息设计">🎨 演示与信息设计</option>
+        <option value="项目管理与协作">📋 项目管理与协作</option>
+        <option value="文案撰写与内容生成">✍️ 文案撰写与内容生成</option>
+        <option value="思维导图与知识管理">🧠 思维导图与知识管理</option>
+        <option value="流程优化与自动化">⚙️ 流程优化与自动化</option>
+        <option value="协同办公与沟通">💬 协同办公与沟通</option>
+        <option value="表格处理与报表">📈 表格处理与报表</option>
+        <option value="AI 办公工具">🤖 AI 办公工具</option>
+      </select>
+      <span class="result-count" id="office-skill-count"></span>
+    </div>
+    <div class="skills-grid" id="office-skills-grid">
+      <div class="loading"><div class="spinner"></div>正在加载办公技能...</div>
+    </div>
+  </div>
+
+  <!-- GitHub 办公工具 -->
+  <div class="tab-panel" id="panel-office-today-github">
+    <div class="action-bar">
+      <button class="refresh-btn" onclick="loadAllData()">🔄 手动刷新</button>
+    </div>
+    <div class="skills-toolbar" id="office-github-toolbar" style="display:none;">
+      <input type="text" class="skills-search" id="office-github-search" placeholder="🔍 搜索项目名、描述..." oninput="filterOfficeGithub()" />
+      <button class="sort-btn active" data-sort="stars" onclick="sortOfficeGithub(this, 'stars')">⭐ Stars</button>
+      <button class="sort-btn" data-sort="forks" onclick="sortOfficeGithub(this, 'forks')">🍴 Forks</button>
+      <button class="sort-btn" data-sort="name" onclick="sortOfficeGithub(this, 'name')">🔤 名称</button>
+      <select class="source-filter" id="office-github-category-filter" onchange="filterOfficeGithub()">
+        <option value="">全部分类</option>
+        <option value="办公软件与文档处理">📄 办公软件与文档处理</option>
+        <option value="数据分析与可视化">📊 数据分析与可视化</option>
+        <option value="演示与信息设计">🎨 演示与信息设计</option>
+        <option value="项目管理与协作">📋 项目管理与协作</option>
+        <option value="文案撰写与内容生成">✍️ 文案撰写与内容生成</option>
+        <option value="思维导图与知识管理">🧠 思维导图与知识管理</option>
+        <option value="流程优化与自动化">⚙️ 流程优化与自动化</option>
+        <option value="协同办公与沟通">💬 协同办公与沟通</option>
+        <option value="表格处理与报表">📈 表格处理与报表</option>
+        <option value="AI 办公工具">🤖 AI 办公工具</option>
+      </select>
+      <span class="result-count" id="office-github-count"></span>
+    </div>
+    <div class="skills-grid" id="office-github-grid" style="display:none;"></div>
+    <div class="md-content" id="content-office-today-github">
+      <div class="loading"><div class="spinner"></div>正在加载 GitHub 办公工具...</div>
+    </div>
+  </div>
+
+  <!-- 办公技能历史 -->
+  <div class="tab-panel" id="panel-office-history">
+    <div class="md-content" id="content-office-history">
+      <div class="loading"><div class="spinner"></div>正在加载办公技能历史记录...</div>
+    </div>
+  </div>
+</div>
+</div><!-- end office-section -->
+
 <footer>
-  🧑‍💼 HR Agent Monitor &nbsp;·&nbsp; 数据自动更新 &nbsp;·&nbsp; Powered by GitHub Actions + Cloudflare Pages
+  🤖 AI Skill Monitor &nbsp;·&nbsp; 数据自动更新 &nbsp;·&nbsp; Powered by GitHub Actions + Cloudflare Pages
 </footer>
 
 <script>
   // ── 全局状态 ──
-  let allSkillData = [];        // 所有 skill 卡片数据
-  let currentSort = 'heat';     // 当前排序字段
-  let currentSortDir = -1;      // 排序方向 (-1 降序, 1 升序)
+  let allSkillData = [];        // HR skill 卡片数据
+  let currentSort = 'heat';
+  let currentSortDir = -1;
+  let allOfficeSkillData = [];  // 办公技能卡片数据
+  let currentOfficeSkillSort = 'heat';
+  let currentOfficeSkillSortDir = -1;
+  let allOfficeGithubData = []; // 办公 GitHub 数据
+  let currentOfficeGithubSort = 'stars';
+  let currentOfficeGithubSortDir = -1;
+  let officeDataLoaded = false;  // 办公版块是否已加载
+
+  // ── 版块切换 ──
+  function switchSection(btn, id) {
+    document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.section-nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    // 首次切换到办公版块时才加载数据（懒加载）
+    if (id === 'office-section' && !officeDataLoaded) {
+      loadOfficeData();
+    }
+  }
 
   // ── Tab 切换 ──
   function switchTab(btn, id) {
@@ -1122,6 +1346,229 @@
     if (githubMdText || skillsMdText) {
       extractStats(githubMdText, skillsMdText);
     }
+  }
+
+  // ═══════════════════════════════════════════
+  // 办公技能版块逻辑
+  // ═══════════════════════════════════════════
+
+  function extractOfficeSkillData(mdText) {
+    const match = mdText.match(/<!-- OFFICE_SKILL_DATA:(.+?):OFFICE_SKILL_DATA -->/s);
+    if (!match) return null;
+    try { return JSON.parse(match[1]); } catch(e) { return null; }
+  }
+
+  function extractOfficeGithubData(mdText) {
+    const match = mdText.match(/<!-- OFFICE_GITHUB_DATA:(.+?):OFFICE_GITHUB_DATA -->/s);
+    if (!match) return null;
+    try { return JSON.parse(match[1]); } catch(e) { return null; }
+  }
+
+  function renderOfficeSkillCards(data) {
+    const grid = document.getElementById('office-skills-grid');
+    if (!data || !data.office_skills || data.office_skills.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无办公技能数据<br><small>等待 GitHub Actions 更新...</small></div>';
+      return;
+    }
+    allOfficeSkillData = data.office_skills;
+    currentOfficeSkillSort = 'heat';
+    currentOfficeSkillSortDir = -1;
+    allOfficeSkillData.sort((a, b) => (b.heat || 0) - (a.heat || 0));
+    renderOfficeSkillList(allOfficeSkillData);
+  }
+
+  function renderOfficeSkillList(cards) {
+    const grid = document.getElementById('office-skills-grid');
+    document.getElementById('office-skill-count').textContent = `共 ${cards.length} 个技能`;
+    if (cards.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🤷</div>没有匹配的技能<br><small>试试其他关键词？</small></div>';
+      return;
+    }
+    grid.innerHTML = cards.map((skill, idx) => {
+      const rank = allOfficeSkillData.indexOf(skill) + 1;
+      const isTop3 = rank <= 3;
+      const tagsHtml = (skill.tags || []).slice(0, 3).map(t => `<span class="skill-tag">${t}</span>`).join('');
+      const hasMeta = skill.downloads > 0 || skill.installs > 0 || skill.stars > 0;
+      return `
+        <div class="office-card">
+          ${isTop3 ? `<div class="skill-card-rank top3">#${rank}</div>` : (rank <= 10 ? `<div class="skill-card-rank">#${rank}</div>` : '')}
+          <div class="office-card-header">
+            <div class="office-card-name"><a href="${skill.url || '#'}" target="_blank">${skill.name || '—'}</a></div>
+            ${skill.office_category ? `<span class="office-card-category">${skill.office_category}</span>` : ''}
+          </div>
+          <div class="office-card-desc">${skill.desc || '暂无描述'}</div>
+          ${tagsHtml ? `<div class="skill-card-tags">${tagsHtml}</div>` : ''}
+          ${hasMeta ? `
+          <div class="office-card-meta">
+            ${skill.heat > 0 ? `<span class="meta-item heat">🔥 ${fmtNum(skill.heat)}</span>` : ''}
+            ${skill.downloads > 0 ? `<span class="meta-item downloads">⬇️ ${fmtNum(skill.downloads)}</span>` : ''}
+            ${skill.stars > 0 ? `<span class="meta-item stars">⭐ ${fmtNum(skill.stars)}</span>` : ''}
+          </div>` : ''}
+        </div>`;
+    }).join('');
+  }
+
+  function filterOfficeSkills() {
+    const query = document.getElementById('office-skill-search').value.toLowerCase().trim();
+    const category = document.getElementById('office-category-filter').value;
+    let filtered = allOfficeSkillData;
+    if (category) filtered = filtered.filter(s => s.office_category === category);
+    if (query) {
+      filtered = filtered.filter(s =>
+        (s.name || '').toLowerCase().includes(query) ||
+        (s.desc || '').toLowerCase().includes(query) ||
+        (s.office_category || '').toLowerCase().includes(query) ||
+        (s.tags || []).some(t => t.toLowerCase().includes(query))
+      );
+    }
+    filtered.sort((a, b) => {
+      const aVal = a[currentOfficeSkillSort] || 0;
+      const bVal = b[currentOfficeSkillSort] || 0;
+      if (typeof aVal === 'string') return aVal.localeCompare(bVal) * currentOfficeSkillSortDir;
+      return (aVal - bVal) * currentOfficeSkillSortDir;
+    });
+    renderOfficeSkillList(filtered);
+  }
+
+  function sortOfficeSkills(btn, field) {
+    if (currentOfficeSkillSort === field) { currentOfficeSkillSortDir *= -1; }
+    else { currentOfficeSkillSort = field; currentOfficeSkillSortDir = field === 'name' ? 1 : -1; }
+    document.querySelectorAll('#panel-office-today-skills .sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterOfficeSkills();
+  }
+
+  // 办公 GitHub 卡片
+  function renderOfficeGithubCards(data) {
+    const grid = document.getElementById('office-github-grid');
+    const fallback = document.getElementById('content-office-today-github');
+    const toolbar = document.getElementById('office-github-toolbar');
+    if (!data || data.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无数据<br><small>等待 GitHub Actions 更新...</small></div>';
+      return;
+    }
+    allOfficeGithubData = data;
+    currentOfficeGithubSort = 'stars';
+    currentOfficeGithubSortDir = -1;
+    allOfficeGithubData.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+    toolbar.style.display = 'flex';
+    grid.style.display = 'grid';
+    fallback.style.display = 'none';
+    renderOfficeGithubList(allOfficeGithubData);
+  }
+
+  function renderOfficeGithubList(data) {
+    const grid = document.getElementById('office-github-grid');
+    document.getElementById('office-github-count').textContent = `共 ${data.length} 个项目`;
+    if (data.length === 0) {
+      grid.innerHTML = '<div class="empty-state"><div class="icon">🤷</div>没有匹配的项目</div>';
+      return;
+    }
+    grid.innerHTML = data.map((proj, idx) => {
+      const rank = allOfficeGithubData.indexOf(proj) + 1;
+      const isTop3 = rank <= 3;
+      const lang = proj.language || '—';
+      return `
+        <div class="github-card">
+          ${isTop3 ? `<div class="github-card-rank top3">#${rank}</div>` : (rank <= 10 ? `<div class="github-card-rank">#${rank}</div>` : '')}
+          <div class="github-card-header">
+            <div class="github-card-name"><a href="${proj.url || '#'}" target="_blank">${proj.name || '—'}</a></div>
+            <span class="github-card-lang">${lang}</span>
+          </div>
+          ${proj.office_category ? `<div class="office-card-category">${proj.office_category}</div>` : ''}
+          <div class="github-card-desc">${proj.desc_zh || proj.desc || '暂无描述'}</div>
+          <div class="github-card-meta">
+            <span class="meta-item stars">⭐ ${fmtNum(proj.stars || 0)}</span>
+            <span class="meta-item forks">🍴 ${fmtNum(proj.forks || 0)}</span>
+            ${proj.updated_at ? `<span class="meta-item">📅 ${proj.updated_at}</span>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function filterOfficeGithub() {
+    const query = document.getElementById('office-github-search').value.toLowerCase().trim();
+    const category = document.getElementById('office-github-category-filter').value;
+    let filtered = allOfficeGithubData;
+    if (category) filtered = filtered.filter(s => s.office_category === category);
+    if (query) {
+      filtered = filtered.filter(s =>
+        (s.name || '').toLowerCase().includes(query) ||
+        (s.desc_zh || '').toLowerCase().includes(query) ||
+        (s.desc || '').toLowerCase().includes(query) ||
+        (s.office_category || '').toLowerCase().includes(query) ||
+        (s.topics || []).some(t => t.toLowerCase().includes(query))
+      );
+    }
+    filtered.sort((a, b) => {
+      const aVal = a[currentOfficeGithubSort] || 0;
+      const bVal = b[currentOfficeGithubSort] || 0;
+      if (typeof aVal === 'string') return aVal.localeCompare(bVal) * currentOfficeGithubSortDir;
+      return (aVal - bVal) * currentOfficeGithubSortDir;
+    });
+    renderOfficeGithubList(filtered);
+  }
+
+  function sortOfficeGithub(btn, field) {
+    if (currentOfficeGithubSort === field) { currentOfficeGithubSortDir *= -1; }
+    else { currentOfficeGithubSort = field; currentOfficeGithubSortDir = field === 'name' ? 1 : -1; }
+    document.querySelectorAll('#office-github-toolbar .sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterOfficeGithub();
+  }
+
+  // 加载办公版块数据
+  async function loadOfficeData() {
+    officeDataLoaded = true;
+    const files = [
+      { path: 'data/office_skills_today.md', type: 'skills' },
+      { path: 'data/office_github_today.md', type: 'github' },
+      { path: 'data/office_history.md', type: 'history' },
+    ];
+    const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
+
+    let skillsMdText = '';
+    let githubMdText = '';
+
+    results.forEach((result, i) => {
+      if (result.status === 'fulfilled') {
+        const text = result.value;
+        if (files[i].type === 'skills') {
+          skillsMdText = text;
+          const data = extractOfficeSkillData(text);
+          if (data) { renderOfficeSkillCards(data); }
+          else { document.getElementById('office-skills-grid').innerHTML = '<div class="error-box">暂无结构化数据</div>'; }
+          // 统计
+          const countMatch = text.match(/技能总数\s*\|\s*\*\*(\d+)\*\*/);
+          if (countMatch) {
+            document.getElementById('stat-office-skills').textContent = countMatch[1];
+            document.getElementById('stat-office-skills-sub').textContent = '个办公技能';
+          }
+          const dlMatch = text.match(/总下载量\s*\|\s*([\d,]+)/);
+          if (dlMatch) document.getElementById('stat-office-skills-sub').textContent = `⬇️${dlMatch[1]} 下载`;
+          const dateMatch = text.match(/更新时间[：:]([\d-]+)/);
+          if (dateMatch) document.getElementById('stat-office-date').textContent = dateMatch[1];
+        }
+        if (files[i].type === 'github') {
+          githubMdText = text;
+          const data = extractOfficeGithubData(text);
+          if (data) { renderOfficeGithubCards(data); }
+          else { renderMd(document.getElementById('content-office-today-github'), text); }
+          const countMatch = text.match(/项目总数\s*\|\s*\*\*(\d+)\*\*/);
+          if (countMatch) {
+            document.getElementById('stat-office-github').textContent = countMatch[1] + '+';
+            document.getElementById('stat-office-github-sub').textContent = '个办公工具';
+          }
+          const starMatch = text.match(/最高 Star\s*\|\s*([\d,]+)/);
+          if (starMatch) document.getElementById('stat-office-github-sub').textContent = '最高 ⭐' + starMatch[1];
+        }
+        if (files[i].type === 'history') {
+          renderMd(document.getElementById('content-office-history'), text);
+        }
+      } else {
+        console.warn('办公数据加载失败:', files[i].path);
+      }
+    });
   }
 
   // 页面加载后立即执行

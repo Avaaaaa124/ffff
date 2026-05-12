@@ -1,4 +1,4 @@
-name: HR Agent Monitor - 每日自动更新
+name: AI Skill Monitor - 每日自动更新
 
 on:
   schedule:
@@ -40,7 +40,7 @@ jobs:
       - name: 安装 Python 依赖
         run: pip install requests
 
-      # ── 4. 运行监控脚本 ──
+      # ── 4. 运行 HR 监控脚本 ──
       - name: 运行 HR 项目监控脚本
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,7 +49,13 @@ jobs:
           cd scripts
           python fetch_hr_projects.py
 
-      # ── 5. 提交并推送更新 ──
+      # ── 5. 运行办公技能监控脚本 ──
+      - name: 运行办公技能监控脚本
+        run: |
+          cd scripts
+          python fetch_office_skills.py
+
+      # ── 6. 提交并推送更新 ──
       - name: 提交数据更新
         run: |
           git config user.name  "github-actions[bot]"
@@ -59,19 +65,19 @@ jobs:
             echo "没有新数据变更，跳过提交"
           else
             DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
-            git commit -m "📊 自动更新 HR 监控数据 · ${DATE}"
+            git commit -m "📊 自动更新监控数据 · ${DATE}"
             git push
           fi
 
-      # ── 6. 记录运行摘要 ──
+      # ── 7. 记录运行摘要 ──
       - name: 生成运行摘要
         if: always()
         run: |
-          echo "## 🧑‍💼 HR Agent Monitor 运行结果" >> $GITHUB_STEP_SUMMARY
+          echo "## 🤖 AI Skill Monitor 运行结果" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| 文件 | 状态 |" >> $GITHUB_STEP_SUMMARY
           echo "|------|------|" >> $GITHUB_STEP_SUMMARY
-          for f in data/github_today.md data/skills_today.md data/github_history.md data/skills_history.md; do
+          for f in data/github_today.md data/skills_today.md data/github_history.md data/skills_history.md data/office_skills_today.md data/office_github_today.md data/office_history.md; do
             if [ -f "$f" ]; then
               SIZE=$(wc -c < "$f")
               echo "| \`$f\` | ✅ ${SIZE} bytes |" >> $GITHUB_STEP_SUMMARY

@@ -903,7 +903,7 @@
       <span class="result-count" id="office-skill-count"></span>
     </div>
     <div class="skills-grid" id="office-skills-grid">
-      <div class="loading"><div class="spinner"></div>正在加载办公技能...</div>
+      <div class="loading" id="office-loading-msg"><div class="spinner"></div>正在加载办公技能...<br><small>如果长时间未加载，请检查网络连接或刷新页面</small></div>
     </div>
   </div>
 
@@ -974,7 +974,7 @@
     // 首次切换到办公版块时才加载数据（懒加载）
     if (id === 'office-section' && !officeDataLoaded) {
       console.log('[Section] 首次加载办公版块数据...');
-      loadOfficeData();
+      loadOfficeData().catch(e => console.error('[Section] 加载办公数据失败:', e));
     }
   }
 
@@ -1521,14 +1521,15 @@
 
   // 加载办公版块数据
   async function loadOfficeData() {
-    officeDataLoaded = true;
-    const files = [
-      { path: 'data/office_skills_today.md', type: 'skills' },
-      { path: 'data/office_github_today.md', type: 'github' },
-      { path: 'data/office_history.md', type: 'history' },
-    ];
-    console.log('[Office] 开始加载办公版块数据...');
-    const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
+    try {
+      officeDataLoaded = true;
+      const files = [
+        { path: 'data/office_skills_today.md', type: 'skills' },
+        { path: 'data/office_github_today.md', type: 'github' },
+        { path: 'data/office_history.md', type: 'history' },
+      ];
+      console.log('[Office] 开始加载办公版块数据...');
+      const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
 
     let skillsMdText = '';
     let githubMdText = '';
@@ -1587,6 +1588,17 @@
           ⚠️ 部分数据加载失败<br>
           <small>${loadErrors.join('<br>')}</small><br><br>
           <small>请检查网络连接或<a href="javascript:location.reload()" style="color:var(--accent2)">刷新页面</a>重试</small>
+        </div>`;
+      }
+    }
+    } catch (e) {
+      console.error('[Office] loadOfficeData 函数执行出错:', e);
+      const grid = document.getElementById('office-skills-grid');
+      if (grid) {
+        grid.innerHTML = `<div class="error-box">
+          ⚠️ 加载办公数据时发生错误<br>
+          <small>${e.message || String(e)}</small><br><br>
+          <small>请<a href="javascript:location.reload()" style="color:var(--accent2)">刷新页面</a>重试</small>
         </div>`;
       }
     }

@@ -618,11 +618,10 @@
 <div class="header">
   <div class="header-inner">
     <h1>🧑‍💼 HR AGENT MONITOR</h1>
-    <p class="subtitle">自动监控 GitHub · Skillhub · Clawhub 三大渠道的人力资源相关 AI 项目与 Skills</p>
+    <p class="subtitle">自动监控 Skillhub · GitHub 两大渠道的人力资源相关 AI 项目与 Skills</p>
     <div class="tag-row">
-      <div class="tag">🐙 GitHub <span id="tag-github">...</span></div>
       <div class="tag">🛠️ Skillhub <span id="tag-skillhub">...</span></div>
-      <div class="tag">📦 Clawhub <span id="tag-clawhub">...</span></div>
+      <div class="tag">🐙 GitHub <span id="tag-github">...</span></div>
       <div class="tag">⭐ 筛选 Star <span>> 200</span></div>
     </div>
   </div>
@@ -630,14 +629,6 @@
 
 <!-- Stats Row -->
 <div class="stats-row">
-  <div class="stat-card">
-    <div class="stat-icon">🐙</div>
-    <div>
-      <div class="stat-label">GitHub HR 项目</div>
-      <div class="stat-value" id="stat-github">—</div>
-      <div class="stat-sub" id="stat-github-sub"></div>
-    </div>
-  </div>
   <div class="stat-card">
     <div class="stat-icon">🛠️</div>
     <div>
@@ -647,11 +638,11 @@
     </div>
   </div>
   <div class="stat-card">
-    <div class="stat-icon">📦</div>
+    <div class="stat-icon">🐙</div>
     <div>
-      <div class="stat-label">Clawhub MCP</div>
-      <div class="stat-value" id="stat-clawhub">—</div>
-      <div class="stat-sub" id="stat-clawhub-sub"></div>
+      <div class="stat-label">GitHub HR 项目</div>
+      <div class="stat-value" id="stat-github">—</div>
+      <div class="stat-sub" id="stat-github-sub"></div>
     </div>
   </div>
   <div class="stat-card">
@@ -666,14 +657,14 @@
 <!-- Tabs -->
 <div class="tab-container">
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab(this, 'today-github')">⭐ GitHub 今日</button>
-    <button class="tab-btn" onclick="switchTab(this, 'today-skills')">🛠️ Skills 今日</button>
-    <button class="tab-btn" onclick="switchTab(this, 'history-github')">📚 GitHub 历史</button>
+    <button class="tab-btn active" onclick="switchTab(this, 'today-skills')">🛠️ Skills 今日</button>
+    <button class="tab-btn" onclick="switchTab(this, 'today-github')">⭐ GitHub 今日</button>
     <button class="tab-btn" onclick="switchTab(this, 'history-skills')">📋 Skills 历史</button>
+    <button class="tab-btn" onclick="switchTab(this, 'history-github')">📚 GitHub 历史</button>
   </div>
 
   <!-- GitHub 今日 — 卡片式布局 -->
-  <div class="tab-panel active" id="panel-today-github">
+  <div class="tab-panel" id="panel-today-github">
     <div class="action-bar">
       <button class="refresh-btn" onclick="loadAllData()">🔄 手动刷新</button>
       <span class="last-update" id="update-time">正在加载...</span>
@@ -704,7 +695,7 @@
   </div>
 
   <!-- Skills 今日 — 卡片式布局 -->
-  <div class="tab-panel" id="panel-today-skills">
+  <div class="tab-panel active" id="panel-today-skills">
     <div class="skills-toolbar">
       <input type="text" class="skills-search" id="skill-search" placeholder="🔍 搜索 Skill 名称、描述、标签..." oninput="filterSkills()" />
       <button class="sort-btn active" data-sort="heat" onclick="sortSkills(this, 'heat')">🔥 热度</button>
@@ -712,10 +703,9 @@
       <button class="sort-btn" data-sort="installs" onclick="sortSkills(this, 'installs')">📥 安装</button>
       <button class="sort-btn" data-sort="stars" onclick="sortSkills(this, 'stars')">⭐ Stars</button>
       <button class="sort-btn" data-sort="name" onclick="sortSkills(this, 'name')">🔤 名称</button>
-      <select class="source-filter" id="source-filter" onchange="filterSkills()">
+      <select class="source-filter" id="source-filter" onchange="filterSkills()" style="display:none;">
         <option value="">全部来源</option>
         <option value="skillhub">Skillhub</option>
-        <option value="clawhub">Clawhub</option>
       </select>
       <select class="source-filter" id="category-filter" onchange="filterSkills()">
         <option value="">全部分类</option>
@@ -806,24 +796,6 @@
     }
 
     allSkillData = data.skillhub;
-    // 合并 clawhub 数据（如果有的话）
-    if (data.clawhub && data.clawhub.length > 0) {
-      data.clawhub.forEach(item => {
-        allSkillData.push({
-          name: item.name,
-          slug: '',
-          url: item.url,
-          desc: (item.description || '').substring(0, 120),
-          downloads: 0,
-          installs: 0,
-          stars: 0,
-          heat: 0,
-          source: 'clawhub',
-          tags: [],
-          keyword: item.keyword || '',
-        });
-      });
-    }
 
     currentSort = 'heat';
     currentSortDir = -1;
@@ -1064,12 +1036,7 @@
           document.getElementById('stat-skillhub-sub').textContent = '⬇️' + totalDl[1] + ' 下载';
         }
       }
-      // Clawhub
-      const chMatch = skillsMd.match(/Clawhub[：:]\s*\*\*(\d+)\*\*/);
-      if (chMatch) {
-        document.getElementById('stat-clawhub').textContent = chMatch[1];
-        document.getElementById('tag-clawhub').textContent = chMatch[1] + ' 个';
-      }
+      // Clawhub（已移除，保留占位避免报错）
       // 日期
       const dateMatch = githubMd.match(/更新时间[：:](\d{4}-\d{2}-\d{2})/);
       if (dateMatch) {

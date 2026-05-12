@@ -1356,19 +1356,35 @@
 
   function extractOfficeSkillData(mdText) {
     const match = mdText.match(/<!-- OFFICE_SKILL_DATA:(.+?):OFFICE_SKILL_DATA -->/s);
-    if (!match) return null;
-    try { return JSON.parse(match[1]); } catch(e) { return null; }
+    if (!match) { console.log('[Office] 未找到 OFFICE_SKILL_DATA 标记'); return null; }
+    try { 
+      const data = JSON.parse(match[1]); 
+      console.log('[Office] 成功解析办公技能数据，数量:', data.office_skills?.length || 0);
+      return data;
+    } catch(e) { 
+      console.error('[Office] 解析 OFFICE_SKILL_DATA 失败:', e);
+      return null; 
+    }
   }
 
   function extractOfficeGithubData(mdText) {
     const match = mdText.match(/<!-- OFFICE_GITHUB_DATA:(.+?):OFFICE_GITHUB_DATA -->/s);
-    if (!match) return null;
-    try { return JSON.parse(match[1]); } catch(e) { return null; }
+    if (!match) { console.log('[Office] 未找到 OFFICE_GITHUB_DATA 标记'); return null; }
+    try { 
+      const data = JSON.parse(match[1]); 
+      console.log('[Office] 成功解析 GitHub 数据，数量:', data?.length || 0);
+      return data;
+    } catch(e) { 
+      console.error('[Office] 解析 OFFICE_GITHUB_DATA 失败:', e);
+      return null; 
+    }
   }
 
   function renderOfficeSkillCards(data) {
+    console.log('[Office] 开始渲染办公技能卡片，数据:', data ? '有' : '无');
     const grid = document.getElementById('office-skills-grid');
     if (!data || !data.office_skills || data.office_skills.length === 0) {
+      console.log('[Office] 数据为空，显示空状态');
       grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无办公技能数据<br><small>等待 GitHub Actions 更新...</small></div>';
       return;
     }
@@ -1442,10 +1458,12 @@
 
   // 办公 GitHub 卡片
   function renderOfficeGithubCards(data) {
+    console.log('[Office] 开始渲染 GitHub 卡片，数据:', data ? '有' : '无');
     const grid = document.getElementById('office-github-grid');
     const fallback = document.getElementById('content-office-today-github');
     const toolbar = document.getElementById('office-github-toolbar');
     if (!data || data.length === 0) {
+      console.log('[Office] GitHub 数据为空，显示空状态');
       grid.innerHTML = '<div class="empty-state"><div class="icon">🔍</div>暂无数据<br><small>等待 GitHub Actions 更新...</small></div>';
       return;
     }

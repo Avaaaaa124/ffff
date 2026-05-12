@@ -966,12 +966,14 @@
 
   // ── 版块切换 ──
   function switchSection(btn, id) {
+    console.log('[Section] 切换到版块:', id);
     document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.section-nav-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
     // 首次切换到办公版块时才加载数据（懒加载）
     if (id === 'office-section' && !officeDataLoaded) {
+      console.log('[Section] 首次加载办公版块数据...');
       loadOfficeData();
     }
   }
@@ -1525,13 +1527,16 @@
       { path: 'data/office_github_today.md', type: 'github' },
       { path: 'data/office_history.md', type: 'history' },
     ];
+    console.log('[Office] 开始加载办公版块数据...');
     const results = await Promise.allSettled(files.map(f => fetchMd(f.path)));
 
     let skillsMdText = '';
     let githubMdText = '';
+    let loadErrors = [];
 
     results.forEach((result, i) => {
       if (result.status === 'fulfilled') {
+        console.log(`[Office] ${files[i].path} 加载成功 (${result.value.length} chars)`);
         const text = result.value;
         if (files[i].type === 'skills') {
           skillsMdText = text;
@@ -1566,9 +1571,25 @@
           renderMd(document.getElementById('content-office-history'), text);
         }
       } else {
-        console.warn('办公数据加载失败:', files[i].path);
+        const err = result.reason?.message || String(result.reason);
+        console.error(`[Office] ${files[i].path} 加载失败:`, err);
+        loadErrors.push(files[i].path + ': ' + err);
       }
     });
+
+    // 如果有任何文件加载失败，显示明确的错误提示
+    if (loadErrors.length > 0) {
+      console.error('[Office] 加载失败的文件:', loadErrors);
+      // 在技能网格中显示错误信息
+      const grid = document.getElementById('office-skills-grid');
+      if (grid && !grid.querySelector('.office-card')) {
+        grid.innerHTML = `<div class="error-box">
+          ⚠️ 部分数据加载失败<br>
+          <small>${loadErrors.join('<br>')}</small><br><br>
+          <small>请检查网络连接或<a href="javascript:location.reload()" style="color:var(--accent2)">刷新页面</a>重试</small>
+        </div>`;
+      }
+    }
   }
 
   // 页面加载后立即执行

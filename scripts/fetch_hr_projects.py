@@ -1443,11 +1443,15 @@ def render_history_github_md(history: dict) -> str:
             f"",
             f"共 {len(projects)} 个项目，最高 Star：{max((p['stars'] for p in projects), default=0):,}",
             f"",
-            f"| 项目 | ⭐ Stars | 语言 |",
+            f"| 项目 | ⭐ Stars | 简介 |",
             f"|------|---------|------|",
         ]
         for p in sorted(projects, key=lambda x: x["stars"], reverse=True)[:20]:
-            lines.append(f"| [{p['name']}]({p['url']}) | {p['stars']:,} | {p['language']} |")
+            # 优先使用中文简介
+            desc = (p.get("desc_zh") or p.get("description") or "暂无简介")[:60]
+            if len(p.get("desc_zh") or p.get("description") or "") > 60:
+                desc += "..."
+            lines.append(f"| [{p['name']}]({p['url']}) | {p['stars']:,} | {desc} |")
         lines.append("")
     lines.append(f"\n---\n\n*由 HR Agent Monitor 自动生成*")
     return "\n".join(lines)
@@ -1464,12 +1468,34 @@ def render_history_skills_md(history: dict) -> str:
         entry = history["skills"][date]
         skillhub = entry.get("skillhub", [])
         clawhub  = entry.get("clawhub", [])
+        all_skills = skillhub + clawhub
         lines += [
             f"## {date}",
             f"",
             f"Skillhub：{len(skillhub)} 个　｜　Clawhub：{len(clawhub)} 个",
             f"",
         ]
+        if all_skills:
+            # 按 stars 降序（stars 相同则按 _heat 降序）
+            sorted_skills = sorted(
+                all_skills,
+                key=lambda x: (x.get("stars", 0), x.get("_heat", 0)),
+                reverse=True
+            )[:20]
+            lines += [
+                f"| 项目 | ⭐ Stars | 简介 |",
+                f"|------|---------|------|",
+            ]
+            for s in sorted_skills:
+                name = s.get("name", "—")
+                url  = s.get("url", "#")
+                stars = s.get("stars", 0)
+                desc_raw = s.get("description_zh") or s.get("description") or "暂无简介"
+                desc = desc_raw[:60] + ("..." if len(desc_raw) > 60 else "")
+                lines.append(f"| [{name}]({url}) | {stars} | {desc} |")
+            lines.append("")
+        else:
+            lines.append("")
     lines.append(f"\n---\n\n*由 HR Agent Monitor 自动生成*")
     return "\n".join(lines)
 

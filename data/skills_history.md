@@ -6,21 +6,114 @@
 
 Skillhub：77 个　｜　Clawhub：0 个
 
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP（Composio）自动化 BambooHR 任务：员工、请假、福利、受抚养人、员工信息更新。请先... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruit... |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [Recruiter Assistant](https://api.skillhub.cn/gakkiismywife/recruiter-assistant) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+| [Smart Recruitment Cn](https://api.skillhub.cn/huyong2023/smart-recruitment-cn) | 0 | 智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理 |
+| [Employee Handbook Generator](https://api.skillhub.cn/1kalin/afrexai-employee-handbook) | 0 | 生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求... |
+| [Jobclaw Recruit](https://api.skillhub.cn/imluyu/jobclaw-recruit) | 0 | 帮助招聘人员发布职位到岗位匹配系统。适用于用户想要：(1)发布职位、(2)公布岗位、(3)招聘人员、(4)招募候选人、(... |
+| [Payroll Compliance Audit](https://api.skillhub.cn/1kalin/afrexai-payroll-audit) | 0 | 执行全面薪酬审计，涵盖工种分类、加班费、预扣税准确性及合规性清单，并生成详细报告。 |
+| [People Strategy](https://api.skillhub.cn/makkzone/people-strategy) | 0 | 管理与查询基于 SQLite 的持久化人员关系图谱，适用于个人 CRM、组织架构、导师制及协作映射。 |
+| [llms.txt File Builder](https://api.skillhub.cn/geoly-geo/geo-llms-txt) | 0 | 生成、验证并优化 llms.txt 文件，以提升 AI 爬虫的可访问性。创建结构化的 Markdown 文件，帮助 AI... |
+| [Recruiter Assistant (Shenzhen)](https://api.skillhub.cn/gakkiismywife/recruiter-assistant-sz) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+| [KU Portal](https://api.skillhub.cn/garibong-labs/ku-portal) | 0 | 查询高丽大学KUPID门户：通知公告、学期日程、奖学金通知、图书馆座位、课程表、已选课程、LMS集成（基于SonAIen... |
+
 ## 2026-05-10
 
 Skillhub：75 个　｜　Clawhub：0 个
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [Canvas LMS](https://api.skillhub.cn/pranavkarthik10/canvas-lms) | 5 | 访问Canvas LMS获取课程数据、作业、成绩和提交内容。用于检查截止日期、查看成绩、列出课程或获取课程资料。 |
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [Lmstudio Model Switch](https://api.skillhub.cn/endihunn/lmstudio-model-switch) | 2 | 在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP（Composio）自动化 BambooHR 任务：员工、请假、福利、受抚养人、员工信息更新。请先... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruit... |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Knowfun](https://api.skillhub.cn/duguyixiaono1/knowfun-skills) | 1 | Generate educational content using Knowfun.io API - create c... |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [LLMs-Conclave](https://api.skillhub.cn/dreamarc77/llmconclave) | 1 | 多模型AI辩论平台：提交主题，多个AI多轮辩论，产出结构化洞见与精炼研究报告。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [DevTool Answer Monitor](https://api.skillhub.cn/veeicwgy/devtool-answer-monitor) | 0 | Use when the user wants to monitor how ChatGPT, Claude, Gemi... |
+| [Smart Recruitment Cn](https://api.skillhub.cn/huyong2023/smart-recruitment-cn) | 0 | 智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理 |
+| [Recruiter Assistant](https://api.skillhub.cn/gakkiismywife/recruiter-assistant) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+| [Employee Handbook Generator](https://api.skillhub.cn/1kalin/afrexai-employee-handbook) | 0 | 生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求... |
+| [Jobclaw Recruit](https://api.skillhub.cn/imluyu/jobclaw-recruit) | 0 | 帮助招聘人员发布职位到岗位匹配系统。适用于用户想要：(1)发布职位、(2)公布岗位、(3)招聘人员、(4)招募候选人、(... |
 
 ## 2026-05-09
 
 Skillhub：74 个　｜　Clawhub：0 个
 
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP（Composio）自动化 BambooHR 任务：员工、请假、福利、受抚养人、员工信息更新。请先... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruit... |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [Smart Recruitment Cn](https://api.skillhub.cn/huyong2023/smart-recruitment-cn) | 0 | 智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理 |
+| [Recruiter Assistant](https://api.skillhub.cn/gakkiismywife/recruiter-assistant) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+| [Employee Handbook Generator](https://api.skillhub.cn/1kalin/afrexai-employee-handbook) | 0 | 生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求... |
+| [Jobclaw Recruit](https://api.skillhub.cn/imluyu/jobclaw-recruit) | 0 | 帮助招聘人员发布职位到岗位匹配系统。适用于用户想要：(1)发布职位、(2)公布岗位、(3)招聘人员、(4)招募候选人、(... |
+| [Payroll Compliance Audit](https://api.skillhub.cn/1kalin/afrexai-payroll-audit) | 0 | 执行全面薪酬审计，涵盖工种分类、加班费、预扣税准确性及合规性清单，并生成详细报告。 |
+| [People Strategy](https://api.skillhub.cn/makkzone/people-strategy) | 0 | 管理与查询基于 SQLite 的持久化人员关系图谱，适用于个人 CRM、组织架构、导师制及协作映射。 |
+| [Dream Of Clawra](https://api.skillhub.cn/qidu/dream-of-clawra) | 0 | Haocun is a famous dancer, actress with greate archievements... |
+| [llms.txt File Builder](https://api.skillhub.cn/geoly-geo/geo-llms-txt) | 0 | 生成、验证并优化 llms.txt 文件，以提升 AI 爬虫的可访问性。创建结构化的 Markdown 文件，帮助 AI... |
+| [Recruiter Assistant (Shenzhen)](https://api.skillhub.cn/gakkiismywife/recruiter-assistant-sz) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+
 ## 2026-05-08
 
 Skillhub：411 个　｜　Clawhub：0 个
 
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [Humanizer](https://api.skillhub.cn/biostartechnology/humanizer) | 600 | 消除AI写作痕迹，使文本更自然真实。基于维基百科"AI写作特征"指南，识别并修正夸张象征、宣传用语、肤浅-ing分析、模... |
+| [API Gateway](https://api.skillhub.cn/byungkyu/api-gateway) | 373 | 通过 Maton 管理的 API 路由连接外部服务；仅在用户指定目标应用、账户和任务后使用；以读取/列... |
+| [Video Transcript Downloader](https://api.skillhub.cn/steipete/video-transcript-downloader) | 81 | 从 YouTube 及 yt-dlp 支持的网站下载视频、音频、字幕及整洁的段落式逐字稿。当用户要求“下载视频”、“保存... |
+| [Gmail](https://api.skillhub.cn/byungkyu/gmail) | 67 | Gmail API 集成，托管 OAuth，支持读取、发送和管理邮件、线程、标签及草稿，适用于需要与 Gmail 交互的... |
+| [Academic Deep Research](https://api.skillhub.cn/kesslerio/academic-deep-research) | 62 | 透明严谨、方法全公开的非黑盒研究。通过强制每主题双轮调研、APA 7版引用、证据分级及3次用户确认进行详尽调查。基于原生... |
+| [MX Stock Pick](https://api.skillhub.cn/financial-ai-analyst/mx-stockpick) | 43 | 基于东方财富专业数据库，支持通过自然语言输入筛选A港美股、基金、可转债等，覆盖全市场投资标的，支持多元指标筛选，含技术面... |
+| [Tokenoptimizer](https://api.skillhub.cn/smartpeopleconnected/token-optimizer) | 26 | 降低97% OpenClaw AI成本。含Haiku模型路由、免费Ollama心跳、提示词缓存及预算控制。5分钟内将月费... |
+| [Imsg](https://api.skillhub.cn/steipete/imsg) | 21 | 用于列出聊天、查看历史记录、监控及发送消息的 iMessage/SMS 命令行工具。 |
+| [Smart Model Switching](https://api.skillhub.cn/millibus/smart-model-switching) | 21 | 自动将任务路由至能胜任的最低成本Claude模型，采用三级递进：Haiku → Sonnet → Opus。响应前先分类... |
+| [Video Subtitles](https://api.skillhub.cn/ngutman/video-subtitles) | 17 | 从视频或音频生成SRT字幕并支持翻译。可转录希伯来语和英语，进行语言互译及视频字幕压制。适用于为WhatsApp或社交媒... |
+| [Figma](https://api.skillhub.cn/maddiedreese/figma) | 15 | 专业的 Figma 设计分析与资源导出。用于提取设计数据、导出多格式资源、审计无障碍合规性、分析设计系统及生成详尽设计文... |
+| [Content Strategy](https://api.skillhub.cn/jk-0001/content-strategy) | 12 | 为个人创业者构建和执行内容营销策略。适用于内容规划、格式与渠道选择、制定内容日历、衡量表现及系统化生产。涵盖受众调研、内... |
+| [Telegram Bot](https://api.skillhub.cn/byungkyu/telegram-api) | 11 | 通过托管认证实现 Telegram Bot API 集成。发送消息、管理聊天、处理更新并与用户交互。使用... |
+| [产品经理综合技能（PM Master）](https://api.skillhub.cn/user_dec48685/pmaster) | 11 | 需求分析、PRD编写、产品需求文档、详细设计、BRD、MRD、PRD模板、用户故事、用户访谈、需求挖掘、痛点分析、功能设... |
+| [Finance News Briefings](https://api.skillhub.cn/kesslerio/finance-news) | 10 | 带有AI摘要的市场新闻简报。适用于股票新闻、市场动态、投资组合表现、早晚简报、财经头条或价格预警。支持美欧日市场、Wha... |
+| [ai notes of video](https://api.skillhub.cn/ide-rea/ai-notes-ofvideo) | 9 | AI驱动的视频笔记生成（文档、大纲或图文格式） |
+| [Token Manager](https://api.skillhub.cn/kelegele/token-manager) | 7 | 通用 LLM Token 管理器——监控使用情况，提供 Kimi、OpenAI、Anthropic、Gemini 及本地... |
+| [fintech-engineer](https://api.skillhub.cn/dubnium0/fintech-engineer) | 6 | {"answer":"资深金融科技工程师，专精金融系统、监管合规与安全交易处理。精通银行对接与支付系统，能构建符合严苛合... |
+| [Proactive Solvr](https://api.skillhub.cn/fcavalcantirj/proactive-solvr) | 6 | 利用灵魂持久化、Solvr 集体知识、自愈心跳及配置执行脚本，将 AI Agent 转变为主动合作伙伴。 |
+| [Mermaid Diagrams](https://api.skillhub.cn/wpank/mermaid-diagrams) | 6 | 使用Mermaid语法创建软件图表。当用户需要通过类图、时序图、流程图、ER图、C4架构图、状态图、Git图等创建、可视... |
+
 ## 2026-05-07
 
 Skillhub：0 个　｜　Clawhub：0 个
+
 
 
 ---

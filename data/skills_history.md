@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-05-14
+
+Skillhub：77 个　｜　Clawhub：0 个
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [Lmstudio Model Switch](https://api.skillhub.cn/endihunn/lmstudio-model-switch) | 2 | 在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP（Composio）自动化 BambooHR 任务：员工、请假、福利、受抚养人、员工信息更新。请先... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruit... |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Aeo](https://api.skillhub.cn/arberx/aeo) | 1 | 进行AEO 审计，修复站点问题，校验 schema，生成 llms.txt，并对比站点。 |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [LLMs-Conclave](https://api.skillhub.cn/dreamarc77/llmconclave) | 1 | 多模型AI辩论平台：提交主题，多个AI多轮辩论，产出结构化洞见与精炼研究报告。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [DevTool Answer Monitor](https://api.skillhub.cn/veeicwgy/devtool-answer-monitor) | 0 | Use when the user wants to monitor how ChatGPT, Claude, Gemi... |
+| [Recruiter Assistant](https://api.skillhub.cn/gakkiismywife/recruiter-assistant) | 0 | 专业的招聘工作流助手，能根据动态需求与AI能力评估简历，提供关键的优劣势分析，并... |
+| [Smart Recruitment Cn](https://api.skillhub.cn/huyong2023/smart-recruitment-cn) | 0 | 智能招聘筛选系统 - AI简历筛选、智能匹配、面试安排、候选人管理 |
+| [Employee Handbook Generator](https://api.skillhub.cn/1kalin/afrexai-employee-handbook) | 0 | 生成一份全面的、可定制的员工手册，涵盖政策、福利、行为准则、假期、工作模式、合规和法律要求... |
+| [Jobclaw Recruit](https://api.skillhub.cn/imluyu/jobclaw-recruit) | 0 | 帮助招聘人员发布职位到岗位匹配系统。适用于用户想要：(1)发布职位、(2)公布岗位、(3)招聘人员、(4)招募候选人、(... |
+| [Payroll Compliance Audit](https://api.skillhub.cn/1kalin/afrexai-payroll-audit) | 0 | 执行全面薪酬审计，涵盖工种分类、加班费、预扣税准确性及合规性清单，并生成详细报告。 |
+
 ## 2026-05-13
 
 Skillhub：76 个　｜　Clawhub：0 个

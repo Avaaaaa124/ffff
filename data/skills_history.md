@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-05-29
+
+Skillhub：95 个　｜　Clawhub：0 个
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [Canvas LMS](https://api.skillhub.cn/pranavkarthik10/canvas-lms) | 5 | 访问Canvas LMS获取课程数据、作业、成绩和提交内容。用于检查截止日期、查看成绩、列出课程或获取课程资料。 |
+| [x-cmd](https://api.skillhub.cn/edwinjhlee/x-cmd) | 5 | 首先加载 x‑cmd：`. ~/.x‑cmd.root/X`，然后使用 `x nihao --llmstxt` 探索，或... |
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [LLM Skirmish](https://api.skillhub.cn/kaimcpheeters/skirmish) | 3 | 安装并使用 Skirmish CLI 编写、测试和提交 JavaScript 战斗策略。适用于构建 Skirmish 机... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP（Composio）自动化 BambooHR 任务：员工、请假、福利、受抚养人、员工信息更新。请先... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Aeo](https://api.skillhub.cn/arberx/aeo) | 1 | 进行AEO 审计，修复站点问题，校验 schema，生成 llms.txt，并对比站点。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包。招聘流程、入职办理、离职管理、制度规范、员工手册、HR模板库。HR toolkit with recruit... |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Knowfun](https://api.skillhub.cn/duguyixiaono1/knowfun-skills) | 1 | Generate educational content using Knowfun.io API - create c... |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [Scrapling Boss Recruitment](https://api.skillhub.cn/wuritu/scrapling-boss-recruitment) | 1 | 招聘数据爬取Skill，基于Scrapling框架在Boss直聘上执行招聘操作。当需要以下场景时使用：在Boss直聘搜索... |
+| [校招HR内参](https://api.skillhub.cn/user_ba7c4de9/campus-recruitment-hr-insider) | 1 | 校招求职HR视角的全流程方法论咨询。基于资深校招HR的底层逻辑、策略模型和实操经验，覆盖简历优化、面试技巧、求职策略、时... |
+| [campus-ai-event-copilot](https://api.skillhub.cn/user_d4ef3fc5/campus-ai-event-copilot) | 1 | This skill should be used when the user wants to plan, organ... |
+| [Lyrion Music](https://api.skillhub.cn/photonixlaser-ux/lyrion-music-skill) | 0 | {"answer":"通过 JSON-RPC API 控制 Lyrion Music Server (LMS)。用于播放... |
+
 ## 2026-05-28
 
 Skillhub：91 个　｜　Clawhub：0 个

@@ -1244,7 +1244,8 @@
       const ghMatch = githubMd.match(/项目总数\s*\|\s*(\d+)/);
       if (ghMatch) {
         document.getElementById('stat-github').textContent = ghMatch[1] + '+';
-        document.getElementById('tag-github').textContent = ghMatch[1] + ' 个项目';
+        const tagGithub = document.getElementById('tag-github');
+        if (tagGithub) tagGithub.textContent = ghMatch[1] + ' 个项目';
         // 提取最高 Star
         const topStar = githubMd.match(/最高 Star\s*\|\s*([\d,]+)/);
         if (topStar) {
@@ -1255,7 +1256,8 @@
       const shMatch = skillsMd.match(/Skillhub[：:]\s*\*\*(\d+)\*\*/);
       if (shMatch) {
         document.getElementById('stat-skillhub').textContent = shMatch[1];
-        document.getElementById('tag-skillhub').textContent = shMatch[1] + ' 个';
+        const tagSkillhub = document.getElementById('tag-skillhub');
+        if (tagSkillhub) tagSkillhub.textContent = shMatch[1] + ' 个';
         // 提取总下载量
         const totalDl = skillsMd.match(/总下载量\s*\|\s*([\d,]+)/);
         if (totalDl) {

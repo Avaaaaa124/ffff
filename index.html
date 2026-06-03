@@ -1541,8 +1541,8 @@
 
   // 加载办公版块数据
   async function loadOfficeData() {
+    officeDataLoaded = true;  // 防止重复触发
     try {
-      officeDataLoaded = true;
       const files = [
         { path: 'data/office_skills_today.md', type: 'skills' },
         { path: 'data/office_github_today.md', type: 'github' },
@@ -1554,16 +1554,22 @@
     let skillsMdText = '';
     let githubMdText = '';
     let loadErrors = [];
+    let loadSuccess = 0;
 
     results.forEach((result, i) => {
       if (result.status === 'fulfilled') {
+        loadSuccess++;
         console.log(`[Office] ${files[i].path} 加载成功 (${result.value.length} chars)`);
         const text = result.value;
         if (files[i].type === 'skills') {
           skillsMdText = text;
           const data = extractOfficeSkillData(text);
           if (data) { renderOfficeSkillCards(data); }
-          else { document.getElementById('office-skills-grid').innerHTML = '<div class="error-box">暂无结构化数据</div>'; }
+          else {
+            console.warn('[Office] 未找到 OFFICE_SKILL_DATA，尝试降级渲染 Markdown');
+            const grid = document.getElementById('office-skills-grid');
+            grid.innerHTML = '<div class="error-box">数据格式异常，缺少结构化数据块。<br><small>请尝试 <a href="javascript:retryOfficeData()" style="color:var(--accent2)">重新加载</a></small></div>';
+          }
           // 统计
           const countMatch = text.match(/技能总数\s*\|\s*\*\*(\d+)\*\*/);
           if (countMatch) {
@@ -1598,30 +1604,40 @@
       }
     });
 
-    // 如果有任何文件加载失败，显示明确的错误提示
+    // 如果有任何文件加载失败，显示明确的错误提示并允许重试
     if (loadErrors.length > 0) {
       console.error('[Office] 加载失败的文件:', loadErrors);
-      // 在技能网格中显示错误信息
+      officeDataLoaded = false;  // 允许重试
       const grid = document.getElementById('office-skills-grid');
       if (grid && !grid.querySelector('.office-card')) {
         grid.innerHTML = `<div class="error-box">
           ⚠️ 部分数据加载失败<br>
           <small>${loadErrors.join('<br>')}</small><br><br>
-          <small>请检查网络连接或<a href="javascript:location.reload()" style="color:var(--accent2)">刷新页面</a>重试</small>
+          <button onclick="retryOfficeData()" style="padding:8px 20px;border-radius:8px;border:1px solid var(--accent2);background:var(--accent2);color:#fff;cursor:pointer;font-size:0.9rem;">🔄 重新加载</button>
+          <br><small style="margin-top:8px;display:inline-block;">或<a href="javascript:location.reload()" style="color:var(--accent2)">刷新整个页面</a></small>
         </div>`;
       }
     }
     } catch (e) {
       console.error('[Office] loadOfficeData 函数执行出错:', e);
+      officeDataLoaded = false;  // 允许重试
       const grid = document.getElementById('office-skills-grid');
       if (grid) {
         grid.innerHTML = `<div class="error-box">
           ⚠️ 加载办公数据时发生错误<br>
           <small>${e.message || String(e)}</small><br><br>
-          <small>请<a href="javascript:location.reload()" style="color:var(--accent2)">刷新页面</a>重试</small>
+          <button onclick="retryOfficeData()" style="padding:8px 20px;border-radius:8px;border:1px solid var(--accent2);background:var(--accent2);color:#fff;cursor:pointer;font-size:0.9rem;">🔄 重新加载</button>
+          <br><small style="margin-top:8px;display:inline-block;">或<a href="javascript:location.reload()" style="color:var(--accent2)">刷新整个页面</a></small>
         </div>`;
       }
     }
+  }
+
+  // 手动重试加载办公数据
+  function retryOfficeData() {
+    officeDataLoaded = false;
+    document.getElementById('office-skills-grid').innerHTML = '<div class="loading"><div class="spinner"></div>正在重新加载办公技能...</div>';
+    loadOfficeData();
   }
 
   // 页面加载后立即执行

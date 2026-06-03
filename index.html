@@ -971,11 +971,6 @@
     document.querySelectorAll('.section-nav-btn').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
-    // 首次切换到办公版块时才加载数据（懒加载）
-    if (id === 'office-section' && !officeDataLoaded) {
-      console.log('[Section] 首次加载办公版块数据...');
-      loadOfficeData().catch(e => console.error('[Section] 加载办公数据失败:', e));
-    }
   }
 
   // ── Tab 切换 ──
@@ -1640,8 +1635,9 @@
     loadOfficeData();
   }
 
-  // 页面加载后立即执行
+  // 页面加载后立即执行——同时加载 HR 和办公版块数据
   loadAllData();
+  loadOfficeData().catch(e => console.error('[Init] 加载办公数据失败:', e));
 </script>
 </body>
 </html>

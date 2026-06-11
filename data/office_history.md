@@ -2,6 +2,60 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-06-11
+
+Skillhub 办公技能：810 个　|　GitHub 办公工具：121 个
+
+### Skillhub Top 20
+
+| 技能名称 | ⭐ Stars | 简介 |
+|---------|---------|------|
+| [AdMapix](https://api.skillhub.cn/fly0pants/admapix) | 293 | 广告情报与应用数据分析助手，支持搜索广告素材、分析应用排名、下载量、收入及市场洞察，用于广告素材和竞品分析。 |
+| [Automation Workflows](https://api.skillhub.cn/jk-0001/automation-workflows) | 319 | 设计和实施自动化工作流，帮助个体创业者节省时间并扩展业务。用于识别可自动化的重复性任务、跨工具构建工作流、设置触发器和操... |
+| [腾讯文档 TENCENT DOCS](https://api.skillhub.cn/u_b0de8114/tencent-docs) | 122 | 腾讯文档（docs.qq.com）-在线云文档平台，是创建、编辑、管理文档的首选 skill。涉及"新建/创建/编辑/读... |
+| [Data Analysis](https://api.skillhub.cn/ivangdavila/data-analysis) | 193 | {"answer":"数据分析与可视化。查询数据库、生成报告、自动化电子表格，将原始数据转化为清晰可行的见解。适用于：(... |
+| [Powerpoint / PPTX](https://api.skillhub.cn/ivangdavila/powerpoint-pptx) | 161 | 创建、检查和编辑 Microsoft PowerPoint 演示文稿及 PPTX 文件，支持可靠的布局、模板、占位符、备... |
+| [Markdown Converter](https://api.skillhub.cn/steipete/markdown-converter) | 219 | {"answer":"使用 markitdown 将文档和文件转换为 Markdown。用于将 PDF、Word (.d... |
+| [Marketing Skills](https://api.skillhub.cn/jchopard69/marketing-skills) | 139 | {"answer":"获取23个营销模块，包含CRO、SEO、文案、分析、发布、广告及社媒的清单、框架与现成交付物。"} |
+| [PDF Text Extractor](https://api.skillhub.cn/michael-laffin/pdf-text-extractor) | 38 | 从PDF提取文本，支持OCR。适合文档数字化、发票处理、内容分析。无需任何依赖。 |
+| [n8n workflow automation](https://api.skillhub.cn/kowl64/n8n-workflow-automation) | 153 | 设计并输出具有强大触发器、幂等性、错误处理、日志记录、重试机制和人工审核队列的n8n工作流JSON。当需要可审计的自动化... |
+| [wps](https://api.skillhub.cn/jvy/wps) | 37 | 面向中国用户的WPS Office工作流：创建、编辑、审阅、转换及排查.docx/.xlsx/.pptx及WPS格式的文... |
+| [diagram-generator](https://api.skillhub.cn/matthewyin/diagram-generator) | 51 | 使用 mcp-diagram-generator MCP 服务器生成和编辑图表。适用于创建新图表、编辑现有的 .draw... |
+| [Office](https://api.skillhub.cn/ivangdavila/office) | 27 | {"answer":"掌握Excel、Word、PowerPoint和Google Workspace，熟练运用公式、格... |
+| [Office Document Specialist Suite](https://api.skillhub.cn/robert-janssen/office-document-specialist-suite) | 23 | 高级套件，用于创建、编辑和分析 Microsoft Office 文档（Word、Excel、PowerPoint），提... |
+| [Brainstorming](https://api.skillhub.cn/zlc000190/brainstorming) | 26 | 在任何创作之前——创建功能、构建组件、添加功能或修改行为——必须使用此技能。先探索用户意图、需求和设计，再进行实现。 |
+| [Social Media Scheduler](https://api.skillhub.cn/1kalin/social-media-scheduler) | 15 | 跨平台策划、起草与组织社交媒体内容；制定内容日历，撰写针对各平台优化的帖子，并保持稳定的发布节奏。 |
+| [Pptx Generator](https://api.skillhub.cn/tobewin/pptx-generator) | 11 | 专业PPT生成器。Use when user wants to create editable PowerPoint p... |
+| [PDF Tools](https://api.skillhub.cn/cmpdchtr/pdf-tools) | 9 | 查看、提取、编辑和处理 PDF 文件。支持文本提取、文本编辑（叠加和替换）、合并、拆分、旋转页面及获取元数据。适用于阅读... |
+| [Excalidraw Diagram Generator](https://api.skillhub.cn/a-anand-91119/excalidraw) | 18 | 从 Excalidraw JSON 生成手绘风格的图表、流程图和架构图（PNG） |
+| [PowerPoint Automation](https://api.skillhub.cn/fadeloo/tiangong-wps-ppt-automation) | 13 | 通过COM自动化Windows上的PowerPoint/WPS演示文稿操作（读取文本/备注/大纲、导出PDF/图片、替换... |
+| [Pdf Generator](https://api.skillhub.cn/ivangdavila/pdf-generator) | 20 | 从Markdown、HTML、数据或代码生成专业PDF。支持报告、发票、合同等符合最佳实践的文档。 |
+
+### GitHub Top 20
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [getredash/redash](https://github.com/getredash/redash) | 28,633 | 让您的公司数据驱动。连接到任何数据源，轻松可视化、控制面板和共享您的数据。 |
+| [suitenumerique/docs](https://github.com/suitenumerique/docs) | 16,579 | A collaborative note taking, wiki and documentation platform... |
+| [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | 6,525 | Self-organizing AI second brain for Obsidian + Claude Code. ... |
+| [JordanKnott/taskcafe](https://github.com/JordanKnott/taskcafe) | 5,198 | 带有工作流程看板的开源项目管理工具 |
+| [golutra/golutra](https://github.com/golutra/golutra) | 3,667 | Multi-agent AI orchestration platform for automation, workfl... |
+| [ONLYOFFICE/CommunityServer](https://github.com/ONLYOFFICE/CommunityServer) | 3,134 | 带有业务生产力工具的免费开源办公套件：文档和项目管理、CRM、邮件聚合器。 |
+| [Worklenz/worklenz](https://github.com/Worklenz/worklenz) | 3,068 | 高效团队的一体化项目管理工具 |
+| [gitscrum-core/laravel-gitscrum](https://github.com/gitscrum-core/laravel-gitscrum) | 2,912 | GitScrum是一个项目管理工具，旨在帮助企业家、自由职业者、经理和团队通过敏捷方法和游戏化提高生产力。 |
+| [hudy9x/namviek](https://github.com/hudy9x/namviek) | 2,421 | 适用于小型团队的开源项目管理工具 |
+| [glowingjade/obsidian-smart-composer](https://github.com/glowingjade/obsidian-smart-composer) | 2,288 | AI chat assistant for Obsidian with contextual awareness, sm... |
+| [approximatelabs/sketch](https://github.com/approximatelabs/sketch) | 2,284 | AI code-writing assistant that understands data content |
+| [damnever/pigar](https://github.com/damnever/pigar) | 1,787 | : coffee ：为Python项目生成requirements.txt的工具，以及更多。（它不是包裹管理工具） |
+| [starpig1129/DATAGEN](https://github.com/starpig1129/DATAGEN) | 1,748 | DATAGEN: AI-driven multi-agent research assistant automating... |
+| [n8n-io/n8n-docs](https://github.com/n8n-io/n8n-docs) | 1,654 | Documentation for n8n, a fair-code licensed automation tool ... |
+| [easysoft/zentaopms](https://github.com/easysoft/zentaopms) | 1,621 | Zentao是一个敏捷（ SCRUM ）项目管理系统/工具，永久免费升级！​ |
+| [jmathai/elodie](https://github.com/jmathai/elodie) | 1,490 | An EXIF-based photo assistant, organizer  and workflow autom... |
+| [nextcloud/deck](https://github.com/nextcloud/deck) | 1,390 | Nextcloud🗂 看板风格的项目和个人管理工具，类似于Trello |
+| [emonney/QuickApp](https://github.com/emonney/QuickApp) | 1,345 | Angular/ASP.NET Core项目的AI就绪参考架构。坚实的基础，具有安全的身份验证、授权、角色和用户管理，以... |
+| [cask/cask](https://github.com/cask/cask) | 1,325 | Emacs项目管理工具 |
+| [openclaw/lobster](https://github.com/openclaw/lobster) | 1,224 | Lobster is a Openclaw-native workflow shell: a typed, local-... |
+
 ## 2026-06-10
 
 Skillhub 办公技能：810 个　|　GitHub 办公工具：121 个

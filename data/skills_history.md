@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-06-27
+
+Skillhub：82 个　｜　Clawhub：0 个
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [Canvas LMS](https://api.skillhub.cn/pranavkarthik10/canvas-lms) | 6 | 访问Canvas LMS获取课程数据、作业、成绩和提交内容。用于检查截止日期、查看成绩、列出课程或获取课程资料。 |
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [HR人力资源管理skill](https://api.skillhub.cn/user_c01972f2/hr-management-assistant) | 4 | HR人力资源管理全场景智能skill，覆盖制度生成、招聘面试、绩效管理、薪酬设计、劳动合规、人才盘点、体系搭建七大模块。... |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [LLM Skirmish](https://api.skillhub.cn/kaimcpheeters/skirmish) | 3 | 安装并使用 Skirmish CLI 编写、测试和提交 JavaScript 战斗策略。适用于构建 Skirmish 机... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [Lmstudio Model Switch](https://api.skillhub.cn/endihunn/lmstudio-model-switch) | 2 | 在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。 |
+| [HR筛选官](https://api.skillhub.cn/user_8965db71/hr-screening-officer) | 2 | HR筛选官——全行业通用简历智能筛选与岗位匹配技能。基于T型人才理论、能动性优先、结构化评估等招聘理念，支持9维度权重打... |
+| [HR](https://api.skillhub.cn/agenticio/hr) | 1 | 完整的人力资源智能系统，面向创始人、管理者及人力资源专业人员。在需要招聘、入职、绩效等方面协助时触发。 |
+| [Hr Toolkit](https://api.skillhub.cn/bytesagain3/hr-toolkit) | 1 | HR工具包，涵盖招聘、入职、离职、制度、员工手册及HR模板。 |
+| [recruitment-assistant](https://api.skillhub.cn/heyweekly/easy-recruitment) | 1 | 智能招聘助手。根据职位JD自动筛选和评估简历，输出候选人排序报告，并为每个候选人生成定制化面试问题清单。当用户需要筛选简... |
+| [Workplace Safety Compliance](https://api.skillhub.cn/1kalin/afrexai-workplace-safety) | 1 | 生成符合OSHA标准的职场安全审计、事故报告、危害评估、培训矩阵及合规计划。 |
+| [Tronclass Cli](https://api.skillhub.cn/yujun-bo2/tronclass-cli) | 1 | Interact with the TronClass learning management system (curr... |
+| [Recruitment Agent](https://api.skillhub.cn/billzhuang6569/recruitment-agent) | 1 | 招聘Agent：通过 opencli（Boss直聘）+ lark-cli（飞书多维表格）管理招聘流程。支持：①查看Bos... |
+| [招聘需求澄清与JD生成器](https://api.skillhub.cn/user_eac17e5c/recruitment-needs-clarifier) | 1 | 招聘需求澄清与JD生成器。当HR管培生需要与业务部门沟通招聘需求、澄清岗位画像、撰写或优化JD时使用。也适用于业务方丢来... |
+| [校招HR内参](https://api.skillhub.cn/user_ba7c4de9/campus-recruitment-hr-insider) | 1 | 校招求职HR视角的全流程方法论咨询。基于资深校招HR的底层逻辑、策略模型和实操经验，覆盖简历优化、面试技巧、求职策略、时... |
+| [campus-ai-event-copilot](https://api.skillhub.cn/user_d4ef3fc5/campus-ai-event-copilot) | 1 | This skill should be used when the user wants to plan, organ... |
+| [用户/专家访谈助手](https://api.skillhub.cn/user_6d1dc249/interview-research) | 1 | This skill provides a complete workflow for user/expert inte... |
+| [HR人力简历自动化配对](https://api.skillhub.cn/user_55161a2d/hr-candidate-discovery-screening) | 1 | Use when discovering and screening China-mainland AI recruit... |
+
 ## 2026-06-26
 
 Skillhub：96 个　｜　Clawhub：0 个

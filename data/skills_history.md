@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-07-18
+
+Skillhub：171 个　｜　Clawhub：0 个
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [Job Auto Apply](https://api.skillhub.cn/veeky-kumar/job-auto-apply) | 29 | Automated job search and application system for Clawdbot. Us... |
+| [简历筛选助手](https://api.skillhub.cn/qiuxin-bit/resume-screening-ai) | 11 | 实习生简历筛选与岗位匹配评估。HR招聘场景，支持PDF简历解析，输出结构化筛选结论，评估简历与岗位JD匹配度，分析基本信... |
+| [员工手册与制度问答机器人](https://api.skillhub.cn/user_fcba917f/employee-handbook-qa) | 10 | 员工手册与制度问答机器人 — 导入公司制度文档（Word/PDF），员工用自然语言提问，AI基于文档精准回答并附带制度原... |
+| [Campus Candidate Screener](https://api.skillhub.cn/linuoxu/campus-candidate-screener) | 9 | 根据岗位的职责、学历、专业、技能和招聘要求筛选校园招聘候选人，适用于HR提供目标岗位时 |
+| [HR人力资源管理skill](https://api.skillhub.cn/user_c01972f2/hr-management-assistant) | 7 | HR人力资源管理全场景智能skill，覆盖制度生成、招聘面试、绩效管理、薪酬设计、劳动合规、人才盘点、体系搭建七大模块。... |
+| [HR运营官](https://api.skillhub.cn/user_8965db71/hr-operations-team) | 7 | HR运营官——多工作流编排型HR技能。以HR总监视角编排8大工作流（战略落地周期/招聘全流程/绩效评估周期/组织规划/人... |
+| [Canvas LMS](https://api.skillhub.cn/pranavkarthik10/canvas-lms) | 6 | 访问Canvas LMS获取课程数据、作业、成绩和提交内容。用于检查截止日期、查看成绩、列出课程或获取课程资料。 |
+| [Interview Coach](https://api.skillhub.cn/mkpareek0315/interview-coach-ai) | 6 | 当用户询问面试准备、模拟面试、练习题、行为面试、技术面试、HR 环节、薪资谈判、STAR 方法等 |
+| [CHRO / Chief Human Resources Officer](https://api.skillhub.cn/ivangdavila/chro) | 4 | 管理人力资源运营，包括招聘流程、合规框架、薪酬策略和劳动力分析。 |
+| [Zoho Recruit](https://api.skillhub.cn/byungkyu/zoho-recruit) | 3 | Zoho Recruit API 集成，使用托管 OAuth。可管理候选人、职位空缺、面试和招聘工作流。适用于用户想要重... |
+| [Business Automation Architect](https://api.skillhub.cn/1kalin/afrexai-business-automation) | 3 | 将AI代理变成业务自动化架构师，设计、记录、实施并监控跨销售、运营、财务、HR和支持的自动化工作流——无需n8n或Zap... |
+| [HR薪酬官](https://api.skillhub.cn/user_8965db71/hr-compensation-officer) | 3 | HR薪酬官·薪酬管理全流程专家。基于薪酬管理经典方法论与AI赋能薪酬理论，提供薪酬诊断/薪酬设计/岗位价值评估/薪酬调研... |
+| [HR筛选官](https://api.skillhub.cn/user_8965db71/hr-screening-officer) | 3 | HR筛选官——全行业通用简历智能筛选与岗位匹配技能。基于T型人才理论、能动性优先、结构化评估等招聘理念，支持9维度权重打... |
+| [IDA: Instructional Design Agent](https://api.skillhub.cn/mrummler17/ida-instructional-design-agent) | 2 | 分析学习需求与绩效差距，在人工监督下为企业培训推荐并规划最佳教学策略。 |
+| [HR助手](https://api.skillhub.cn/stoned0516/hr-assistant) | 2 | 智能HR助手，专为中国中小企业提供员工名册管理、组织结构及月度薪资计算（包括个人薪资等） |
+| [财务总监兼战略顾问](https://api.skillhub.cn/user_1793b15c/finance-director-advanced) | 2 | Comprehensive CFO/Finance Director skillset combining 9 fina... |
+| [Lmstudio Model Switch](https://api.skillhub.cn/endihunn/lmstudio-model-switch) | 2 | 在OpenClaw中通过简单命令实时切换本地LM Studio与云端Kimi API模型，自动重启网关。 |
+| [HR Workforce Dashboard 人力看板](https://api.skillhub.cn/aico233/hr-workforce-dashboard) | 2 | 从 Excel 文件生成标准化人力资源仪表盘：5 个固定仪表盘，涵盖人数趋势、地区分布、明细拆分、考勤等。 |
+| [student-goal-task-manager👨‍🎓助学星🌟学习规划与目标管理智能助手✍️自律成就未来🔭重大更新：增加在线登录与智能报告订阅！](https://api.skillhub.cn/user_11064e10/student-goal-task-manager) | 2 | This skill should be used when users need to create, manage,... |
+| [Bamboohr Automation](https://api.skillhub.cn/sohamganatra/bamboohr-automation) | 1 | 使用 Rube MCP (Composio) 自动化 BambooHR 任务，包括员工、休假、福利、家属及员工信息更新。... |
+
 ## 2026-07-17
 
 Skillhub：170 个　｜　Clawhub：0 个

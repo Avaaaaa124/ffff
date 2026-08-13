@@ -2,6 +2,33 @@
 
 > 每日快照归档，按日期倒序
 
+## 2026-08-13
+
+共 47 个项目，最高 Star：63,654
+
+| 项目 | ⭐ Stars | 简介 |
+|------|---------|------|
+| [santifer/career-ops](https://github.com/santifer/career-ops) | 63,654 | 基于 Claude Code 的 AI 求职系统，含 14 种技能模式、Go 仪表盘、PDF 生成与批量处理 |
+| [srbhr/Resume-Matcher](https://github.com/srbhr/Resume-Matcher) | 28,113 | AI 简历优化工具，提供关键词建议，将简历与职位描述进行智能匹配 |
+| [hcengineering/platform](https://github.com/hcengineering/platform) | 27,321 | Huly — 一体化项目管理平台（Linear、Jira、Slack、Notion 的开源替代方案） |
+| [aureuserp/aureuserp](https://github.com/aureuserp/aureuserp) | 11,749 | 免费开源的 ERP 平台 |
+| [frappe/hrms](https://github.com/frappe/hrms) | 8,560 | 开源 HR 与薪资管理软件 |
+| [GreaterWMS/GreaterWMS](https://github.com/GreaterWMS/GreaterWMS) | 4,343 | 供应链管理系统（库存管理），支持多仓库与 WMS 场景 |
+| [ever-co/ever-gauzy](https://github.com/ever-co/ever-gauzy) | 4,316 | Ever Gauzy™ — 开源企业管理平台（ERP/CRM/HRM/项目管理） |
+| [frappe/lms](https://github.com/frappe/lms) | 3,124 | 易于使用的 100% 开源学习管理系统 |
+| [kdeldycke/awesome-engineering-team-management](https://github.com/kdeldycke/awesome-engineering-team-management) | 2,576 | 工程师晋升为技术管理者的资源合集（管理、招聘、文化） |
+| [can4hou6joeng4/boss-agent-cli](https://github.com/can4hou6joeng4/boss-agent-cli) | 1,558 | 🤖 用于AI代理的本地助手BOSS Zhipin CLI —搜索、福利过滤、候选列表、JSON信封输出；默认情况下具有低... |
+| [vapid/vapid](https://github.com/vapid/vapid) | 1,501 | 以模板优先理念构建的简洁内容管理系统 |
+| [horilla/horilla-hr](https://github.com/horilla/horilla-hr) | 1,324 | 免费开源的 HR 与 CRM 软件 |
+| [dromara/skyeye](https://github.com/dromara/skyeye) | 1,201 | 智能办公 OA 系统，适用于医院、学校、中小企业的综合管理平台 |
+| [orangehrm/orangehrm](https://github.com/orangehrm/orangehrm) | 1,113 | OrangeHRM — 面向各规模企业的综合人力资源管理系统 |
+| [WorkWorkLabs/Web3-Recruitment-Platform](https://github.com/WorkWorkLabs/Web3-Recruitment-Platform) | 1,098 | 远程及 Web3 工作招聘平台与频道汇总 |
+| [timeoff-management/timeoff-management-application](https://github.com/timeoff-management/timeoff-management-application) | 1,041 | 适用于中小企业的简洁高效假期与缺勤管理软件 |
+| [getrebuild/rebuild](https://github.com/getrebuild/rebuild) | 1,040 | 高度可配置的企业管理系统，支持零代码/低代码搭建 CRM、WMS、TMS 等 |
+| [chamilo/chamilo-lms](https://github.com/chamilo/chamilo-lms) | 986 | Chamilo — 注重易用性与可访问性的开源学习管理系统 |
+| [pupilfirst/pupilfirst](https://github.com/pupilfirst/pupilfirst) | 974 | 支持异步课程交付的学习管理系统（LMS） |
+| [officelifehq/officelife](https://github.com/officelifehq/officelife) | 948 | OfficeLife — 首个 EmpOps 平台，全面管理员工职业生涯 |
+
 ## 2026-08-12
 
 共 46 个项目，最高 Star：63,541
